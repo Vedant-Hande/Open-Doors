@@ -1,22 +1,50 @@
 <% layout("layouts/boilerplate") %>
 <body>
-  <h1>All listings</h1>
-  <% for(let listing of allListings) { %>
-  <div class="card" style="width: 18rem">
-    <img
-      src="<%=listing.image.url%>"
-      class="card-img-top"
-      alt="<%=listing.title%>" />
-    <div class="card-body">
-      <h5 class="card-title"><%=listing.title%></h5>
-      <p class="card-text"><%=listing.desc%></p>
-      <div class="card-meta">
-        <span class="card-price">₹<%=listing.price%></span>
-        <span class="card-location"
-          >📍 <%=listing.location%>, <%=listing.country%></span
-        >
+  <div class="container">
+    <div class="hero-section text-center mb-5">
+      <h2 class="listing-heading">Discover Your Perfect Home</h2>
+      <p class="hero-subtitle">
+        Explore our curated collection of premium properties
+      </p>
+    </div>
+
+    <div
+      class="row justify-content-center row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+      <% for(let listing of allListings) { %>
+      <div class="col">
+        <div class="card">
+          <div class="card-image-container">
+            <img
+              src="<%=listing.image.url%>"
+              class="card-img-top"
+              alt="<%=listing.title%>" />
+
+            <!-- Status Badge - Top Left -->
+            <div class="card-status">
+              <span class="status-badge">Available</span>
+            </div>
+
+            <!-- Text Overlay - Bottom -->
+            <div class="card-overlay">
+              <h5 class="card-title"><%=listing.title%></h5>
+              <div class="card-price">
+                <%=listing.price.toLocaleString("en-IN", { style: "currency",
+                currency: "INR", })%> /month
+              </div>
+            </div>
+
+            <!-- Action Buttons - Bottom Right -->
+            <div class="card-actions">
+              <a
+                class="btn btn-outline-dark btn-sm"
+                href="/listing/<%= listing._id %>">
+                <i class="fas fa-eye me-2"></i>View
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
+      <% } %>
     </div>
   </div>
-  <% } %>
 </body>
