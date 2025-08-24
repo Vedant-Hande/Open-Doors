@@ -23,7 +23,7 @@ app.listen(port, () => {
 });
 
 async function main() {
-  await mongoose.connect("mongodb://localhost:27017/OpenDoors");
+  await mongoose.connect("mongodb://localhost:27017/TripSpot");
 }
 
 main()
@@ -35,9 +35,9 @@ main()
   });
 
 // default route - redirect to listings
-app.get("/", (req, res) => {
-  res.render("main.ejs");
-});
+// app.get("/", (req, res) => {
+//   res.render("listings/index.ejs");
+// });
 
 // all listings route
 app.get("/listings", async (req, res) => {

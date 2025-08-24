@@ -1,50 +1,305 @@
 <% layout('layouts/boilerplate') %>
 <body>
-  <h1>Edit your listing</h1>
-  <form action="/listing/<%= editListing._id %>?_method=PUT" method="POST">
-    <label for="title">Title:</label>
-    <input
-      type="text"
-      id="title"
-      name="title"
-      value="<%= editListing.title %>"
-      required /><br /><br />
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="edit-listing-hero text-center mb-5">
+      <h1 class="edit-listing-title">Edit Your Property Listing</h1>
+      <p class="edit-listing-subtitle">
+        Update your property details to attract more tenants
+      </p>
+    </div>
 
-    <label for="description">Description:</label><br />
-    <textarea id="description" name="desc" rows="4" cols="50" required>
-<%=editListing.desc %></textarea
-    >
-    <br /><br />
+    <!-- Form Section -->
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="edit-listing-form-card">
+          <form
+            action="/listing/<%= editListing._id %>?_method=PUT"
+            method="POST"
+            class="listing-form">
+            <!-- Basic Information Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-edit me-2"></i>Basic Information
+              </h3>
 
-    <label for="price">Price:</label>
-    <input
-      type="number"
-      id="price"
-      name="price"
-      value="<%= editListing.price %>"
-      required /><br /><br />
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="title" class="form-label">
+                      <i class="fas fa-home me-2"></i>Property Title
+                    </label>
+                    <input
+                      type="text"
+                      id="title"
+                      name="title"
+                      class="form-control"
+                      value="<%= editListing.title %>"
+                      placeholder="e.g., Beautiful 2BR Apartment in City Center"
+                      required />
+                  </div>
+                </div>
 
-    <label for="image">Image:</label>
-    <input
-      type="text"
-      id="image"
-      name="image"
-      value="<%= editListing.image.url %>" /><br /><br />
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="price" class="form-label">
+                      <i class="fas fa-tag me-2"></i>Monthly Rent (₹)
+                    </label>
+                    <input
+                      type="number"
+                      id="price"
+                      name="price"
+                      class="form-control"
+                      value="<%= editListing.price %>"
+                      placeholder="15000"
+                      required />
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <label for="location">Location:</label>
-    <input
-      type="text"
-      id="location"
-      name="location"
-      value="<%= editListing.location %>"
-      required /><br /><br />
-    <label for="country">Country:</label>
-    <input
-      type="text"
-      id="country"
-      name="country"
-      value="<%= editListing.country %>"
-      required /><br /><br />
-    <button type="submit">Update Listing</button>
-  </form>
+            <!-- Location Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-map-marker-alt me-2"></i>Location Details
+              </h3>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="location" class="form-label">
+                      <i class="fas fa-building me-2"></i>City/Area
+                    </label>
+                    <input
+                      type="text"
+                      id="location"
+                      name="location"
+                      class="form-control"
+                      value="<%= editListing.location %>"
+                      placeholder="e.g., Bandra West, Mumbai"
+                      required />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="country" class="form-label">
+                      <i class="fas fa-globe me-2"></i>Country
+                    </label>
+                    <input
+                      type="text"
+                      id="country"
+                      name="country"
+                      class="form-control"
+                      value="<%= editListing.country %>"
+                      placeholder="India"
+                      required />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-align-left me-2"></i>Property Description
+              </h3>
+
+              <div class="form-group">
+                <label for="description" class="form-label">
+                  <i class="fas fa-file-text me-2"></i>Detailed Description
+                </label>
+                <textarea
+                  id="description"
+                  name="desc"
+                  class="form-control"
+                  rows="6"
+                  placeholder="Describe your property in detail. Include features, amenities, nearby attractions, and what makes this property special..."
+                  required>
+<%= editListing.desc %></textarea
+                >
+                <div class="form-help">
+                  <i class="fas fa-lightbulb me-1"></i>
+                  Tip: Be detailed and honest about your property to attract the
+                  right tenants
+                </div>
+              </div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-image me-2"></i>Property Images
+              </h3>
+
+              <div class="form-group">
+                <label for="image" class="form-label">
+                  <i class="fas fa-link me-2"></i>Image URL
+                </label>
+                <input
+                  type="url"
+                  id="image"
+                  name="image"
+                  class="form-control"
+                  value="<%= editListing.image.url %>"
+                  placeholder="https://example.com/your-property-image.jpg"
+                  required />
+                <div class="form-help">
+                  <i class="fas fa-info-circle me-1"></i>
+                  Provide a high-quality image URL. Make sure the image is clear
+                  and shows your property at its best
+                </div>
+              </div>
+
+              <!-- Current Image Display -->
+              <div class="current-image-container">
+                <h5 class="current-image-title">Current Image</h5>
+                <div class="current-image">
+                  <img
+                    src="<%= editListing.image.url %>"
+                    alt="Current Property Image" />
+                </div>
+              </div>
+
+              <!-- Image Preview -->
+              <div
+                class="image-preview-container"
+                id="imagePreview"
+                style="display: none">
+                <h5 class="preview-title">Updated Image Preview</h5>
+                <div class="image-preview">
+                  <img
+                    id="previewImage"
+                    src=""
+                    alt="Updated Property Preview" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Property Features Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-star me-2"></i>Property Features
+              </h3>
+
+              <div class="features-grid">
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="wifi"
+                    name="features[]"
+                    value="wifi" />
+                  <label for="wifi">
+                    <i class="fas fa-wifi"></i>High-Speed WiFi
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="parking"
+                    name="features[]"
+                    value="parking" />
+                  <label for="parking">
+                    <i class="fas fa-car"></i>Parking Available
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input type="checkbox" id="ac" name="features[]" value="ac" />
+                  <label for="ac">
+                    <i class="fas fa-snowflake"></i>Air Conditioning
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="kitchen"
+                    name="features[]"
+                    value="kitchen" />
+                  <label for="kitchen">
+                    <i class="fas fa-utensils"></i>Fully Equipped Kitchen
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="laundry"
+                    name="features[]"
+                    value="laundry" />
+                  <label for="laundry">
+                    <i class="fas fa-tshirt"></i>In-Unit Laundry
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="gym"
+                    name="features[]"
+                    value="gym" />
+                  <label for="gym">
+                    <i class="fas fa-dumbbell"></i>Fitness Center
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="form-section submit-section">
+              <div class="row">
+                <div class="col-md-4">
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark btn-lg w-100"
+                    onclick="history.back()">
+                    <i class="fas fa-arrow-left me-2"></i>Go Back
+                  </button>
+                </div>
+                <div class="col-md-4">
+                  <a
+                    href="/listing/<%= editListing._id %>"
+                    class="btn btn-outline-secondary btn-lg w-100">
+                    <i class="fas fa-eye me-2"></i>View Listing
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-dark btn-lg w-100">
+                    <i class="fas fa-save me-2"></i>Update Listing
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Image preview functionality
+    document.getElementById("image").addEventListener("input", function () {
+      const imageUrl = this.value;
+      const previewContainer = document.getElementById("imagePreview");
+      const previewImage = document.getElementById("previewImage");
+
+      if (imageUrl && isValidUrl(imageUrl)) {
+        previewImage.src = imageUrl;
+        previewContainer.style.display = "block";
+      } else {
+        previewContainer.style.display = "none";
+      }
+    });
+
+    function isValidUrl(string) {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+  </script>
 </body>

@@ -1688,3 +1688,120 @@ footer p {
     font-size: 0.95rem;
   }
 }
+
+/* EDIT LISTING FORM STYLES */
+.edit-listing-hero {
+  margin: 3rem 0 4rem 0;
+}
+
+.edit-listing-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-listing-subtitle {
+  font-size: 1.2rem;
+  color: #666666;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.edit-listing-form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  margin-bottom: 4rem;
+}
+
+.current-image-container {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.current-image-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+
+.current-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.current-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.current-image:hover img {
+  transform: scale(1.02);
+}
+
+.current-image::after {
+  content: "Current Image";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Responsive Design for Edit Form */
+@media (max-width: 768px) {
+  .edit-listing-form-card {
+    padding: 2rem;
+    margin: 0 1rem 2rem 1rem;
+  }
+
+  .edit-listing-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .edit-listing-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .submit-section .btn {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .edit-listing-form-card {
+    padding: 1.5rem;
+    margin: 0 0.5rem 1.5rem 0.5rem;
+  }
+
+  .edit-listing-title {
+    font-size: 2rem;
+  }
+
+  .edit-listing-subtitle {
+    font-size: 1rem;
+  }
+
+  .submit-section .col-md-4 {
+    margin-bottom: 1rem;
+  }
+}
