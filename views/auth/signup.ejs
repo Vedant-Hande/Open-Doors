@@ -1,0 +1,266 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="signup-container">
+  <div class="signup-hero">
+    <h1 class="signup-title">Join Us Today</h1>
+    <p class="signup-subtitle">
+      Create your account and start exploring amazing properties
+    </p>
+  </div>
+
+  <div class="signup-form-card">
+    <div class="form-header">
+      <div class="form-icon">
+        <i class="fas fa-user-plus"></i>
+      </div>
+      <h2 class="form-title">Create Account</h2>
+      <p class="form-description">Fill in your details to get started</p>
+    </div>
+
+    <form class="signup-form" action="/signup" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName" class="form-label">
+            <i class="fas fa-user"></i>
+            First Name
+          </label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            class="form-control"
+            placeholder="Enter your first name"
+            required />
+        </div>
+
+        <div class="form-group">
+          <label for="lastName" class="form-label">
+            <i class="fas fa-user"></i>
+            Last Name
+          </label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            class="form-control"
+            placeholder="Enter your last name"
+            required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">
+          <i class="fas fa-envelope"></i>
+          Email Address
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          placeholder="Enter your email address"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone" class="form-label">
+          <i class="fas fa-phone"></i>
+          Phone Number
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          class="form-control"
+          placeholder="Enter your phone number"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">
+          <i class="fas fa-lock"></i>
+          Password
+        </label>
+        <div class="password-input-group">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Create a strong password"
+            required />
+          <button
+            type="button"
+            class="password-toggle"
+            onclick="togglePassword('password', 'eye-icon-1')">
+            <i class="fas fa-eye" id="eye-icon-1"></i>
+          </button>
+        </div>
+        <div class="password-strength">
+          <div class="strength-bar">
+            <div class="strength-fill" id="strength-fill"></div>
+          </div>
+          <span class="strength-text" id="strength-text"
+            >Password strength</span
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword" class="form-label">
+          <i class="fas fa-lock"></i>
+          Confirm Password
+        </label>
+        <div class="password-input-group">
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            class="form-control"
+            placeholder="Confirm your password"
+            required />
+          <button
+            type="button"
+            class="password-toggle"
+            onclick="togglePassword('confirmPassword', 'eye-icon-2')">
+            <i class="fas fa-eye" id="eye-icon-2"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="userType" class="form-label">
+          <i class="fas fa-users"></i>
+          Account Type
+        </label>
+        <select id="userType" name="userType" class="form-control" required>
+          <option value="">Select account type</option>
+          <option value="buyer">Property Buyer</option>
+          <option value="seller">Property Seller</option>
+          <option value="agent">Real Estate Agent</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <div class="terms-checkbox">
+          <input
+            type="checkbox"
+            id="terms"
+            name="terms"
+            class="form-checkbox"
+            required />
+          <label for="terms" class="checkbox-label">
+            I agree to the
+            <a href="/terms" class="terms-link">Terms of Service</a> and
+            <a href="/privacy" class="terms-link">Privacy Policy</a>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="newsletter-checkbox">
+          <input
+            type="checkbox"
+            id="newsletter"
+            name="newsletter"
+            class="form-checkbox" />
+          <label for="newsletter" class="checkbox-label">
+            Subscribe to our newsletter for updates and offers
+          </label>
+        </div>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary btn-signup">
+          <i class="fas fa-user-plus"></i>
+          Create Account
+        </button>
+      </div>
+    </form>
+
+    <div class="form-footer">
+      <p class="login-text">
+        Already have an account?
+        <a href="/auth/login" class="login-link">Sign in here</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function togglePassword(inputId, iconId) {
+    const passwordInput = document.getElementById(inputId);
+    const eyeIcon = document.getElementById(iconId);
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      eyeIcon.classList.remove("fa-eye");
+      eyeIcon.classList.add("fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      eyeIcon.classList.remove("fa-eye-slash");
+      eyeIcon.classList.add("fa-eye");
+    }
+  }
+
+  // Password strength checker
+  document.getElementById("password").addEventListener("input", function () {
+    const password = this.value;
+    const strengthFill = document.getElementById("strength-fill");
+    const strengthText = document.getElementById("strength-text");
+
+    let strength = 0;
+    let strengthLabel = "";
+
+    if (password.length >= 8) strength++;
+    if (password.match(/[a-z]/)) strength++;
+    if (password.match(/[A-Z]/)) strength++;
+    if (password.match(/[0-9]/)) strength++;
+    if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+    switch (strength) {
+      case 0:
+      case 1:
+        strengthLabel = "Very Weak";
+        strengthFill.style.width = "20%";
+        strengthFill.style.background = "#ff4444";
+        break;
+      case 2:
+        strengthLabel = "Weak";
+        strengthFill.style.width = "40%";
+        strengthFill.style.background = "#ff8800";
+        break;
+      case 3:
+        strengthLabel = "Fair";
+        strengthFill.style.width = "60%";
+        strengthFill.style.background = "#ffaa00";
+        break;
+      case 4:
+        strengthLabel = "Good";
+        strengthFill.style.width = "80%";
+        strengthFill.style.background = "#00aa00";
+        break;
+      case 5:
+        strengthLabel = "Strong";
+        strengthFill.style.width = "100%";
+        strengthFill.style.background = "#008800";
+        break;
+    }
+
+    strengthText.textContent = strengthLabel;
+  });
+
+  // Password confirmation checker
+  document
+    .getElementById("confirmPassword")
+    .addEventListener("input", function () {
+      const password = document.getElementById("password").value;
+      const confirmPassword = this.value;
+
+      if (confirmPassword && password !== confirmPassword) {
+        this.setCustomValidity("Passwords do not match");
+      } else {
+        this.setCustomValidity("");
+      }
+    });
+</script>

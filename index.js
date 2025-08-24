@@ -107,3 +107,11 @@ app.delete("/listing/:id", async (req, res) => {
   console.log("Listing deleted", deletedListing);
   res.redirect("/listings");
 });
+
+app.get("/auth/login", (req, res) => {
+  res.render("auth/login.ejs");
+});
+
+app.get("/signup", (req, res) => {
+  res.render("auth/signup.ejs");
+});
