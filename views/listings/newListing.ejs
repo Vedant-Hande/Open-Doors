@@ -1,20 +1,277 @@
 <% layout('layouts/boilerplate') %>
 <body>
-  <h1>Create a new listing</h1>
-  <form action="/listings" method="POST">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" req /><br /><br />
-    <label for="description">Description:</label><br />
-    <textarea id="description" name="desc" rows="4" cols="50"></textarea
-    ><br /><br />
-    <label for="image">Image URL:</label>
-    <input type="text" id="image" name="image" /><br /><br />
-    <label for="price">Price:</label>
-    <input type="number" id="price" name="price" /><br /><br />
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location" /><br /><br />
-    <label for="country">country:</label>
-    <input type="text" id="country" name="country" /><br /><br />
-    <button type="submit">Create Listing</button>
-  </form>
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="create-listing-hero text-center mb-5">
+      <h1 class="create-listing-title">Create Your Property Listing</h1>
+      <p class="create-listing-subtitle">
+        Share your amazing property with potential tenants
+      </p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="create-listing-form-card">
+          <form action="/listings" method="POST" class="listing-form">
+            <!-- Basic Information Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-info-circle me-2"></i>Basic Information
+              </h3>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="title" class="form-label">
+                      <i class="fas fa-home me-2"></i>Property Title
+                    </label>
+                    <input
+                      type="text"
+                      id="title"
+                      name="title"
+                      class="form-control"
+                      placeholder="e.g., Beautiful 2BR Apartment in City Center"
+                      required />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="price" class="form-label">
+                      <i class="fas fa-tag me-2"></i>Monthly Rent (₹)
+                    </label>
+                    <input
+                      type="number"
+                      id="price"
+                      name="price"
+                      class="form-control"
+                      placeholder="15000"
+                      required />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-map-marker-alt me-2"></i>Location Details
+              </h3>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="location" class="form-label">
+                      <i class="fas fa-building me-2"></i>City/Area
+                    </label>
+                    <input
+                      type="text"
+                      id="location"
+                      name="location"
+                      class="form-control"
+                      placeholder="e.g., Bandra West, Mumbai"
+                      required />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="country" class="form-label">
+                      <i class="fas fa-globe me-2"></i>Country
+                    </label>
+                    <input
+                      type="text"
+                      id="country"
+                      name="country"
+                      class="form-control"
+                      placeholder="India"
+                      required />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-align-left me-2"></i>Property Description
+              </h3>
+
+              <div class="form-group">
+                <label for="description" class="form-label">
+                  <i class="fas fa-file-text me-2"></i>Detailed Description
+                </label>
+                <textarea
+                  id="description"
+                  name="desc"
+                  class="form-control"
+                  rows="6"
+                  placeholder="Describe your property in detail. Include features, amenities, nearby attractions, and what makes this property special..."
+                  required></textarea>
+                <div class="form-help">
+                  <i class="fas fa-lightbulb me-1"></i>
+                  Tip: Be detailed and honest about your property to attract the
+                  right tenants
+                </div>
+              </div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-image me-2"></i>Property Images
+              </h3>
+
+              <div class="form-group">
+                <label for="image" class="form-label">
+                  <i class="fas fa-link me-2"></i>Image URL
+                </label>
+                <input
+                  type="url"
+                  id="image"
+                  name="image"
+                  class="form-control"
+                  placeholder="https://example.com/your-property-image.jpg"
+                  required />
+                <div class="form-help">
+                  <i class="fas fa-info-circle me-1"></i>
+                  Provide a high-quality image URL. Make sure the image is clear
+                  and shows your property at its best
+                </div>
+              </div>
+
+              <!-- Image Preview -->
+              <div
+                class="image-preview-container"
+                id="imagePreview"
+                style="display: none">
+                <h5 class="preview-title">Image Preview</h5>
+                <div class="image-preview">
+                  <img id="previewImage" src="" alt="Property Preview" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Property Features Section -->
+            <div class="form-section">
+              <h3 class="section-title">
+                <i class="fas fa-star me-2"></i>Property Features
+              </h3>
+
+              <div class="features-grid">
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="wifi"
+                    name="features[]"
+                    value="wifi" />
+                  <label for="wifi">
+                    <i class="fas fa-wifi"></i>High-Speed WiFi
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="parking"
+                    name="features[]"
+                    value="parking" />
+                  <label for="parking">
+                    <i class="fas fa-car"></i>Parking Available
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input type="checkbox" id="ac" name="features[]" value="ac" />
+                  <label for="ac">
+                    <i class="fas fa-snowflake"></i>Air Conditioning
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <div class="feature-checkbox">
+                    <input
+                      type="checkbox"
+                      id="kitchen"
+                      name="features[]"
+                      value="kitchen" />
+                    <label for="kitchen">
+                      <i class="fas fa-utensils"></i>Fully Equipped Kitchen
+                    </label>
+                  </div>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="laundry"
+                    name="features[]"
+                    value="laundry" />
+                  <label for="laundry">
+                    <i class="fas fa-tshirt"></i>In-Unit Laundry
+                  </label>
+                </div>
+
+                <div class="feature-checkbox">
+                  <input
+                    type="checkbox"
+                    id="gym"
+                    name="features[]"
+                    value="gym" />
+                  <label for="gym">
+                    <i class="fas fa-dumbbell"></i>Fitness Center
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="form-section submit-section">
+              <div class="row">
+                <div class="col-md-6">
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark btn-lg w-100"
+                    onclick="history.back()">
+                    <i class="fas fa-arrow-left me-2"></i>Go Back
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button type="submit" class="btn btn-dark btn-lg w-100">
+                    <i class="fas fa-plus me-2"></i>Create Listing
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Image preview functionality
+    document.getElementById("image").addEventListener("input", function () {
+      const imageUrl = this.value;
+      const previewContainer = document.getElementById("imagePreview");
+      const previewImage = document.getElementById("previewImage");
+
+      if (imageUrl && isValidUrl(imageUrl)) {
+        previewImage.src = imageUrl;
+        previewContainer.style.display = "block";
+      } else {
+        previewContainer.style.display = "none";
+      }
+    });
+
+    function isValidUrl(string) {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+  </script>
 </body>

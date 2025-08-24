@@ -1,12 +1,158 @@
 <% layout('layouts/boilerplate') %>
-  </head>
-  <body>
-    <h1><%= listing.title %></h1>
-    <p><%= listing.desc %></p>
-    <p><%= listing.location %></p>
-    <p>&#8377;<%= listing.price.toLocaleString('en-IN') %></p>
-    <p><%= listing.country %></p>
-    <a href=" /listing/<%= listing._id %>/edit ">edit</a>
-    <form action="POST" method=""></form>
-  </body>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="listing-hero">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="main-image-container">
+            <img
+              src="<%= listing.image.url %>"
+              alt="<%= listing.title %>"
+              class="main-listing-image" />
+            <div class="image-overlay">
+              <div class="price-badge">
+                ₹<%= listing.price.toLocaleString('en-IN') %> /month
+              </div>
+              <div class="status-badge-main">Available</div>
+            </div>
+          </div>
+        </div>
 
+        <div class="col-lg-4">
+          <div class="listing-info-card">
+            <h1 class="listing-title"><%= listing.title %></h1>
+
+            <div class="location-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <span><%= listing.location %>, <%= listing.country %></span>
+            </div>
+
+            <div class="property-details">
+              <div class="detail-item">
+                <i class="fas fa-bed"></i>
+                <span>3 Bedrooms</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-bath"></i>
+                <span>2 Bathrooms</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-ruler-combined"></i>
+                <span>1,200 sq ft</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-car"></i>
+                <span>2 Parking</span>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <a
+                href="/listing/<%= listing._id %>/edit"
+                class="btn btn-outline-dark">
+                <i class="fas fa-edit me-2"></i>Edit Listing
+              </a>
+              <button class="btn btn-dark">
+                <i class="fas fa-phone me-2"></i>Contact Owner
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description Section -->
+    <div class="listing-description">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="description-card">
+            <h3 class="section-title">Description</h3>
+            <p class="description-text"><%= listing.desc %></p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="amenities-card">
+            <h3 class="section-title">Amenities</h3>
+            <div class="amenities-list">
+              <div class="amenity-item">
+                <i class="fas fa-wifi"></i>
+                <span>High-Speed WiFi</span>
+              </div>
+              <div class="amenity-item">
+                <i class="fas fa-snowflake"></i>
+                <span>Air Conditioning</span>
+              </div>
+              <div class="amenity-item">
+                <i class="fas fa-utensils"></i>
+                <span>Fully Equipped Kitchen</span>
+              </div>
+              <div class="amenity-item">
+                <i class="fas fa-tshirt"></i>
+                <span>In-Unit Laundry</span>
+              </div>
+              <div class="amenity-item">
+                <i class="fas fa-dumbbell"></i>
+                <span>Fitness Center</span>
+              </div>
+              <div class="amenity-item">
+                <i class="fas fa-swimming-pool"></i>
+                <span>Swimming Pool</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Images Section -->
+    <div class="additional-images">
+      <h3 class="section-title text-center mb-4">More Photos</h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="image-thumbnail">
+            <img
+              src="<%= listing.image.url %>"
+              alt="Interior 1"
+              class="thumbnail-img" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="image-thumbnail">
+            <img
+              src="<%= listing.image.url %>"
+              alt="Interior 2"
+              class="thumbnail-img" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="image-thumbnail">
+            <img
+              src="<%= listing.image.url %>"
+              alt="Interior 3"
+              class="thumbnail-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section text-center">
+      <div class="contact-card">
+        <h3 class="section-title">Interested in this property?</h3>
+        <p class="contact-text">
+          Get in touch with the owner for more details or to schedule a viewing.
+        </p>
+        <div class="contact-buttons">
+          <button class="btn btn-dark btn-lg">
+            <i class="fas fa-phone me-2"></i>Call Now
+          </button>
+          <button class="btn btn-outline-dark btn-lg ms-3">
+            <i class="fas fa-envelope me-2"></i>Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
