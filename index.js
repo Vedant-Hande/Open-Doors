@@ -2,6 +2,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const path = require("path");
+const ejsMate = require("ejs-mate");
 const Listing = require("./models/listing.js");
 
 const app = express();
@@ -9,6 +10,7 @@ const port = 8080;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("views engine", "ejs");
+app.engine("ejs", ejsMate);
 
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
@@ -95,7 +97,7 @@ app.put("/listing/:id", async (req, res) => {
     { runValidators: true, new: true }
   );
   console.log(updatedListing);
-  res.redirect(`/listings${id}`);
+  res.redirect(`/listing/${id}`);
 });
 
 //delete listing route

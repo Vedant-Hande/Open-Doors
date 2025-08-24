@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Open Doors - All Listings</title>
-  </head>
-  <body>
-    <h1>All listings</h1>
-    <form action="/listing/new" method="GET">
-      <button>create new listing</button>
-    </form>
-    <ul>
-      <% for(let listing of allListings) { %>
-      <li><a href="/listing/<%= listing._id %> "><%= listing.title %></a></li>
-      <% }%>
-    </ul>
-  </body>
-</html>
+<% layout("layouts/boilerplate") %>
+<body>
+  <h1>All listings</h1>
+  <% for(let listing of allListings) { %>
+  <div class="card" style="width: 18rem">
+    <img
+      src="<%=listing.image.url%>"
+      class="card-img-top"
+      alt="<%=listing.title%>" />
+    <div class="card-body">
+      <h5 class="card-title"><%=listing.title%></h5>
+      <p class="card-text"><%=listing.desc%></p>
+      <div class="card-meta">
+        <span class="card-price">₹<%=listing.price%></span>
+        <span class="card-location"
+          >📍 <%=listing.location%>, <%=listing.country%></span
+        >
+      </div>
+    </div>
+  </div>
+  <% } %>
+</body>

@@ -1,0 +1,66 @@
+.html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  background-color: snow !important;
+}
+
+.navbar {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: snow !important;
+  height: 4.5rem;
+}
+
+.nav-link {
+  font-weight: 500 !important;
+  font-size: 1.2rem !important;
+  color: #222222 !important;
+}
+
+.navbar-brand {
+  margin-left: 10px !important;
+}
+
+.f-info {
+  font-size: 0.9rem;
+  color: grey !important;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.f-info-social i {
+  text-align: center;
+  margin: 10px;
+  font-size: 1.2rem;
+  color: grey !important;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+footer {
+  background-color: snow !important;
+  text-align: center;
+  border-top: 2px solid #e7e7e7;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.f-info-links a {
+  color: grey !important;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer p {
+  margin: 0;
+  color: grey !important;
+  font-size: 0.9rem;
+}
