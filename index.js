@@ -59,14 +59,14 @@ app.get("/listing/:id", async (req, res) => {
 
 //create new listing route - handle form submission
 app.post("/listings", async (req, res) => {
-  let { title, desc, img, price, location, country } = req.body;
+  let { title, desc, price, location, country, image } = req.body;
   const newListing = new Listing({
     title,
     desc,
-    img,
     price,
     location,
     country,
+    "image.url": image.url,
   });
   await newListing.save();
   console.log("New listing created:", newListing);
@@ -83,16 +83,16 @@ app.get("/listing/:id/edit", async (req, res) => {
 //update listing route - handle edit form submission
 app.put("/listing/:id", async (req, res) => {
   let { id } = req.params;
-  let { title, desc, img, price, location, country } = req.body;
+  let { title, desc, price, location, country, image } = req.body;
   const updatedListing = await Listing.findByIdAndUpdate(
     id,
     {
       title,
       desc,
-      img,
       price,
       location,
       country,
+      "image.url": image.url,
     },
     { runValidators: true, new: true }
   );
@@ -115,6 +115,3 @@ app.get("/auth/login", (req, res) => {
 app.get("/signup", (req, res) => {
   res.render("auth/signup.ejs");
 });
-
-
-
