@@ -66,7 +66,7 @@ app.post(
   "/listings",
   wrapAsync(async (req, res, next) => {
     if (!req.body) {
-      throw new ExpressError(400, "Send valid data for Listings");
+      next(new ExpressError(400, "Send valid data for Listings"));
     }
     let { title, desc, price, location, country, image } = req.body;
     const newListing = new Listing({
@@ -96,8 +96,11 @@ app.get(
 //update listing route - handle edit form submission
 app.put(
   "/listing/:id",
-  wrapAsync(async (req, res) => {
+  wrapAsync(async (req, res, next) => {
     let { id } = req.params;
+    if (!req.body) {
+      next(new ExpressError(400, "Send Valid data to for Listings"));
+    }
     let { title, desc, price, location, country, image } = req.body;
     const updatedListing = await Listing.findByIdAndUpdate(
       id,
