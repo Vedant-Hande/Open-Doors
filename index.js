@@ -5,6 +5,7 @@ const path = require("path");
 const ejsMate = require("ejs-mate");
 const Listing = require("./models/listing.js");
 const wrapAsync = require("./utils/wrapAsync.js");
+const ExpressError = require("./utils/ExpressError.js");
 
 const app = express();
 const port = 8080;
@@ -51,16 +52,22 @@ app.get("/listing/new", (req, res) => {
 });
 
 //show route - show details of a specific listing
-app.get("/listing/:id", async (req, res) => {
-  let { id } = req.params;
-  const listing = await Listing.findById(id);
-  res.render("listings/show.ejs", { listing });
-});
+app.get(
+  "/listing/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/show.ejs", { listing });
+  })
+);
 
 //create new listing route - handle form submission
 app.post(
   "/listings",
-  wrapAsync(async (req, res) => {
+  wrapAsync(async (req, res, next) => {
+    if (!req.body) {
+      throw new ExpressError(400, "Send valid data for Listings");
+    }
     let { title, desc, price, location, country, image } = req.body;
     const newListing = new Listing({
       title,
@@ -77,39 +84,48 @@ app.post(
 );
 
 //edit listing route - form to edit an existing listing
-app.get("/listing/:id/edit", async (req, res) => {
-  let { id } = req.params;
-  const editListing = await Listing.findById(id);
-  res.render("listings/editListing.ejs", { editListing });
-});
+app.get(
+  "/listing/:id/edit",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const editListing = await Listing.findById(id);
+    res.render("listings/editListing.ejs", { editListing });
+  })
+);
 
 //update listing route - handle edit form submission
-app.put("/listing/:id", async (req, res) => {
-  let { id } = req.params;
-  let { title, desc, price, location, country, image } = req.body;
-  const updatedListing = await Listing.findByIdAndUpdate(
-    id,
-    {
-      title,
-      desc,
-      price,
-      location,
-      country,
-      "image.url": image.url,
-    },
-    { runValidators: true, new: true }
-  );
-  console.log(updatedListing);
-  res.redirect(`/listing/${id}`);
-});
+app.put(
+  "/listing/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    let { title, desc, price, location, country, image } = req.body;
+    const updatedListing = await Listing.findByIdAndUpdate(
+      id,
+      {
+        title,
+        desc,
+        price,
+        location,
+        country,
+        "image.url": image.url,
+      },
+      { runValidators: true, new: true }
+    );
+    console.log(updatedListing);
+    res.redirect(`/listing/${id}`);
+  })
+);
 
 //delete listing route
-app.delete("/listing/:id", async (req, res) => {
-  let { id } = req.params;
-  const deletedListing = await Listing.findByIdAndDelete(id);
-  console.log("Listing deleted", deletedListing);
-  res.redirect("/listings");
-});
+app.delete(
+  "/listing/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const deletedListing = await Listing.findByIdAndDelete(id);
+    console.log("Listing deleted", deletedListing);
+    res.redirect("/listings");
+  })
+);
 
 app.get("/auth/login", (req, res) => {
   res.render("auth/login.ejs");
@@ -119,9 +135,15 @@ app.get("/signup", (req, res) => {
   res.render("auth/signup.ejs");
 });
 
-// Error handling middleware -
+// page not found Error handling middleware -
+app.use((req, res, next) => {
+  next(new ExpressError(404, "page not found!"));
+});
+
+//  final Error handling middleware -
 app.use((err, req, res, next) => {
-  res.send("some error");
+  let { statuscode = 500, message = "something went wrong!" } = err;
+  res.status(statuscode).send(message);
 });
 
 app.listen(port, () => {
