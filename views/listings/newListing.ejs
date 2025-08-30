@@ -37,6 +37,7 @@
                       class="form-control"
                       placeholder="e.g., Beautiful 2BR Apartment in City Center"
                       required />
+                    <div class="invalid-feedback">Please Enter title</div>
                   </div>
                 </div>
 
@@ -52,6 +53,7 @@
                       class="form-control"
                       placeholder="15000"
                       required />
+                    <div class="invalid-feedback">Price should be valid</div>
                   </div>
                 </div>
               </div>
@@ -76,6 +78,7 @@
                       class="form-control"
                       placeholder="e.g., Bandra West, Mumbai"
                       required />
+                    <div class="invalid-feedback">Please enter location</div>
                   </div>
                 </div>
 
@@ -91,6 +94,7 @@
                       class="form-control"
                       placeholder="India"
                       required />
+                    <div class="invalid-feedback">Please enter country</div>
                   </div>
                 </div>
               </div>
@@ -113,6 +117,9 @@
                   rows="6"
                   placeholder="Describe your property in detail. Include features, amenities, nearby attractions, and what makes this property special..."
                   required></textarea>
+                <div class="invalid-feedback">
+                  Enter the detailed description about property
+                </div>
                 <div class="form-help">
                   <i class="fas fa-lightbulb me-1"></i>
                   Tip: Be detailed and honest about your property to attract the
@@ -161,70 +168,75 @@
               <h3 class="section-title">
                 <i class="fas fa-star me-2"></i>Property Features
               </h3>
-
-              <div class="features-grid">
-                <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="wifi"
-                    name="features[]"
-                    value="wifi" />
-                  <label for="wifi">
-                    <i class="fas fa-wifi"></i>High-Speed WiFi
-                  </label>
-                </div>
-
-                <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="parking"
-                    name="features[]"
-                    value="parking" />
-                  <label for="parking">
-                    <i class="fas fa-car"></i>Parking Available
-                  </label>
-                </div>
-
-                <div class="feature-checkbox">
-                  <input type="checkbox" id="ac" name="features[]" value="ac" />
-                  <label for="ac">
-                    <i class="fas fa-snowflake"></i>Air Conditioning
-                  </label>
-                </div>
-
-                <div class="feature-checkbox">
+              <div class="Property-Features">
+                <div class="features-grid">
                   <div class="feature-checkbox">
                     <input
                       type="checkbox"
-                      id="kitchen"
+                      id="wifi"
                       name="features[]"
-                      value="kitchen" />
-                    <label for="kitchen">
-                      <i class="fas fa-utensils"></i>Fully Equipped Kitchen
+                      value="wifi" />
+                    <label for="wifi">
+                      <i class="fas fa-wifi"></i>High-Speed WiFi
                     </label>
                   </div>
-                </div>
 
-                <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="laundry"
-                    name="features[]"
-                    value="laundry" />
-                  <label for="laundry">
-                    <i class="fas fa-tshirt"></i>In-Unit Laundry
-                  </label>
-                </div>
+                  <div class="feature-checkbox">
+                    <input
+                      type="checkbox"
+                      id="parking"
+                      name="features[]"
+                      value="parking" />
+                    <label for="parking">
+                      <i class="fas fa-car"></i>Parking Available
+                    </label>
+                  </div>
 
-                <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="gym"
-                    name="features[]"
-                    value="gym" />
-                  <label for="gym">
-                    <i class="fas fa-dumbbell"></i>Fitness Center
-                  </label>
+                  <div class="feature-checkbox">
+                    <input
+                      type="checkbox"
+                      id="ac"
+                      name="features[]"
+                      value="ac" />
+                    <label for="ac">
+                      <i class="fas fa-snowflake"></i>Air Conditioning
+                    </label>
+                  </div>
+
+                  <div class="feature-checkbox">
+                    <div class="feature-checkbox">
+                      <input
+                        type="checkbox"
+                        id="kitchen"
+                        name="features[]"
+                        value="kitchen" />
+                      <label for="kitchen">
+                        <i class="fas fa-utensils"></i>Fully Equipped Kitchen
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="feature-checkbox">
+                    <input
+                      type="checkbox"
+                      id="laundry"
+                      name="features[]"
+                      value="laundry" />
+                    <label for="laundry">
+                      <i class="fas fa-tshirt"></i>In-Unit Laundry
+                    </label>
+                  </div>
+
+                  <div class="feature-checkbox">
+                    <input
+                      type="checkbox"
+                      id="gym"
+                      name="features[]"
+                      value="gym" />
+                    <label for="gym">
+                      <i class="fas fa-dumbbell"></i>Fitness Center
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
