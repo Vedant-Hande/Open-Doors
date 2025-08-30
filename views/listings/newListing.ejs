@@ -13,7 +13,11 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 col-md-10">
         <div class="create-listing-form-card">
-          <form action="/listings" method="POST" class="listing-form">
+          <form
+            action="/listings"
+            method="POST"
+            class="listing-form needs-validation"
+            novalidate>
             <!-- Basic Information Section -->
             <div class="form-section">
               <h3 class="section-title">
@@ -132,8 +136,7 @@
                   id="image"
                   name="image[url]"
                   class="form-control"
-                  placeholder="https://example.com/your-property-image.jpg"
-                  required />
+                  placeholder="https://example.com/your-property-image.jpg" />
                 <div class="form-help">
                   <i class="fas fa-info-circle me-1"></i>
                   Provide a high-quality image URL. Make sure the image is clear
