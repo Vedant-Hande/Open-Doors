@@ -16,7 +16,8 @@
           <form
             action="/listing/<%= editListing._id %>?_method=PUT"
             method="POST"
-            class="listing-form">
+            class="listing-form needs-validation"
+            novalidate>
             <!-- Basic Information Section -->
             <div class="form-section">
               <h3 class="section-title">
@@ -37,6 +38,7 @@
                       value="<%= editListing.title %>"
                       placeholder="e.g., Beautiful 2BR Apartment in City Center"
                       required />
+                    <div class="invalid-feedback">Please Enter title</div>
                   </div>
                 </div>
 
@@ -53,6 +55,7 @@
                       value="<%= editListing.price %>"
                       placeholder="15000"
                       required />
+                    <div class="invalid-feedback">Price should be valid</div>
                   </div>
                 </div>
               </div>
@@ -78,6 +81,7 @@
                       value="<%= editListing.location %>"
                       placeholder="e.g., Bandra West, Mumbai"
                       required />
+                    <div class="invalid-feedback">Please enter location</div>
                   </div>
                 </div>
 
@@ -94,6 +98,7 @@
                       value="<%= editListing.country %>"
                       placeholder="India"
                       required />
+                    <div class="invalid-feedback">Please enter country</div>
                   </div>
                 </div>
               </div>
@@ -118,6 +123,9 @@
                   required>
 <%= editListing.desc %></textarea
                 >
+                <div class="invalid-feedback">
+                  Enter the detailed description about property
+                </div>
                 <div class="form-help">
                   <i class="fas fa-lightbulb me-1"></i>
                   Tip: Be detailed and honest about your property to attract the
@@ -139,11 +147,12 @@
                 <input
                   type="url"
                   id="image"
-                  name="image"
+                  name="image[url]"
                   class="form-control"
-                  value="<%= editListing.image.url %>"
+                  value="<%= editListing.image.url%>"
                   placeholder="https://example.com/your-property-image.jpg"
                   required />
+                <div class="invalid-feedback">Please provide image url</div>
                 <div class="form-help">
                   <i class="fas fa-info-circle me-1"></i>
                   Provide a high-quality image URL. Make sure the image is clear
@@ -170,7 +179,7 @@
                 <div class="image-preview">
                   <img
                     id="previewImage"
-                    src=""
+                    src="<%= editListing.image.url %>"
                     alt="Updated Property Preview" />
                 </div>
               </div>
@@ -260,9 +269,9 @@
                 </div>
                 <div class="col-md-4">
                   <a
-                    href="/listing/<%= editListing._id %>"
+                    href="/listing/<%= editListing._id %>?_method=DELETE"
                     class="btn btn-outline-secondary btn-lg w-100">
-                    <i class="fas fa-eye me-2"></i>View Listing
+                    <i class="fas fa-eye me-2"></i>Delete Listing
                   </a>
                 </div>
                 <div class="col-md-4">
