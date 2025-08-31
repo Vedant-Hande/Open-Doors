@@ -38,6 +38,16 @@ main()
 //   res.render("listings/index.ejs");
 // });
 
+function validateListing(req, res, next) {
+  let { error } = listingSchema.validate(req.body);
+  // console.log(err);
+  if (error) {
+    throw new ExpressError(400, error);
+  } else {
+    next();
+  }
+}
+
 // all listings route
 app.get(
   "/listings",
@@ -65,9 +75,8 @@ app.get(
 //create new listing route - handle form submission
 app.post(
   "/listings",
+  validateListing,
   wrapAsync(async (req, res, next) => {
-    let validateResult = listingSchema.validate(req.body);
-    console.log(validateResult);
     let { title, desc, price, location, country, image } = req.body;
     const newListing = new Listing({
       title,
@@ -96,11 +105,9 @@ app.get(
 //update listing route - handle edit form submission
 app.put(
   "/listing/:id",
+  validateListing,
   wrapAsync(async (req, res, next) => {
     let { id } = req.params;
-    if (!req.body) {
-      next(new ExpressError(400, "Send Valid data to for Listings"));
-    }
     let { title, desc, price, location, country, image } = req.body;
     const updatedListing = await Listing.findByIdAndUpdate(
       id,
@@ -140,7 +147,7 @@ app.get("/signup", (req, res) => {
 
 // page not found Error handling middleware -
 app.use((req, res, next) => {
-  next(new ExpressError(404, "page not found!"));
+  throw new ExpressError(404, "page not found!");
 });
 
 //  final Error handling middleware -
