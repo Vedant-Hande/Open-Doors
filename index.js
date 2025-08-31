@@ -42,7 +42,10 @@ function validateListing(req, res, next) {
   let { error } = listingSchema.validate(req.body);
   // console.log(err);
   if (error) {
-    throw new ExpressError(400, error);
+    let errMsg = error.details.map((ele) => {
+      ele.message.join(",");
+    });
+    throw new ExpressError(400, errMsg);
   } else {
     next();
   }
