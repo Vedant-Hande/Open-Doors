@@ -68,18 +68,16 @@ app.post(
     if (!req.body) {
       next(new ExpressError(400, "Send valid data for Listings"));
     }
-    // let { title, desc, price, location, country, image } = req.body;
-    let result = req.body.listing;
-    console.log(result);
-    // const newListing = new Listing({
-    //   title,
-    //   desc,
-    //   price,
-    //   location,
-    //   country,
-    //   "image.url": image.url,
-    // });
-    // await newListing.save();
+    let { title, desc, price, location, country, image } = req.body;
+    const newListing = new Listing({
+      title,
+      desc,
+      price,
+      location,
+      country,
+      "image.url": image.url,
+    });
+    await newListing.save();
     console.log("New listing created:", newListing);
     res.redirect("/listings");
   })
