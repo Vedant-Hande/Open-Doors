@@ -6,6 +6,7 @@ const ejsMate = require("ejs-mate");
 const Listing = require("./models/listing.js");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
+const { listingSchema } = require("./schema.js");
 
 const app = express();
 const port = 8080;
@@ -65,9 +66,8 @@ app.get(
 app.post(
   "/listings",
   wrapAsync(async (req, res, next) => {
-    if (!req.body) {
-      next(new ExpressError(400, "Send valid data for Listings"));
-    }
+    let validateResult = listingSchema.validate(req.body);
+    console.log(validateResult);
     let { title, desc, price, location, country, image } = req.body;
     const newListing = new Listing({
       title,
