@@ -129,6 +129,7 @@
                   >(<%= listing.review.length %>)</span
                 >
               </h3>
+              <!-- // calculate AVG RATING---- -->
               <% if (listing.review.length > 0) { %>
               <div class="average-rating">
                 <div class="rating-stars">
@@ -165,7 +166,6 @@
                     <% } %> <% } %>
                   </div>
                   <div class="review-date">
-                    <i class="fas fa-calendar-alt me-1"></i>
                     <%= new Date(review.date).toLocaleDateString('en-US', {
                     year: 'numeric', month: 'long', day: 'numeric' }) %>
                   </div>
@@ -197,7 +197,7 @@
             <form
               action="/listing/<%= listing._id %>/review"
               method="POST"
-              class="review-form"
+              class="review-form needs-validation"
               novalidate>
               <div class="form-group">
                 <label for="rating" class="form-label">
