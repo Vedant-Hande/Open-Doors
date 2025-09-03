@@ -9,6 +9,7 @@
   "author": "vedant hande",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^5.1.0",

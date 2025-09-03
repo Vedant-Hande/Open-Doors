@@ -2612,3 +2612,12 @@ footer p {
     font-size: 0.85rem;
   }
 }
+
+/* --- WebKit for range input --- */
+.custom-range-color::-webkit-slider-thumb {
+  background-color: #aaaaaa; /* Purple thumb */
+}
+
+.custom-range-color::-webkit-slider-runnable-track {
+  background-color: #d8d0e5; /* Lighter purple track */
+}
