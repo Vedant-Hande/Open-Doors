@@ -125,68 +125,65 @@
             <div class="reviews-header">
               <h3 class="reviews-title">
                 <i class="fas fa-star me-2"></i>Reviews
-                <span class="reviews-count">(<%= listing.review.length %>)</span>
+                <span class="reviews-count"
+                  >(<%= listing.review.length %>)</span
+                >
               </h3>
               <% if (listing.review.length > 0) { %>
-                <div class="average-rating">
-                  <div class="rating-stars">
-                    <% 
-                      const avgRating = listing.review.reduce((sum, review) => sum + review.rating, 0) / listing.review.length;
-                      const fullStars = Math.floor(avgRating);
-                      const hasHalfStar = avgRating % 1 >= 0.5;
-                    %>
-                    <% for (let i = 1; i <= 5; i++) { %>
-                      <% if (i <= fullStars) { %>
-                        <i class="fas fa-star"></i>
-                      <% } else if (i === fullStars + 1 && hasHalfStar) { %>
-                        <i class="fas fa-star-half-alt"></i>
-                      <% } else { %>
-                        <i class="far fa-star"></i>
-                      <% } %>
-                    <% } %>
-                  </div>
-                  <span class="rating-text"><%= avgRating.toFixed(1) %> out of 5</span>
+              <div class="average-rating">
+                <div class="rating-stars">
+                  <% const avgRating = listing.review.reduce((sum, review) =>
+                  sum + review.rating, 0) / listing.review.length; const
+                  fullStars = Math.floor(avgRating); const hasHalfStar =
+                  avgRating % 1 >= 0.5; %> <% for (let i = 1; i <= 5; i++) { %>
+                  <% if (i <= fullStars) { %>
+                  <i class="fas fa-star"></i>
+                  <% } else if (i === fullStars + 1 && hasHalfStar) { %>
+                  <i class="fas fa-star-half-alt"></i>
+                  <% } else { %>
+                  <i class="far fa-star"></i>
+                  <% } %> <% } %>
                 </div>
+                <span class="rating-text"
+                  ><%= avgRating.toFixed(1) %> out of 5</span
+                >
+              </div>
               <% } %>
             </div>
 
             <% if (listing.review.length > 0) { %>
-              <div class="reviews-list">
-                <% listing.review.forEach((review, index) => { %>
-                  <div class="review-item">
-                    <div class="review-header">
-                      <div class="review-rating">
-                        <% for (let i = 1; i <= 5; i++) { %>
-                          <% if (i <= review.rating) { %>
-                            <i class="fas fa-star"></i>
-                          <% } else { %>
-                            <i class="far fa-star"></i>
-                          <% } %>
-                        <% } %>
-                      </div>
-                      <div class="review-date">
-                        <i class="fas fa-calendar-alt me-1"></i>
-                        <%= new Date(review.date).toLocaleDateString('en-US', { 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
-                        }) %>
-                      </div>
-                    </div>
-                    <div class="review-content">
-                      <p class="review-comment"><%= review.comment %></p>
-                    </div>
+            <div class="reviews-list">
+              <% listing.review.forEach((review, index) => { %>
+              <div class="review-item">
+                <div class="review-header">
+                  <div class="review-rating">
+                    <% for (let i = 1; i <= 5; i++) { %> <% if (i <=
+                    review.rating) { %>
+                    <i class="fas fa-star"></i>
+                    <% } else { %>
+                    <i class="far fa-star"></i>
+                    <% } %> <% } %>
                   </div>
-                <% }) %>
-              </div>
-            <% } else { %>
-              <div class="no-reviews">
-                <div class="no-reviews-icon">
-                  <i class="fas fa-comment-slash"></i>
+                  <div class="review-date">
+                    <i class="fas fa-calendar-alt me-1"></i>
+                    <%= new Date(review.date).toLocaleDateString('en-US', {
+                    year: 'numeric', month: 'long', day: 'numeric' }) %>
+                  </div>
                 </div>
-                <h4>No reviews yet</h4>
-                <p>Be the first to share your experience with this property!</p>
+                <div class="review-content">
+                  <p class="review-comment"><%= review.comment %></p>
+                </div>
               </div>
+              <% }) %>
+            </div>
+            <% } else { %>
+            <div class="no-reviews">
+              <div class="no-reviews-icon">
+                <i class="fas fa-comment-slash"></i>
+              </div>
+              <h4>No reviews yet</h4>
+              <p>Be the first to share your experience with this property!</p>
+            </div>
             <% } %>
           </div>
         </div>
@@ -202,13 +199,16 @@
               method="POST"
               class="review-form"
               novalidate>
-              
               <div class="form-group">
                 <label for="rating" class="form-label">
                   <i class="fas fa-star me-1"></i>Your Rating
                 </label>
                 <div class="star-rating-input">
-                  <input type="hidden" id="rating" name="review[rating]" value="5" />
+                  <input
+                    type="hidden"
+                    id="rating"
+                    name="review[rating]"
+                    value="5" />
                   <div class="star-rating-display">
                     <i class="fas fa-star" data-rating="1"></i>
                     <i class="fas fa-star" data-rating="2"></i>
