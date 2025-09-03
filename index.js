@@ -147,10 +147,10 @@ app.post("/listing/:id/review", async (req, res) => {
   const newReview = new Review(req.body.review);
   // adding a review to listing (stores only id)
   reviewListing.review.push(newReview);
-  
+
   await reviewListing.save();
   await newReview.save();
-  res.send("review added");
+  res.redirect(`/listing/${reviewListing._id}`);
   console.log(newReview);
 });
 
