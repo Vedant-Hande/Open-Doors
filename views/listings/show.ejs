@@ -120,31 +120,35 @@
     <div class="row text-white">
       <div class="col-lg-12">
         <h4>Reviews</h4>
-        <div class="rating mb-3 mt-3 w-100 col-lg-12">
-          <label for="rating" class="form-label fw-bold mt-3">Rating</label>
-          <input
-            type="range"
-            id="rating"
-            class="w-100 border-0 h-100 form-range"
-            name="review[rating]"
-            min="1"
-            max="5" />
-        </div>
-        <div class="comment mb-3 mt-3 w-100 col-lg-12">
-          <lable for="comment" class="fw-bold form-label mt-3"> Comment</lable>
-          <input
-            type="textArea"
-            id="comment"
-            placeholder="Enter your comment"
-            cols="50"
-            rows="10"
-            class="form-control w-100 bg-dark text-white border-0 h-100"
-            name="review[comment]" />
-        </div>
-        <button
-          class="btn btn-outline-dark bg-white text-black border-1 mt-3 p-3 fw-bold rounded-3 col-lg-6 mx-auto d-flex justify-content-center algin-item-center">
-          Submit
-        </button>
+        <form action="listing/<%= listing._id %>/review" method="POST">
+          <div class="rating mb-3 mt-3 w-100 col-lg-12">
+            <label for="rating" class="form-label fw-bold mt-3">Rating</label>
+            <input
+              type="range"
+              id="rating"
+              class="w-100 border-0 h-100 form-range"
+              name="review[rating]"
+              min="1"
+              max="5" />
+          </div>
+          <div class="comment mb-3 mt-3 w-100 col-lg-12">
+            <lable for="comment" class="fw-bold form-label mt-3">
+              Comment</lable
+            >
+            <textarea
+              id="comment"
+              placeholder="Enter your comment"
+              cols="30"
+              rows="5"
+              class="form-control w-100 bg-dark text-white border-0 h-100"
+              name="review[comment]">
+            </textarea>
+          </div>
+          <button
+            class="btn btn-outline-dark bg-white text-black border-1 mt-3 p-3 fw-bold rounded-3 col-lg-6 mx-auto d-flex justify-content-center algin-item-center">
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   </div>
