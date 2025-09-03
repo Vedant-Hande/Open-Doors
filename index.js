@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const Listing = require("./models/listing.js");
+const Review = require("./models/review.js");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema } = require("./schema.js");
@@ -139,6 +140,21 @@ app.delete(
     res.redirect("/listings");
   })
 );
+
+// reviews route - show & get review for  specific listing
+app.post("/listing/:id/review", async (req, res) => {
+  let reviewListing = await Listing.findById(req.params.id);
+  const newReview = new Review(req.body.review);
+
+  // adding a review to listing (stores only id)
+  reviewListing.review.push(newReview);
+
+  await reviewListing.save();
+  await newReview.save();
+
+  res.send("review added");
+  console.log("review addad");
+});
 
 app.get("/auth/login", (req, res) => {
   res.render("auth/login.ejs");
