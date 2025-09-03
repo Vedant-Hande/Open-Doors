@@ -44,7 +44,7 @@ function validateListing(req, res, next) {
   // console.log(err);
   if (error) {
     let errMsg = error.details.map((ele) => {
-      ele.message.join(",");
+      ele.errMsg.join(",");
     });
     throw new ExpressError(400, errMsg);
   } else {
@@ -57,7 +57,7 @@ function validateReview(req, res, next) {
   // console.log(err);
   if (error) {
     let errMsg = error.details.map((ele) => {
-      ele.message.join(",");
+      ele.errMsg.join(",");
     });
     throw new ExpressError(400, errMsg);
   } else {
