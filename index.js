@@ -7,7 +7,7 @@ const Listing = require("./models/listing.js");
 const Review = require("./models/review.js");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
-const { listingSchema } = require("./schema.js");
+const { listingSchema, reviewSchema } = require("./schema.js");
 
 const app = express();
 const port = 8080;
@@ -41,6 +41,19 @@ main()
 
 function validateListing(req, res, next) {
   let { error } = listingSchema.validate(req.body);
+  // console.log(err);
+  if (error) {
+    let errMsg = error.details.map((ele) => {
+      ele.message.join(",");
+    });
+    throw new ExpressError(400, errMsg);
+  } else {
+    next();
+  }
+}
+
+function validateReview(req, res, next) {
+  let { error } = reviewSchema.validate(req.body);
   // console.log(err);
   if (error) {
     let errMsg = error.details.map((ele) => {
@@ -142,17 +155,21 @@ app.delete(
 );
 
 // reviews route - show & get review for  specific listing
-app.post("/listing/:id/review", async (req, res) => {
-  let reviewListing = await Listing.findById(req.params.id);
-  const newReview = new Review(req.body.review);
-  // adding a review to listing (stores only id)
-  reviewListing.review.push(newReview);
+app.post(
+  "/listing/:id/review",
+  validateReview,
+  wrapAsync(async (req, res) => {
+    let reviewListing = await Listing.findById(req.params.id);
+    const newReview = new Review(req.body.review);
+    // adding a review to listing (stores only id)
+    reviewListing.review.push(newReview);
 
-  await reviewListing.save();
-  await newReview.save();
-  res.redirect(`/listing/${reviewListing._id}`);
-  console.log(newReview);
-});
+    await reviewListing.save();
+    await newReview.save();
+    res.redirect(`/listing/${reviewListing._id}`);
+    console.log(newReview);
+  })
+);
 
 app.get("/auth/login", (req, res) => {
   res.render("auth/login.ejs");
