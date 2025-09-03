@@ -145,15 +145,13 @@ app.delete(
 app.post("/listing/:id/review", async (req, res) => {
   let reviewListing = await Listing.findById(req.params.id);
   const newReview = new Review(req.body.review);
-
   // adding a review to listing (stores only id)
   reviewListing.review.push(newReview);
-
+  
   await reviewListing.save();
   await newReview.save();
-
   res.send("review added");
-  console.log("review addad");
+  console.log(newReview);
 });
 
 app.get("/auth/login", (req, res) => {
