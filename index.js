@@ -84,7 +84,7 @@ app.get(
   "/listing/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await Listing.findById(id);
+    const listing = await Listing.findById(id).populate("review");
     res.render("listings/show.ejs", { listing });
   })
 );
@@ -154,8 +154,7 @@ app.delete(
   })
 );
 
-Review
-// Post route - show & get review for  specific listing
+// Review  Post route - show & get review for  specific listing>
 app.post(
   "/listing/:id/review",
   validateReview,
