@@ -84,7 +84,7 @@ Fields:
 
 ### Project structure (matches repo tree)
 
-```text
+```bash
 Open Doors/
   index.js                 # Express app and routes
   package.json
