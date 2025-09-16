@@ -3233,3 +3233,8 @@ footer p {
     font-size: 0.9rem;
   }
 }
+
+.review-user h5 {
+  letter-spacing: 3px;
+  text-transform: capitalize;
+}
