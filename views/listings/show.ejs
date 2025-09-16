@@ -176,7 +176,7 @@
                 <div class="review-content">
                   <p class="review-comment"><%= review.comment %></p>
                 </div>
-                <div class="review-delete">
+                <div class="review-delete float-end">
                   <form
                     action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE"
                     method="POST"
