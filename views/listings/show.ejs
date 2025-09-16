@@ -176,7 +176,18 @@
                 <div class="review-content">
                   <p class="review-comment"><%= review.comment %></p>
                 </div>
+                <div class="review-delete">
+                  <form
+                    action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE"
+                    method="POST"
+                    style="display: inline">
+                    <button type="submit" class="btn btn-danger btn-sm m-10">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </form>
+                </div>
               </div>
+
               <% }) %>
             </div>
             <% } else { %>
