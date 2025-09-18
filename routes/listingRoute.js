@@ -19,19 +19,6 @@ function validateListing(req, res, next) {
   }
 }
 
-function validateReview(req, res, next) {
-  let { error } = reviewSchema.validate(req.body);
-  // console.log(err);
-  if (error) {
-    let errMsg = error.details.map((ele) => {
-      ele.errMsg.join(",");
-    });
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-}
-
 // all listings route
 router.get(
   "/",
@@ -121,32 +108,32 @@ router.delete(
   })
 );
 
-// Review  Post route - show & get review for  specific listing>
-router.post(
-  "/:id/review",
-  validateReview,
-  wrapAsync(async (req, res) => {
-    let reviewListing = await Listing.findById(req.params.id);
-    const newReview = new Review(req.body.review);
-    // adding a review to listing (stores only id)
-    reviewListing.review.push(newReview);
+// // Review  Post route - show & get review for  specific listing>
+// router.post(
+//   "/:id/review",
+//   validateReview,
+//   wrapAsync(async (req, res) => {
+//     let reviewListing = await Listing.findById(req.params.id);
+//     const newReview = new Review(req.body.review);
+//     // adding a review to listing (stores only id)
+//     reviewListing.review.push(newReview);
 
-    await reviewListing.save();
-    await newReview.save();
-    res.redirect(`/listing/${reviewListing._id}`);
-    console.log(newReview);
-  })
-);
+//     await reviewListing.save();
+//     await newReview.save();
+//     res.redirect(`/listing/${reviewListing._id}`);
+//     console.log(newReview);
+//   })
+// );
 
-// Review delete route -
-router.delete(
-  "/:id/review/:reviewId",
-  wrapAsync(async (req, res) => {
-    let { id, reviewId } = req.params;
-    await Listing.findByIdAndUpdate(id, { $pull: { review: reviewId } });
-    await Review.findByIdAndDelete(reviewId);
-    res.redirect(`/listing/${id}`);
-  })
-);
+// // Review delete route -
+// router.delete(
+//   "/:id/review/:reviewId",
+//   wrapAsync(async (req, res) => {
+//     let { id, reviewId } = req.params;
+//     await Listing.findByIdAndUpdate(id, { $pull: { review: reviewId } });
+//     await Review.findByIdAndDelete(reviewId);
+//     res.redirect(`/listing/${id}`);
+//   })
+// );
 
 module.exports = router;

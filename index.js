@@ -9,6 +9,7 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 const listingRoute = require("./routes/listingRoute.js");
+const reviewRoute = require("./routes/reviewRoute");
 
 const app = express();
 const port = 8080;
@@ -35,11 +36,11 @@ main()
     console.log("error connecting to mongoDB", err);
   });
 
+// All listing routes are now handled by the router in routes/listingRoute.js
 app.use("/listing", listingRoute);
 
-// All listing routes are now handled by the router in routes/listingRoute.js
-
-// Review routes are now handled by the router in routes/listingRoute.js
+// Review routes are now handled by the router in routes/reviewRoute.js
+app.use("/listing/:id", reviewRoute);
 
 app.get("/auth/login", (req, res) => {
   res.render("auth/login.ejs");
