@@ -1,23 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Listing = require("../models/listing.js");
-const Review = require("../models/review.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const ExpressError = require("../utils/ExpressError.js");
-const { listingSchema, reviewSchema } = require("../schema.js");
-
-function validateListing(req, res, next) {
-  let { error } = listingSchema.validate(req.body);
-  // console.log(err);
-  if (error) {
-    let errMsg = error.details.map((ele) => {
-      ele.errMsg.join(",");
-    });
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-}
+const {
+  validateListing,
+  validateReview,
+} = require("../middleware/validation.js");
 
 // all listings route
 router.get(
@@ -58,10 +46,6 @@ router.post(
       "image.url": image.url,
     });
     await newListing.save();
-
-    // Clear cache after creating new listing
-    clearCache("/listing");
-
     console.log("New listing created:", newListing);
     res.redirect("/listing");
   })
@@ -111,33 +95,5 @@ router.delete(
     res.redirect("/listing");
   })
 );
-
-// // Review  Post route - show & get review for  specific listing>
-// router.post(
-//   "/:id/review",
-//   validateReview,
-//   wrapAsync(async (req, res) => {
-//     let reviewListing = await Listing.findById(req.params.id);
-//     const newReview = new Review(req.body.review);
-//     // adding a review to listing (stores only id)
-//     reviewListing.review.push(newReview);
-
-//     await reviewListing.save();
-//     await newReview.save();
-//     res.redirect(`/listing/${reviewListing._id}`);
-//     console.log(newReview);
-//   })
-// );
-
-// // Review delete route -
-// router.delete(
-//   "/:id/review/:reviewId",
-//   wrapAsync(async (req, res) => {
-//     let { id, reviewId } = req.params;
-//     await Listing.findByIdAndUpdate(id, { $pull: { review: reviewId } });
-//     await Review.findByIdAndDelete(reviewId);
-//     res.redirect(`/listing/${id}`);
-//   })
-// );
 
 module.exports = router;

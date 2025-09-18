@@ -7,7 +7,7 @@ const listingSchema = new schema({
     type: String,
     required: true,
     maxLength: 50,
-    index: true, // Add index for search functionality
+    index: true, // Index for search functionality
   },
   desc: {
     type: String,
@@ -28,19 +28,19 @@ const listingSchema = new schema({
     type: Number,
     required: true,
     min: 0,
-    index: true, // Add index for price filtering
+    index: true, // Index for price filtering
   },
   location: {
     type: String,
     required: true,
     maxLength: 100,
-    index: true, // Add index for location search
+    index: true, // Index for location search
   },
   country: {
     type: String,
     required: true,
     maxLength: 50,
-    index: true, // Add index for country filtering
+    index: true, // Index for country filtering
   },
   review: [
     {
@@ -51,7 +51,7 @@ const listingSchema = new schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    index: true, // Add index for sorting
+    index: true, // Index for sorting by creation date
   },
   updatedAt: {
     type: Date,

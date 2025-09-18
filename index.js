@@ -3,11 +3,7 @@ const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
-const Listing = require("./models/listing.js");
-const Review = require("./models/review.js");
-const wrapAsync = require("./utils/wrapAsync.js");
-const ExpressError = require("./utils/ExpressError.js");
-const { listingSchema, reviewSchema } = require("./schema.js");
+const { errorHandler, notFound } = require("./middleware/errorHandler.js");
 const listingRoute = require("./routes/listingRoute.js");
 const reviewRoute = require("./routes/reviewRoute.js");
 
@@ -42,7 +38,7 @@ app.use("/listing", listingRoute);
 // Review routes are now handled by the router in routes/reviewRoute.js
 app.use("/listing/:id", reviewRoute);
 
-app.get("/auth/login", (req, res) => {
+app.get("/login", (req, res) => {
   res.render("auth/login.ejs");
 });
 
@@ -50,17 +46,22 @@ app.get("/signup", (req, res) => {
   res.render("auth/signup.ejs");
 });
 
-// page not found Error handling middleware -
-app.use((req, res, next) => {
-  throw new ExpressError(404, "page not found!");
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
+    version: process.version,
+  });
 });
 
-//  final Error handling middleware -
-app.use((err, req, res, next) => {
-  let { statuscode = 500, message = "something went wrong!" } = err;
-  res.status(statuscode).render("error/error.ejs", { message });
-  // res.status(statuscode).send(message);
-});
+// 404 handler
+app.use(notFound);
+
+// Error handler
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);

@@ -3,21 +3,10 @@ const router = express.Router();
 const Listing = require("../models/listing.js");
 const Review = require("../models/review.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const ExpressError = require("../utils/ExpressError.js");
-const { reviewSchema } = require("../schema.js");
-
-function validateReview(req, res, next) {
-  let { error } = reviewSchema.validate(req.body);
-  // console.log(err);
-  if (error) {
-    let errMsg = error.details.map((ele) => {
-      ele.errMsg.join(",");
-    });
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-}
+const {
+  validateListing,
+  validateReview,
+} = require("../middleware/validation.js");
 
 // Review  Post route - show & get review for  specific listing>
 router.post(
