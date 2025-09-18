@@ -1,11 +1,14 @@
 const express = require("express");
 const methodOverride = require("method-override");
+const connectDB = require("./config/database.js");
+
 const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const { errorHandler, notFound } = require("./middleware/errorHandler.js");
 const listingRoute = require("./routes/listingRoute.js");
 const reviewRoute = require("./routes/reviewRoute.js");
+const logger = require("./middleware/logger.js");
 
 const app = express();
 const port = 8080;
@@ -14,23 +17,15 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
 
+app.use(logger);
+
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
 //middleware to parse data
 app.use(express.urlencoded({ extended: true }));
-
-async function main() {
-  await mongoose.connect("mongodb://localhost:27017/TripSpot");
-}
-
-main()
-  .then((result) => {
-    console.log(`connected to mongoDB`);
-  })
-  .catch((err) => {
-    console.log("error connecting to mongoDB", err);
-  });
+app.use(express.json({ limit: "10mb" })); // Add JSON parsing with size limit
+connectDB();
 
 // All listing routes are now handled by the router in routes/listingRoute.js
 app.use("/listing", listingRoute);
