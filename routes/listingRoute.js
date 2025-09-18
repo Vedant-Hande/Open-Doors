@@ -58,6 +58,10 @@ router.post(
       "image.url": image.url,
     });
     await newListing.save();
+
+    // Clear cache after creating new listing
+    clearCache("/listing");
+
     console.log("New listing created:", newListing);
     res.redirect("/listing");
   })

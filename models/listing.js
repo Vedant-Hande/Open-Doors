@@ -7,6 +7,7 @@ const listingSchema = new schema({
     type: String,
     required: true,
     maxLength: 50,
+    index: true, // Add index for search functionality
   },
   desc: {
     type: String,
@@ -27,16 +28,19 @@ const listingSchema = new schema({
     type: Number,
     required: true,
     min: 0,
+    index: true, // Add index for price filtering
   },
   location: {
     type: String,
     required: true,
     maxLength: 100,
+    index: true, // Add index for location search
   },
   country: {
     type: String,
     required: true,
     maxLength: 50,
+    index: true, // Add index for country filtering
   },
   review: [
     {
@@ -44,6 +48,15 @@ const listingSchema = new schema({
       ref: "Review",
     },
   ],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    index: true, // Add index for sorting
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 listingSchema.post("findByIdAndDelete", async (listing) => {

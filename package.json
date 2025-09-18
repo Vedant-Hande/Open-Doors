@@ -4,7 +4,11 @@
   "description": "This is my 1st fullstack webstie ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "vedant hande",
   "license": "ISC",
@@ -16,5 +20,9 @@
     "joi": "^18.0.1",
     "method-override": "^3.0.0",
     "mongoose": "^8.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "eslint": "^8.50.0"
   }
 }

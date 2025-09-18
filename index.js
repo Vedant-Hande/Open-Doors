@@ -9,13 +9,13 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 const listingRoute = require("./routes/listingRoute.js");
-const reviewRoute = require("./routes/reviewRoute");
+const reviewRoute = require("./routes/reviewRoute.js");
 
 const app = express();
 const port = 8080;
 
 app.set("views", path.join(__dirname, "views"));
-app.set("views engine", "ejs");
+app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
 
 app.use(express.static("public"));
