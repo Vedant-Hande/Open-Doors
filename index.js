@@ -67,7 +67,7 @@ function validateReview(req, res, next) {
 
 // all listings route
 app.get(
-  "/listings",
+  "/listing",
   wrapAsync(async (req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
@@ -91,7 +91,7 @@ app.get(
 
 //create new listing route - handle form submission
 app.post(
-  "/listings",
+  "/listing",
   validateListing,
   wrapAsync(async (req, res, next) => {
     let { title, desc, price, location, country, image } = req.body;
