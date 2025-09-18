@@ -1,4 +1,4 @@
-require("dotenv").config();
+const env = require("dotenv");
 const express = require("express");
 const methodOverride = require("method-override");
 const connectDB = require("./config/database.js");
@@ -12,7 +12,7 @@ const reviewRoute = require("./routes/reviewRoute.js");
 const logger = require("./middleware/logger.js");
 
 const app = express();
-const port = process.env.PORT;
+const port = 8080;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
