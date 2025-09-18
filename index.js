@@ -2,14 +2,13 @@ const env = require("dotenv");
 const express = require("express");
 const methodOverride = require("method-override");
 const connectDB = require("./config/database.js");
-
 const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const { errorHandler, notFound } = require("./middleware/errorHandler.js");
 const listingRoute = require("./routes/listingRoute.js");
 const reviewRoute = require("./routes/reviewRoute.js");
-const logger = require("./middleware/logger.js");
+const { logger, errorLogger } = require("./middleware/logger");
 
 const app = express();
 const port = 8080;
@@ -44,17 +43,23 @@ app.get("/signup", (req, res) => {
 
 // Health check endpoint
 app.get("/health", (req, res) => {
-  res.status(200).json({
+  const healthData = {
     status: "OK",
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     memory: process.memoryUsage(),
     version: process.version,
-  });
+  };
+
+  // Render the 'health.ejs' template and pass the data to it
+  res.render("listings/health", healthData);
 });
 
 // 404 handler
 app.use(notFound);
+
+// ERROR LOG
+app.use(errorLogger);
 
 // Error handler
 app.use(errorHandler);

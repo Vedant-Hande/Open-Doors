@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server Health</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .card {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+      }
+      h1 {
+        color: #2cce89;
+        margin-top: 0;
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
+      td:first-child {
+        font-weight: bold;
+        color: #333;
+      }
+      td:last-child {
+        text-align: right;
+        color: #555;
+        font-family: "SF Mono", "Consolas", "Menlo", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Server Health ✅</h1>
+      <table>
+        <tr>
+          <td>Status</td>
+          <td><%= status %></td>
+        </tr>
+        <tr>
+          <td>Timestamp</td>
+          <td><%= timestamp %></td>
+        </tr>
+        <tr>
+          <td>Uptime</td>
+          <td><%= uptime %></td>
+        </tr>
+        <tr>
+          <td>Node.js Version</td>
+          <td><%= version %></td>
+        </tr>
+        <tr>
+          <td>Memory (RSS)</td>
+          <td><%= memory.rss %></td>
+        </tr>
+        <tr>
+          <td>Heap Total</td>
+          <td><%= memory.heapTotal %></td>
+        </tr>
+        <tr>
+          <td>Heap Used</td>
+          <td><%= memory.heapUsed %></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

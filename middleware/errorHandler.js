@@ -2,53 +2,47 @@ const ExpressError = require("../utils/ExpressError.js");
 
 // Global error handler
 const errorHandler = (err, req, res, next) => {
-  let error = { ...err };
-  error.message = err.message;
+  // Log the original error for debugging
+  console.error(err.stack);
 
-  // Log error
-  console.error("Error:", err);
+  // Set default status code and message
+  let statusCode = err.statusCode || 500;
+  let message = err.message || "Something went wrong on our end";
 
-  // Mongoose bad ObjectId
+  // Customize for specific error types
   if (err.name === "CastError") {
-    const message = "Resource not found";
-    error = new ExpressError(message, 404);
+    statusCode = 404;
+    message = "Resource not found";
   }
 
-  // Mongoose duplicate key
   if (err.code === 11000) {
-    const message = "Duplicate field value entered";
-    error = new ExpressError(message, 400);
+    statusCode = 400;
+    message = "Duplicate field value entered";
   }
 
-  // Mongoose validation error
   if (err.name === "ValidationError") {
-    const message = Object.values(err.errors)
+    statusCode = 400;
+    message = Object.values(err.errors)
       .map((val) => val.message)
       .join(", ");
-    error = new ExpressError(message, 400);
   }
 
-  // JWT errors
-  if (err.name === "JsonWebTokenError") {
-    const message = "Invalid token";
-    error = new ExpressError(message, 401);
+  if (err.name === "JsonWebTokenError" || err.name === "TokenExpiredError") {
+    statusCode = 401;
+    message = "Authentication failed. Please log in again.";
   }
 
-  if (err.name === "TokenExpiredError") {
-    const message = "Token expired";
-    error = new ExpressError(message, 401);
-  }
-
-  res.status(error.statusCode || 500).json({
-    success: false,
-    error: error.message || "Server Error",
-    ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
+  // Render the error page using a path relative to the 'views' directory
+  res.status(statusCode).render("../views/listings/error.ejs", {
+    statusCode,
+    message,
+    stack: process.env.NODE_ENV === "development" ? err.stack : null,
   });
 };
 
-// 404 handler
+// 404 handler with a more descriptive message
 const notFound = (req, res, next) => {
-  const error = new ExpressError(`Not found - ${req.originalUrl}`, 404);
+  const error = new ExpressError(404, `page Not Found - ${req.originalUrl}`);
   next(error);
 };
 
