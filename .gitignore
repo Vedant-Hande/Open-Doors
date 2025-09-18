@@ -1,0 +1,15 @@
+
+# Dependencies
+node_modules/
+
+# Environment variables - VERY IMPORTANT!
+.env
+
+# Logs & Documentation
+*.log
+npm-debug.log*
+logs/
+docs/
+
+# Project new learn
+New features/
