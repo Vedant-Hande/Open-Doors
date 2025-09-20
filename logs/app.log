@@ -93,3 +93,43 @@
 2025-09-18T20:34:12.949Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 2025-09-18T20:34:13.487Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 2025-09-18T20:36:36.103Z - GET /listings - IP: ::1
+2025-09-20T16:25:31.367Z - GET /listing - IP: ::1
+2025-09-20T16:25:31.731Z - GET /css/style.css - IP: ::1
+2025-09-20T16:25:31.737Z - GET /main.scss - IP: ::ffff:127.0.0.1
+2025-09-20T16:25:32.811Z - GET /js/script.js - IP: ::ffff:127.0.0.1
+2025-09-20T16:25:35.358Z - GET /favicon.ico - IP: ::ffff:127.0.0.1
+2025-09-20T16:25:36.369Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::ffff:127.0.0.1
+2025-09-20T16:25:36.552Z - GET /css/style.css - IP: ::ffff:127.0.0.1
+2025-09-20T16:25:36.555Z - GET /listing/main.scss - IP: ::1
+2025-09-20T16:25:37.024Z - GET /js/script.js - IP: ::1
+2025-09-20T16:25:38.460Z - GET /favicon.ico - IP: ::1
+2025-09-20T16:26:02.038Z - POST /listing/68ab3c1fbe0f78cc696d3a30/review - IP: ::1
+2025-09-20T16:26:03.618Z - GET /favicon.ico - IP: ::1
+2025-09-20T16:33:10.678Z - POST /listing/68ab3c1fbe0f78cc696d3a30/review - IP: ::1
+2025-09-20T16:33:12.866Z - GET /favicon.ico - IP: ::1
+2025-09-20T16:33:19.402Z - GET /listing - IP: ::1
+2025-09-20T16:33:19.544Z - GET /css/style.css - IP: ::1
+2025-09-20T16:33:19.546Z - GET /main.scss - IP: ::1
+2025-09-20T16:33:19.947Z - GET /js/script.js - IP: ::1
+2025-09-20T16:33:21.214Z - GET /favicon.ico - IP: ::1
+2025-09-20T16:33:22.277Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1
+2025-09-20T16:33:22.399Z - GET /css/style.css - IP: ::1
+2025-09-20T16:33:22.403Z - GET /listing/main.scss - IP: ::1
+2025-09-20T16:33:22.406Z - GET /js/script.js - IP: ::1
+2025-09-20T16:33:23.963Z - GET /favicon.ico - IP: ::1
+2025-09-20T16:33:44.644Z - POST /listing/68ab3c1fbe0f78cc696d3a30/review - IP: ::1
+2025-09-20T16:33:44.773Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1
+2025-09-20T16:33:44.920Z - GET /css/style.css - IP: ::1
+2025-09-20T16:33:44.925Z - GET /listing/main.scss - IP: ::1
+2025-09-20T16:33:44.967Z - GET /js/script.js - IP: ::1
+2025-09-20T16:33:46.459Z - GET /favicon.ico - IP: ::1
+2025-09-20T16:40:52.229Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
+2025-09-20T16:40:52.400Z - GET /listing/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
+2025-09-20T16:40:52.405Z - GET /css/style.css - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
+2025-09-20T16:40:53.282Z - GET /js/script.js - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
+2025-09-20T16:40:55.784Z - GET /favicon.ico - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
+2025-09-20T16:43:24.555Z - GET /listing/68ab3c1fbe0f78cc696d3a30/edit - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
+2025-09-20T16:43:24.643Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
+2025-09-20T16:43:24.653Z - GET /listing/68ab3c1fbe0f78cc696d3a30/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
+2025-09-20T16:43:25.320Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
+2025-09-20T16:43:26.288Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
