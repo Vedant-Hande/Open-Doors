@@ -11,7 +11,6 @@ const {
 router.get(
   "/",
   wrapAsync(async (req, res) => {
-    console.log("Main listing route hit - /");
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
   })

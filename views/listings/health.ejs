@@ -55,32 +55,44 @@
       <h1>Server Health ✅</h1>
       <table>
         <tr>
-          <td>Status</td>
-          <td><%= status %></td>
+          <td>Server Status</td>
+          <td>
+            <span style="color: #2cce89; font-weight: bold"
+              >🟢 <%= status %></span
+            >
+          </td>
         </tr>
         <tr>
-          <td>Timestamp</td>
-          <td><%= timestamp %></td>
+          <td>Last Checked</td>
+          <td><%= new Date(timestamp).toLocaleString() %></td>
         </tr>
         <tr>
-          <td>Uptime</td>
-          <td><%= uptime %></td>
+          <td>Server Running For</td>
+          <td>
+            <%= Math.floor(uptime / 60) %> minutes <%= Math.floor(uptime % 60)
+            %> seconds
+          </td>
         </tr>
         <tr>
-          <td>Node.js Version</td>
-          <td><%= version %></td>
+          <td>System Version</td>
+          <td>Node.js <%= version %></td>
         </tr>
         <tr>
-          <td>Memory (RSS)</td>
-          <td><%= memory.rss %></td>
+          <td>Memory Usage</td>
+          <td><%= Math.round(memory.rss / 1024 / 1024) %> MB</td>
         </tr>
         <tr>
-          <td>Heap Total</td>
-          <td><%= memory.heapTotal %></td>
+          <td>Memory Available</td>
+          <td>
+            <%= Math.round((memory.heapTotal - memory.heapUsed) / 1024 / 1024)
+            %> MB
+          </td>
         </tr>
         <tr>
-          <td>Heap Used</td>
-          <td><%= memory.heapUsed %></td>
+          <td>Memory Efficiency</td>
+          <td>
+            <%= Math.round((memory.heapUsed / memory.heapTotal) * 100) %>% used
+          </td>
         </tr>
       </table>
     </div>
