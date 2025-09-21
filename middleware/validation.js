@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const ExpressError = require("../utils/ExpressError.js");
 
 // Enhanced validation schemas
 const listingSchema = Joi.object({
@@ -57,11 +58,7 @@ const validateListing = (req, res, next) => {
 
   if (error) {
     const errorMessages = error.details.map((detail) => detail.message);
-    return res.status(400).json({
-      success: false,
-      message: "Validation failed",
-      errors: errorMessages,
-    });
+    throw new ExpressError(400, errorMessages.join(", "));
   }
 
   req.body = value; // Use sanitized data
@@ -76,11 +73,7 @@ const validateReview = (req, res, next) => {
 
   if (error) {
     const errorMessages = error.details.map((detail) => detail.message);
-    return res.status(400).json({
-      success: false,
-      message: "Validation failed",
-      errors: errorMessages,
-    });
+    throw new ExpressError(400, errorMessages.join(", "));
   }
 
   req.body.review = value; // Use sanitized data
