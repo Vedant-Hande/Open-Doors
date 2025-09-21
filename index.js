@@ -1,8 +1,6 @@
-const env = require("dotenv");
 const express = require("express");
 const methodOverride = require("method-override");
 const connectDB = require("./config/database.js");
-const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const { errorHandler, notFound } = require("./middleware/errorHandler.js");
@@ -22,7 +20,7 @@ app.use(logger);
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
-//middleware to parse data
+//middleware to parse(read) data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: "10mb" })); // Add JSON parsing with size limit
 connectDB();

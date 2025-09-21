@@ -1,5 +1,12 @@
 const ExpressError = require("../utils/ExpressError.js");
 
+// 404 handler with a more descriptive message
+const notFound = (req, res, next) => {
+  const error = new ExpressError(404, `page Not Found - ${req.originalUrl}`);
+  next(error);
+  //call next when the middleware is not sending responces
+};
+
 // Global error handler
 const errorHandler = (err, req, res, next) => {
   // Log the original error for debugging
@@ -33,17 +40,12 @@ const errorHandler = (err, req, res, next) => {
   }
 
   // Render the error page using a path relative to the 'views' directory
+  // all the next() call comes here at last
   res.status(statusCode).render("../views/listings/error.ejs", {
     statusCode,
     message,
     stack: process.env.NODE_ENV === "development" ? err.stack : null,
   });
-};
-
-// 404 handler with a more descriptive message
-const notFound = (req, res, next) => {
-  const error = new ExpressError(404, `page Not Found - ${req.originalUrl}`);
-  next(error);
 };
 
 module.exports = {
