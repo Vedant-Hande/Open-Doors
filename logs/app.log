@@ -1,160 +1,48 @@
-2025-09-18T18:53:45.239Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T18:53:45.471Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:39:26.039Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:39:26.208Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:39:26.210Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:39:27.023Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:39:40.898Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:39:40.983Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:39:40.985Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:39:41.502Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:41:47.357Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:41:47.565Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:43:50.273Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:45:06.114Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:45:29.107Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:49:24.988Z - GET /health - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:49:56.744Z - GET /health - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:50:40.763Z - GET /health - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:51:29.118Z - GET /health - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:52:37.115Z - GET /health - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:53:30.741Z - GET /health - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:54:07.107Z - GET /health - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:54:22.154Z - GET /health - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:54:25.351Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:54:26.735Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:58:37.811Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T19:59:39.716Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:00:05.831Z - GET /listings - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:00:08.203Z - GET /listings - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:00:19.322Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:03:20.668Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:04:41.150Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:05:12.804Z - GET /listings - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:05:26.091Z - GET /listings - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:05:28.931Z - GET / - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:06:07.491Z - GET / - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:07:42.836Z - GET / - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:08:12.314Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:08:12.681Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:10:06.330Z - GET / - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:10:16.185Z - GET / - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:10:21.012Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:10:22.156Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:11:24.815Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:11:30.100Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:11:40.429Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:14:41.372Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:16:48.632Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:19:50.059Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:20:04.211Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:21:05.816Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:22:13.085Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:23:28.645Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:23:49.720Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:33.465Z - GET / - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:36.008Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:36.160Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:36.163Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:36.629Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:41.909Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:42.190Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:44.564Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:44.642Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:44.644Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:45.052Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:49.362Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:24:49.705Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:25:10.287Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:26:46.314Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:26:48.845Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:27:18.899Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:27:37.253Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:28:26.641Z - GET /listings - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:11.085Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:11.248Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:11.252Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:11.751Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:13.955Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:14.135Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:14.147Z - GET /listing/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:14.642Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:20.132Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:20.194Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:20.198Z - GET /listing/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:20.227Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:29:28.389Z - GET /listing/68ab3c1fbe0f78cc696d3a30qrq34 - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:33:59.664Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:33:59.764Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:33:59.770Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:34:00.570Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:34:12.863Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:34:12.947Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:34:12.949Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:34:13.487Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-2025-09-18T20:36:36.103Z - GET /listings - IP: ::1
-2025-09-20T16:25:31.367Z - GET /listing - IP: ::1
-2025-09-20T16:25:31.731Z - GET /css/style.css - IP: ::1
-2025-09-20T16:25:31.737Z - GET /main.scss - IP: ::ffff:127.0.0.1
-2025-09-20T16:25:32.811Z - GET /js/script.js - IP: ::ffff:127.0.0.1
-2025-09-20T16:25:35.358Z - GET /favicon.ico - IP: ::ffff:127.0.0.1
-2025-09-20T16:25:36.369Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::ffff:127.0.0.1
-2025-09-20T16:25:36.552Z - GET /css/style.css - IP: ::ffff:127.0.0.1
-2025-09-20T16:25:36.555Z - GET /listing/main.scss - IP: ::1
-2025-09-20T16:25:37.024Z - GET /js/script.js - IP: ::1
-2025-09-20T16:25:38.460Z - GET /favicon.ico - IP: ::1
-2025-09-20T16:26:02.038Z - POST /listing/68ab3c1fbe0f78cc696d3a30/review - IP: ::1
-2025-09-20T16:26:03.618Z - GET /favicon.ico - IP: ::1
-2025-09-20T16:33:10.678Z - POST /listing/68ab3c1fbe0f78cc696d3a30/review - IP: ::1
-2025-09-20T16:33:12.866Z - GET /favicon.ico - IP: ::1
-2025-09-20T16:33:19.402Z - GET /listing - IP: ::1
-2025-09-20T16:33:19.544Z - GET /css/style.css - IP: ::1
-2025-09-20T16:33:19.546Z - GET /main.scss - IP: ::1
-2025-09-20T16:33:19.947Z - GET /js/script.js - IP: ::1
-2025-09-20T16:33:21.214Z - GET /favicon.ico - IP: ::1
-2025-09-20T16:33:22.277Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1
-2025-09-20T16:33:22.399Z - GET /css/style.css - IP: ::1
-2025-09-20T16:33:22.403Z - GET /listing/main.scss - IP: ::1
-2025-09-20T16:33:22.406Z - GET /js/script.js - IP: ::1
-2025-09-20T16:33:23.963Z - GET /favicon.ico - IP: ::1
-2025-09-20T16:33:44.644Z - POST /listing/68ab3c1fbe0f78cc696d3a30/review - IP: ::1
-2025-09-20T16:33:44.773Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1
-2025-09-20T16:33:44.920Z - GET /css/style.css - IP: ::1
-2025-09-20T16:33:44.925Z - GET /listing/main.scss - IP: ::1
-2025-09-20T16:33:44.967Z - GET /js/script.js - IP: ::1
-2025-09-20T16:33:46.459Z - GET /favicon.ico - IP: ::1
-2025-09-20T16:40:52.229Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T16:40:52.400Z - GET /listing/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T16:40:52.405Z - GET /css/style.css - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T16:40:53.282Z - GET /js/script.js - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T16:40:55.784Z - GET /favicon.ico - IP: ::ffff:127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T16:43:24.555Z - GET /listing/68ab3c1fbe0f78cc696d3a30/edit - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T16:43:24.643Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T16:43:24.653Z - GET /listing/68ab3c1fbe0f78cc696d3a30/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T16:43:25.320Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T16:43:26.288Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T17:00:24.702Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T17:00:24.843Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:00:24.845Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:00:25.756Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:00:27.565Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:01:39.539Z - GET /listing/68ab3c1fbe0f78cc696d3a30 - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:01:39.666Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T17:01:39.673Z - GET /listing/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T17:01:39.679Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T17:01:41.377Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T17:02:32.450Z - GET /listing/68ab3c1fbe0f78cc696d3a30/edit - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30
-2025-09-20T17:02:32.569Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T17:02:32.578Z - GET /listing/68ab3c1fbe0f78cc696d3a30/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T17:02:32.583Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T17:02:33.887Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T17:06:07.485Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T17:06:07.590Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:06:07.593Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:06:08.203Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:06:09.653Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:11:54.644Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/68ab3c1fbe0f78cc696d3a30/edit
-2025-09-20T17:11:54.737Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:11:54.747Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:11:55.526Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
-2025-09-20T17:11:56.869Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T17:42:33.747Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: Direct
+2025-09-21T17:42:33.903Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T17:42:33.908Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T17:42:34.145Z - GET /.well-known/appspecific/com.chrome.devtools.json - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: Direct
+2025-09-21T17:42:35.456Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T17:42:37.918Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:16:02.497Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: Direct
+2025-09-21T18:16:02.782Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:16:02.820Z - GET /.well-known/appspecific/com.chrome.devtools.json - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: Direct
+2025-09-21T18:16:02.999Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:16:03.998Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:16:06.372Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:17:20.275Z - GET /listing/new - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:17:20.668Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:17:20.772Z - GET /.well-known/appspecific/com.chrome.devtools.json - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: Direct
+2025-09-21T18:17:21.063Z - GET /listing/main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:17:22.004Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:17:23.910Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:18:45.173Z - POST /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:18:47.886Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:11.973Z - POST /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:20:12.093Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:20:12.268Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:12.277Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:12.888Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:14.207Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:18.040Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:20:18.140Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:18.148Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:18.607Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:19.695Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:19.988Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing/new
+2025-09-21T18:20:20.074Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:20.079Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:20.535Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:21.574Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:29.683Z - POST /listing/68d04185bd6a8ec208fddff9?_method=DELETE - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:29.814Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:30.021Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:30.031Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:30.663Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:32.177Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:38.446Z - POST /listing/68d041dcba628aeb830ae940?_method=DELETE - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:38.568Z - GET /listing - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:38.864Z - GET /css/style.css - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:38.866Z - GET /main.scss - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:40.423Z - GET /js/script.js - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing
+2025-09-21T18:20:41.237Z - GET /favicon.ico - IP: ::1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 - Referer: http://localhost:8080/listing

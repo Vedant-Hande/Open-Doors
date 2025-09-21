@@ -47,6 +47,7 @@ router.post(
     });
     await newListing.save();
     console.log("New listing created:", newListing);
+    req.flash("success", "New Property Listed!");
     res.redirect("/listing");
   })
 );
