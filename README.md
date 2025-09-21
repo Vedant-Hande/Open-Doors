@@ -1,6 +1,6 @@
 # Open Doors 🏠
 
-A comprehensive full-stack web application for property listings and reviews. Built with modern web technologies to demonstrate advanced Express.js patterns, data validation, error handling, logging, and performance optimization techniques.
+A comprehensive full-stack web application for property listings and reviews. This is my first full-stack website built with modern web technologies to demonstrate advanced Express.js patterns, data validation, error handling, logging, and performance optimization techniques.
 
 ## 🎯 Project Overview
 
@@ -13,6 +13,41 @@ Open Doors is a feature-rich property listing platform that allows users to brow
 - Practice data validation, logging, and performance optimization
 - Build a production-ready application with proper architecture
 - Learn modern web development best practices
+
+## 📸 Screenshots
+
+Here are some screenshots showcasing the Open Doors application:
+
+### Application Interface
+
+![Listings Index](image/Screenshot%202025-09-20%20223044.png)
+_Main listings page showing all available properties_
+
+![Property Details](image/Screenshot%202025-09-20%20223125.png)
+_Detailed view of individual property listings_
+
+![Create New Listing](image/Screenshot%202025-09-20%20223153.png)
+_Form for creating new property listings_
+
+![Edit Listing](image/Screenshot%202025-09-20%20223209.png)
+_Edit form for modifying existing listings_
+
+![Review System](image/Screenshot%202025-09-20%20223224.png)
+_Property review and rating system_
+
+![Health Monitoring](image/Screenshot%202025-09-20%20223246.png)
+_System health check and performance metrics_
+
+![Application Features](image/Screenshot%202025-09-20%20223308.png)
+_Additional application features and functionality_
+
+### Key Features Showcased
+
+- **Responsive Design**: Clean, modern interface that works on all devices
+- **User-Friendly Forms**: Intuitive forms for creating and editing listings
+- **Review System**: Easy-to-use rating and review functionality
+- **System Monitoring**: Built-in health check and performance monitoring
+- **Flash Messages**: User feedback system for better UX
 
 ## ✨ Core Features
 
@@ -35,6 +70,8 @@ Open Doors is a feature-rich property listing platform that allows users to brow
 - **Request Logging**: Advanced logging system with rotation and performance monitoring
 - **Error Handling**: Global error handling with custom error pages
 - **Health Monitoring**: System health check endpoint with performance metrics
+- **Session Management**: Express-session integration for user state management
+- **Flash Messages**: Temporary message display system for user feedback
 - **Modular Architecture**: Clean separation of concerns with middleware and utilities
 
 ### Performance & Monitoring
@@ -53,6 +90,8 @@ Open Doors is a feature-rich property listing platform that allows users to brow
 - **Database**: MongoDB with Mongoose 8.18.0
 - **Validation**: Joi 18.0.1 for comprehensive input validation
 - **Environment**: dotenv 17.2.2 for environment configuration
+- **Sessions**: express-session 1.18.2 for user session management
+- **Flash Messages**: connect-flash 0.1.1 for temporary message display
 
 ### Frontend
 
@@ -89,15 +128,17 @@ npm install
 
 ### Configuration
 
-The app connects to MongoDB at `mongodb://localhost:27017/TripSpot` by default (see `index.js` and `init/index.js`). If your MongoDB runs elsewhere, update the connection URI in those files.
+The app connects to MongoDB at `mongodb://localhost:27017/OpenDoors` by default (see `index.js` and `init/index.js`). If your MongoDB runs elsewhere, update the connection URI in those files.
 
 Port defaults to `8080`.
+
+Session configuration is handled in `config/session.js` with secure session management for user state and flash messages.
 
 ### Seed the database (optional)
 
 Sample listings are available under `init/data.js`.
 
-Run the seeder to wipe and repopulate the `TripSpot` database:
+Run the seeder to wipe and repopulate the `OpenDoors` database:
 
 ```bash
 node init/index.js
@@ -125,8 +166,8 @@ Then open `http://localhost:8080/listings`.
 
 ### Review System
 
-- **POST** `/listing/:id/review` - Add a review to a listing (with validation)
-- **DELETE** `/listing/:id/review/:reviewId` - Delete a specific review
+- **POST** `/listing/:id/reviews` - Add a review to a listing (with validation)
+- **DELETE** `/listing/:id/reviews/:reviewId` - Delete a specific review
 
 ### Authentication (Static Views)
 
@@ -234,10 +275,13 @@ The project follows a clean, modular architecture:
 
 ```bash
 Open Doors/
-├── config/                    # Database configuration
-│   └── database.js
+├── config/                    # Database and session configuration
+│   ├── database.js           # MongoDB connection setup
+│   └── session.js            # Session configuration
 ├── docs/                      # API documentation
 │   └── API.md
+├── image/                     # Project screenshots and images
+│   └── Screenshot*.png       # Application screenshots
 ├── init/                      # Database seeding
 │   ├── data.js               # Sample data
 │   ├── index.js              # Seeder script
@@ -247,6 +291,7 @@ Open Doors/
 │   ├── app.log               # General application logs
 │   └── error.log             # Error logs
 ├── middleware/                # Custom middleware
+│   ├── connectFlash.js       # Flash message middleware
 │   ├── errorHandler.js       # Global error handling
 │   ├── logger.js             # Request logging
 │   └── validation.js         # Input validation
@@ -257,10 +302,14 @@ Open Doors/
 │   ├── 1-Caching/            # Caching implementation
 │   ├── 2-Request-Logging/    # Logging system
 │   ├── 3-Search-Filtering/   # Search functionality
-│   └── 4-Pagination/         # Pagination system
+│   ├── 4-Pagination/         # Pagination system
+│   └── README.md             # Features overview
 ├── public/                    # Static assets
 │   ├── css/                  # Stylesheets
+│   │   ├── main.scss         # SCSS source file
+│   │   └── style.css         # Compiled CSS
 │   └── js/                   # Client-side JavaScript
+│       └── script.js
 ├── routes/                    # Route handlers
 │   ├── listingRoute.js       # Property routes
 │   └── reviewRoute.js        # Review routes
@@ -269,12 +318,28 @@ Open Doors/
 │   └── wrapAsync.js          # Async error wrapper
 ├── views/                     # EJS templates
 │   ├── auth/                 # Authentication views
-│   ├── error/                # Error pages
+│   │   ├── login.ejs         # Login page
+│   │   └── signup.ejs        # Registration page
 │   ├── includes/             # Partial templates
+│   │   ├── flashMsg.ejs      # Flash message component
+│   │   ├── footer.ejs        # Footer partial
+│   │   ├── main.ejs          # Main layout partial
+│   │   └── navbar.ejs        # Navigation partial
 │   ├── layouts/              # Layout templates
-│   └── listings/             # Property views
+│   │   └── boilerplate.ejs   # Base layout template
+│   ├── listings/             # Property views
+│   │   ├── editListing.ejs   # Edit listing form
+│   │   ├── error.ejs         # Error page
+│   │   ├── health.ejs        # Health check page
+│   │   ├── index.ejs         # Listings index
+│   │   ├── newListing.ejs    # New listing form
+│   │   └── show.ejs          # Listing details
+│   └── main.ejs              # Main page template
 ├── index.js                   # Main application file
-└── package.json              # Dependencies and scripts
+├── package.json              # Dependencies and scripts
+├── package-lock.json         # Dependency lock file
+├── README.md                 # Project documentation
+└── review.md                 # Project review and notes
 ```
 
 ## 🚀 Getting Started
@@ -440,7 +505,7 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Vedant Hande**
+**vedant hande**
 
 - GitHub: [@vedanthande](https://github.com/vedanthande)
 - Project: Open Doors - Full-Stack Property Listing Platform
