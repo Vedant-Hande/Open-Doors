@@ -37,7 +37,7 @@ const rotateLogFile = (filePath, maxSize = 10 * 1024 * 1024) => {
       }
     }
   } catch (err) {
-    console.error("Error rotating log file:", err);
+    // console.error("Error rotating log file:", err);
   }
 };
 
@@ -55,27 +55,31 @@ const logger = (req, res, next) => {
 
   // Write to app.log
   fs.appendFile(logFile, logEntry, (err) => {
-    if (err) console.error("Error writing to app.log:", err);
+    if (err) {
+      // console.error("Error writing to app.log:", err);
+    }
   });
 
   // Write to access.log (separate file for access logs)
   fs.appendFile(accessLogFile, logEntry, (err) => {
-    if (err) console.error("Error writing to access.log:", err);
+    if (err) {
+      // console.error("Error writing to access.log:", err);
+    }
   });
 
   // Log to console with color coding
-  const coloredMethod =
-    method === "GET"
-      ? "\x1b[32m" + method + "\x1b[0m"
-      : method === "POST"
-      ? "\x1b[33m" + method + "\x1b[0m"
-      : method === "PUT"
-      ? "\x1b[34m" + method + "\x1b[0m"
-      : method === "DELETE"
-      ? "\x1b[31m" + method + "\x1b[0m"
-      : method;
+  // const coloredMethod =
+  //   method === "GET"
+  //     ? "\x1b[32m" + method + "\x1b[0m"
+  //     : method === "POST"
+  //     ? "\x1b[33m" + method + "\x1b[0m"
+  //     : method === "PUT"
+  //     ? "\x1b[34m" + method + "\x1b[0m"
+  //     : method === "DELETE"
+  //     ? "\x1b[31m" + method + "\x1b[0m"
+  //     : method;
 
-  console.log(`${timestamp} - ${coloredMethod} ${url} - IP: ${ip}`);
+  // console.log(`${timestamp} - ${coloredMethod} ${url} - IP: ${ip}`);
 
   // Check for log rotation
   rotateLogFile(logFile);
@@ -108,12 +112,10 @@ ${err.stack}
 
   // Write to error.log
   fs.appendFile(errorLogFile, errorLogEntry, (writeErr) => {
-    if (writeErr) console.error("Error writing to error.log:", writeErr);
+    if (writeErr) {
+      // console.error("Error writing to error.log:", writeErr);
+    }
   });
-
-  // Also log the error to the console with red color
-  console.error("\x1b[31m%s\x1b[0m", `ERROR: ${err.message}`);
-  console.error(err);
 
   // Check for log rotation
   rotateLogFile(errorLogFile);
@@ -141,15 +143,17 @@ const performanceLogger = (req, res, next) => {
     if (duration > 1000) {
       const slowLogFile = path.join(logsDir, "slow-requests.log");
       fs.appendFile(slowLogFile, perfLogEntry, (err) => {
-        if (err) console.error("Error writing to slow-requests.log:", err);
+        if (err) {
+          // console.error("Error writing to slow-requests.log:", err);
+        }
       });
     }
 
     // Log to console if request is slow
     if (duration > 1000) {
-      console.warn(
-        `\x1b[33mSLOW REQUEST\x1b[0m: ${method} ${url} took ${duration}ms`
-      );
+      // console.warn(
+      //   `\x1b[33mSLOW REQUEST\x1b[0m: ${method} ${url} took ${duration}ms`
+      // );
     }
   });
 
@@ -170,12 +174,12 @@ const cleanupOldLogs = (daysToKeep = 30) => {
 
         if (stats.mtime < cutoffDate) {
           fs.unlinkSync(filePath);
-          console.log(`Cleaned up old log file: ${file}`);
+          // console.log(`Cleaned up old log file: ${file}`);
         }
       }
     });
   } catch (err) {
-    console.error("Error cleaning up old logs:", err);
+    // console.error("Error cleaning up old logs:", err);
   }
 };
 

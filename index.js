@@ -28,6 +28,8 @@ app.use(logger);
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
+app.get("/favicon.ico", (req, res) => res.status(204).end());
+
 //middleware to parse(read) data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: "10mb" })); // Add JSON parsing with size limit
