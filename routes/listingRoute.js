@@ -81,6 +81,7 @@ router.put(
       },
       { runValidators: true, new: true }
     );
+    req.flash("success", `${title} Property updated!`);
     console.log(updatedListing);
     res.redirect(`/listing/${id}`);
   })
@@ -92,6 +93,7 @@ router.delete(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const deletedListing = await Listing.findByIdAndDelete(id);
+    req.flash("success", "Property Deleted!");
     console.log("Listing deleted", deletedListing);
     res.redirect("/listing");
   })
