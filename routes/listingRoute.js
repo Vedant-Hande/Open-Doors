@@ -11,6 +11,7 @@ const {
 router.get(
   "/",
   wrapAsync(async (req, res) => {
+    console.log("Main listing route hit - /");
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
   })
@@ -26,8 +27,22 @@ router.get(
   "/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
+
     const listing = await Listing.findById(id).populate("review");
-    res.render("listings/show.ejs", { listing });
+    if (!listing) {
+      req.flash("error", "Listing you requested for is not exist!");
+      res.redirect("/listing");
+    }
+
+    try {
+      res.render("listings/show.ejs", { listing });
+    } catch (error) {
+      console.error("Template rendering error:", error);
+      req.flash(
+        "error",
+        "Sorry, there was an error loading this listing. Please try again."
+      );
+    }
   })
 );
 

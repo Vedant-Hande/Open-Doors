@@ -22,6 +22,19 @@ const errorHandler = (err, req, res, next) => {
     message = "Resource not found";
   }
 
+  // Handle template rendering errors
+  if (err.message && err.message.includes("Cannot read properties of null")) {
+    statusCode = 500;
+    message = "Sorry, there was an error loading this page. Please try again.";
+  }
+
+  // Handle HTTP headers already sent errors
+  if (err.code === "ERR_HTTP_HEADERS_SENT") {
+    statusCode = 500;
+    message =
+      "Sorry, there was an error processing your request. Please try again.";
+  }
+
   if (err.code === 11000) {
     statusCode = 400;
     message = "Duplicate field value entered";

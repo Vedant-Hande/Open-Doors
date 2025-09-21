@@ -39,7 +39,7 @@ connectDB();
 app.use("/listing", listingRoute);
 
 // Review routes are now handled by the router in routes/reviewRoute.js
-app.use("/listing/:id", reviewRoute);
+app.use("/listing/:id/reviews", reviewRoute);
 
 app.get("/login", (req, res) => {
   res.render("auth/login.ejs");
