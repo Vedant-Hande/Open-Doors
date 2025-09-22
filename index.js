@@ -6,6 +6,8 @@ const ejsMate = require("ejs-mate");
 const { errorHandler, notFound } = require("./middleware/errorHandler.js");
 const listingRoute = require("./routes/listingRoute.js");
 const reviewRoute = require("./routes/reviewRoute.js");
+const userRoute = require("./routes/userRoute.js");
+const staticPageRoute = require("./routes/staticPagesRoute.js");
 const { logger, errorLogger } = require("./middleware/logger");
 const session = require("express-session");
 const sessionConfig = require("./config/session.js");
@@ -53,13 +55,11 @@ app.use("/listing", listingRoute);
 // Review routes are now handled by the router in routes/reviewRoute.js
 app.use("/listing/:id/reviews", reviewRoute);
 
-app.get("/login", (req, res) => {
-  res.render("auth/login.ejs");
-});
+// user routes are now handle by the router in routes/userRoute.js
+app.use("/user", userRoute);
 
-app.get("/signup", (req, res) => {
-  res.render("auth/signup.ejs");
-});
+// Static pages routes are now handle by the router in routes/staticPageRoute.js
+app.use("/", staticPageRoute);
 
 // Health check endpoint
 app.get("/health", (req, res) => {
