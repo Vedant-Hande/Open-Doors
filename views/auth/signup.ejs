@@ -17,7 +17,11 @@
       <p class="form-description">Fill in your details to get started</p>
     </div>
 
-    <form class="signup-form" action="/signup" method="POST">
+    <form
+      class="signup-form needs-validation"
+      action="/signup"
+      method="POST"
+      novalidate>
       <div class="form-row">
         <div class="form-group">
           <label for="firstName" class="form-label">
@@ -31,6 +35,7 @@
             class="form-control"
             placeholder="Enter your first name"
             required />
+          <div class="invalid-feedback">Please Enter FirstName</div>
         </div>
 
         <div class="form-group">
@@ -45,7 +50,23 @@
             class="form-control"
             placeholder="Enter your last name"
             required />
+          <div class="invalid-feedback">Please Enter LastName</div>
         </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName" class="form-label">
+          <i class="fas fa-user"></i>
+          username
+        </label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="form-control"
+          placeholder="Enter your username"
+          required />
+        <div class="invalid-feedback">Please Enter Username</div>
       </div>
 
       <div class="form-group">
@@ -60,6 +81,7 @@
           class="form-control"
           placeholder="Enter your email address"
           required />
+        <div class="invalid-feedback">Please Enter Email</div>
       </div>
 
       <div class="form-group">
@@ -74,6 +96,7 @@
           class="form-control"
           placeholder="Enter your phone number"
           required />
+        <div class="invalid-feedback">Please Enter Phone Number</div>
       </div>
 
       <div class="form-group">
@@ -93,7 +116,7 @@
             type="button"
             class="password-toggle"
             onclick="togglePassword('password', 'eye-icon-1')">
-            <i class="fas fa-eye" id="eye-icon-1"></i>
+            <i class="fas fa-eye me-3" id="eye-icon-1"></i>
           </button>
         </div>
         <div class="password-strength">
@@ -104,6 +127,7 @@
             >Password strength</span
           >
         </div>
+        <div class="invalid-feedback">Please Enter Password</div>
       </div>
 
       <div class="form-group">
@@ -123,9 +147,10 @@
             type="button"
             class="password-toggle"
             onclick="togglePassword('confirmPassword', 'eye-icon-2')">
-            <i class="fas fa-eye" id="eye-icon-2"></i>
+            <i class="fas fa-eye me-3" id="eye-icon-2"></i>
           </button>
         </div>
+        <div class="invalid-feedback">Please Re-enter your Password</div>
       </div>
 
       <div class="form-group">
@@ -139,6 +164,7 @@
           <option value="seller">Property Seller</option>
           <option value="agent">Real Estate Agent</option>
         </select>
+        <div class="invalid-feedback">Please Enter Account type</div>
       </div>
 
       <div class="form-group">
@@ -153,19 +179,6 @@
             I agree to the
             <a href="/terms" class="terms-link">Terms of Service</a> and
             <a href="/privacy" class="terms-link">Privacy Policy</a>
-          </label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="newsletter-checkbox">
-          <input
-            type="checkbox"
-            id="newsletter"
-            name="newsletter"
-            class="form-checkbox" />
-          <label for="newsletter" class="checkbox-label">
-            Subscribe to our newsletter for updates and offers
           </label>
         </div>
       </div>
@@ -186,81 +199,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  function togglePassword(inputId, iconId) {
-    const passwordInput = document.getElementById(inputId);
-    const eyeIcon = document.getElementById(iconId);
-
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-      eyeIcon.classList.remove("fa-eye");
-      eyeIcon.classList.add("fa-eye-slash");
-    } else {
-      passwordInput.type = "password";
-      eyeIcon.classList.remove("fa-eye-slash");
-      eyeIcon.classList.add("fa-eye");
-    }
-  }
-
-  // Password strength checker
-  document.getElementById("password").addEventListener("input", function () {
-    const password = this.value;
-    const strengthFill = document.getElementById("strength-fill");
-    const strengthText = document.getElementById("strength-text");
-
-    let strength = 0;
-    let strengthLabel = "";
-
-    if (password.length >= 8) strength++;
-    if (password.match(/[a-z]/)) strength++;
-    if (password.match(/[A-Z]/)) strength++;
-    if (password.match(/[0-9]/)) strength++;
-    if (password.match(/[^a-zA-Z0-9]/)) strength++;
-
-    switch (strength) {
-      case 0:
-      case 1:
-        strengthLabel = "Very Weak";
-        strengthFill.style.width = "20%";
-        strengthFill.style.background = "#ff4444";
-        break;
-      case 2:
-        strengthLabel = "Weak";
-        strengthFill.style.width = "40%";
-        strengthFill.style.background = "#ff8800";
-        break;
-      case 3:
-        strengthLabel = "Fair";
-        strengthFill.style.width = "60%";
-        strengthFill.style.background = "#ffaa00";
-        break;
-      case 4:
-        strengthLabel = "Good";
-        strengthFill.style.width = "80%";
-        strengthFill.style.background = "#00aa00";
-        break;
-      case 5:
-        strengthLabel = "Strong";
-        strengthFill.style.width = "100%";
-        strengthFill.style.background = "#008800";
-        break;
-    }
-
-    strengthText.textContent = strengthLabel;
-  });
-
-  // Password confirmation checker
-  document
-    .getElementById("confirmPassword")
-    .addEventListener("input", function () {
-      const password = document.getElementById("password").value;
-      const confirmPassword = this.value;
-
-      if (confirmPassword && password !== confirmPassword) {
-        this.setCustomValidity("Passwords do not match");
-      } else {
-        this.setCustomValidity("");
-      }
-    });
-</script>

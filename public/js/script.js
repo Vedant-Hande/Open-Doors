@@ -102,3 +102,79 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+function togglePassword(inputId, iconId) {
+  const passwordInput = document.getElementById(inputId);
+  const eyeIcon = document.getElementById(iconId);
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    eyeIcon.classList.remove("fa-eye");
+    eyeIcon.classList.add("fa-eye-slash");
+  } else {
+    passwordInput.type = "password";
+    eyeIcon.classList.remove("fa-eye-slash");
+    eyeIcon.classList.add("fa-eye");
+  }
+}
+
+// Password strength checker
+document.getElementById("password").addEventListener("input", function () {
+  const password = this.value;
+  const strengthFill = document.getElementById("strength-fill");
+  const strengthText = document.getElementById("strength-text");
+
+  let strength = 0;
+  let strengthLabel = "";
+
+  if (password.length >= 8) strength++;
+  if (password.match(/[a-z]/)) strength++;
+  if (password.match(/[A-Z]/)) strength++;
+  if (password.match(/[0-9]/)) strength++;
+  if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+  switch (strength) {
+    case 0:
+    case 1:
+      strengthLabel = "Very Weak";
+      strengthFill.style.width = "20%";
+      strengthFill.style.background = "#ff4444";
+      break;
+    case 2:
+      strengthLabel = "Weak";
+      strengthFill.style.width = "40%";
+      strengthFill.style.background = "#ff8800";
+      break;
+    case 3:
+      strengthLabel = "Fair";
+      strengthFill.style.width = "60%";
+      strengthFill.style.background = "#ffaa00";
+      break;
+    case 4:
+      strengthLabel = "Good";
+      strengthFill.style.width = "80%";
+      strengthFill.style.background = "#00aa00";
+      break;
+    case 5:
+      strengthLabel = "Strong";
+      strengthFill.style.width = "100%";
+      strengthFill.style.background = "#008800";
+      break;
+  }
+
+  strengthText.textContent = strengthLabel;
+});
+
+// Password confirmation checker
+document
+  .getElementById("confirmPassword")
+  .addEventListener("input", function () {
+    const password = document.getElementById("password").value;
+    const confirmPassword = this.value;
+
+    if (confirmPassword && password !== confirmPassword) {
+      this.setCustomValidity("Passwords do not match");
+    } else {
+      this.setCustomValidity("");
+    }
+  });
