@@ -11,6 +11,9 @@ const session = require("express-session");
 const sessionConfig = require("./config/session.js");
 const flash = require("connect-flash");
 const connectFlash = require("./middleware/connectFlash.js");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user");
 
 const app = express();
 const port = 8080;
@@ -19,6 +22,15 @@ app.use(session(sessionConfig));
 app.use(flash());
 //flash message middleware
 app.use(connectFlash);
+
+// ... existing app.use(session(sessionConfig));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
