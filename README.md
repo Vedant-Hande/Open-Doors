@@ -26,21 +26,6 @@ _Main listings page showing all available properties_
 ![Property Details](image/Screenshot%202025-09-20%20223125.png)
 _Detailed view of individual property listings_
 
-![Create New Listing](image/Screenshot%202025-09-20%20223153.png)
-_Form for creating new property listings_
-
-![Edit Listing](image/Screenshot%202025-09-20%20223209.png)
-_Edit form for modifying existing listings_
-
-![Review System](image/Screenshot%202025-09-20%20223224.png)
-_Property review and rating system_
-
-![Health Monitoring](image/Screenshot%202025-09-20%20223246.png)
-_System health check and performance metrics_
-
-![Application Features](image/Screenshot%202025-09-20%20223308.png)
-_Additional application features and functionality_
-
 ### Key Features Showcased
 
 - **Responsive Design**: Clean, modern interface that works on all devices
@@ -128,7 +113,7 @@ npm install
 
 ### Configuration
 
-The app connects to MongoDB at `mongodb://localhost:27017/OpenDoors` by default (see `index.js` and `init/index.js`). If your MongoDB runs elsewhere, update the connection URI in those files.
+The app connects to MongoDB at `mongodb://localhost:27017/OpenDoors` by default (see `config/database.js` and `init/index.js`). If your MongoDB runs elsewhere, update the connection URI in those files.
 
 Port defaults to `8080`.
 
@@ -150,7 +135,7 @@ node init/index.js
 node index.js
 ```
 
-Then open `http://localhost:8080/listings`.
+Then open `http://localhost:8080/` (home) or `http://localhost:8080/listing/` (listings).
 
 ## 🛣️ API Routes
 
@@ -271,75 +256,102 @@ Each feature includes:
 
 ## 📁 Project Structure
 
-The project follows a clean, modular architecture:
+The project uses a modular architecture. Below is a deeper tree highlighting key files and folders:
 
 ```bash
 Open Doors/
-├── config/                    # Database and session configuration
-│   ├── database.js           # MongoDB connection setup
-│   └── session.js            # Session configuration
-├── docs/                      # API documentation
+├── app.js
+├── index.js
+├── package.json
+├── package-lock.json
+├── README.md
+├── review.md
+├── config/
+│   ├── database.js
+│   └── session.js
+├── docs/
 │   └── API.md
-├── image/                     # Project screenshots and images
-│   └── Screenshot*.png       # Application screenshots
-├── init/                      # Database seeding
-│   ├── data.js               # Sample data
-│   ├── index.js              # Seeder script
+├── image/
+│   ├── Screenshot 2025-09-20 223044.png
+│   ├── Screenshot 2025-09-20 223125.png
+│   ├── Screenshot 2025-09-20 223153.png
+│   ├── Screenshot 2025-09-20 223209.png
+│   ├── Screenshot 2025-09-20 223224.png
+│   ├── Screenshot 2025-09-20 223246.png
+│   └── Screenshot 2025-09-20 223308.png
+├── init/
+│   ├── data.js
+│   ├── index.js
 │   └── sampleData.txt
-├── logs/                      # Application logs
-│   ├── access.log            # Request logs
-│   ├── app.log               # General application logs
-│   └── error.log             # Error logs
-├── middleware/                # Custom middleware
-│   ├── connectFlash.js       # Flash message middleware
-│   ├── errorHandler.js       # Global error handling
-│   ├── logger.js             # Request logging
-│   └── validation.js         # Input validation
-├── models/                    # Database models
-│   ├── listing.js            # Property listing schema
-│   └── review.js             # Review schema
-├── New features/              # Advanced features
-│   ├── 1-Caching/            # Caching implementation
-│   ├── 2-Request-Logging/    # Logging system
-│   ├── 3-Search-Filtering/   # Search functionality
-│   ├── 4-Pagination/         # Pagination system
-│   └── README.md             # Features overview
-├── public/                    # Static assets
-│   ├── css/                  # Stylesheets
-│   │   ├── main.scss         # SCSS source file
-│   │   └── style.css         # Compiled CSS
-│   └── js/                   # Client-side JavaScript
+├── logs/
+│   ├── access.log
+│   ├── app.log
+│   └── error.log
+├── middleware/
+│   ├── connectFlash.js
+│   ├── errorHandler.js
+│   ├── logger.js
+│   └── validation.js
+├── models/
+│   ├── listing.js
+│   ├── review.js
+│   └── user.js
+├── New features/
+│   ├── 1-Caching/
+│   │   ├── README.md
+│   │   ├── cache.js
+│   │   └── example-usage.js
+│   ├── 2-Request-Logging/
+│   │   ├── README.md
+│   │   └── example-usage.js
+│   ├── 3-Search-Filtering/
+│   │   ├── README.md
+│   │   ├── example-usage.js
+│   │   └── search-filter.js
+│   └── 4-Pagination/
+│       ├── README.md
+│       ├── example-usage.js
+│       └── pagination.js
+├── public/
+│   ├── css/
+│   │   ├── main.scss
+│   │   └── style.css
+│   └── js/
 │       └── script.js
-├── routes/                    # Route handlers
-│   ├── listingRoute.js       # Property routes
-│   └── reviewRoute.js        # Review routes
-├── utils/                     # Utility functions
-│   ├── ExpressError.js       # Custom error class
-│   └── wrapAsync.js          # Async error wrapper
-├── views/                     # EJS templates
-│   ├── auth/                 # Authentication views
-│   │   ├── login.ejs         # Login page
-│   │   └── signup.ejs        # Registration page
-│   ├── includes/             # Partial templates
-│   │   ├── flashMsg.ejs      # Flash message component
-│   │   ├── footer.ejs        # Footer partial
-│   │   ├── main.ejs          # Main layout partial
-│   │   └── navbar.ejs        # Navigation partial
-│   ├── layouts/              # Layout templates
-│   │   └── boilerplate.ejs   # Base layout template
-│   ├── listings/             # Property views
-│   │   ├── editListing.ejs   # Edit listing form
-│   │   ├── error.ejs         # Error page
-│   │   ├── health.ejs        # Health check page
-│   │   ├── index.ejs         # Listings index
-│   │   ├── newListing.ejs    # New listing form
-│   │   └── show.ejs          # Listing details
-│   └── main.ejs              # Main page template
-├── index.js                   # Main application file
-├── package.json              # Dependencies and scripts
-├── package-lock.json         # Dependency lock file
-├── README.md                 # Project documentation
-└── review.md                 # Project review and notes
+├── routes/
+│   ├── healthRoute.js
+│   ├── listingRoute.js
+│   ├── reviewRoute.js
+│   ├── staticPagesRoute.js
+│   └── userRoute.js
+├── utils/
+│   ├── ExpressError.js
+│   └── wrapAsync.js
+└── views/
+    ├── health/
+    │   └── health.ejs
+    ├── includes/
+    │   ├── flashMsg.ejs
+    │   ├── footer.ejs
+    │   ├── main.ejs
+    │   └── navbar.ejs
+    ├── layouts/
+    │   └── boilerplate.ejs
+    ├── listings/
+    │   ├── editListing.ejs
+    │   ├── error.ejs
+    │   ├── index.ejs
+    │   ├── newListing.ejs
+    │   └── show.ejs
+    ├── staticPage/
+    │   ├── about.ejs
+    │   ├── contact.ejs
+    │   ├── main.ejs
+    │   ├── privacy.ejs
+    │   └── terms.ejs
+    └── user/
+        ├── login.ejs
+        └── signup.ejs
 ```
 
 ## 🚀 Getting Started
