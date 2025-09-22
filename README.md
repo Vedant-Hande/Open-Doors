@@ -272,13 +272,7 @@ Open Doors/
 ├── docs/
 │   └── API.md
 ├── image/
-│   ├── Screenshot 2025-09-20 223044.png
-│   ├── Screenshot 2025-09-20 223125.png
-│   ├── Screenshot 2025-09-20 223153.png
-│   ├── Screenshot 2025-09-20 223209.png
-│   ├── Screenshot 2025-09-20 223224.png
-│   ├── Screenshot 2025-09-20 223246.png
-│   └── Screenshot 2025-09-20 223308.png
+│   ├── Screenshot*.png
 ├── init/
 │   ├── data.js
 │   ├── index.js
