@@ -67,20 +67,6 @@ const logger = (req, res, next) => {
     }
   });
 
-  // Log to console with color coding
-  // const coloredMethod =
-  //   method === "GET"
-  //     ? "\x1b[32m" + method + "\x1b[0m"
-  //     : method === "POST"
-  //     ? "\x1b[33m" + method + "\x1b[0m"
-  //     : method === "PUT"
-  //     ? "\x1b[34m" + method + "\x1b[0m"
-  //     : method === "DELETE"
-  //     ? "\x1b[31m" + method + "\x1b[0m"
-  //     : method;
-
-  // console.log(`${timestamp} - ${coloredMethod} ${url} - IP: ${ip}`);
-
   // Check for log rotation
   rotateLogFile(logFile);
   rotateLogFile(accessLogFile);
