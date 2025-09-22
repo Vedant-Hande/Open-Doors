@@ -292,20 +292,9 @@ Open Doors/
 │   └── user.js
 ├── New features/
 │   ├── 1-Caching/
-│   │   ├── README.md
-│   │   ├── cache.js
-│   │   └── example-usage.js
 │   ├── 2-Request-Logging/
-│   │   ├── README.md
-│   │   └── example-usage.js
 │   ├── 3-Search-Filtering/
-│   │   ├── README.md
-│   │   ├── example-usage.js
-│   │   └── search-filter.js
 │   └── 4-Pagination/
-│       ├── README.md
-│       ├── example-usage.js
-│       └── pagination.js
 ├── public/
 │   ├── css/
 │   │   ├── main.scss
