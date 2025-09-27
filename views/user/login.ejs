@@ -19,7 +19,7 @@
 
     <form
       class="login-form needs-validation"
-      action="/login"
+      action="/user/login"
       method="POST"
       novalidate>
       <div class="form-group">
@@ -61,14 +61,6 @@
       </div>
 
       <div class="form-options">
-        <div class="remember-me">
-          <input
-            type="checkbox"
-            id="remember"
-            name="remember"
-            class="form-checkbox" />
-          <label for="remember" class="checkbox-label">Remember me</label>
-        </div>
         <a href="/forgot-password" class="forgot-password">Forgot Password?</a>
       </div>
 
@@ -83,7 +75,7 @@
     <div class="form-footer">
       <p class="signup-text">
         Don't have an account?
-        <a href="/signup" class="signup-link">Sign up here</a>
+        <a href="/user/signup" class="signup-link">Sign up here</a>
       </p>
     </div>
   </div>

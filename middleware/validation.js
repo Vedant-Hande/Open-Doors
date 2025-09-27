@@ -49,6 +49,55 @@ const reviewSchema = Joi.object({
   }),
 });
 
+const userSchema = Joi.object({
+  firstName: Joi.string().min(2).max(50).trim().required().messages({
+    "string.min": "First name must be at least 2 characters long",
+    "string.max": "First name cannot exceed 50 characters",
+    "any.required": "First name is required",
+  }),
+  lastName: Joi.string().min(2).max(50).trim().required().messages({
+    "string.min": "Last name must be at least 2 characters long",
+    "string.max": "Last name cannot exceed 50 characters",
+    "any.required": "Last name is required",
+  }),
+  username: Joi.string().min(3).max(30).alphanum().required().messages({
+    "string.min": "Username must be at least 3 characters long",
+    "string.max": "Username cannot exceed 30 characters",
+    "string.alphanum": "Username can only contain letters and numbers",
+    "any.required": "Username is required",
+  }),
+  email: Joi.string().email().lowercase().trim().required().messages({
+    "string.email": "Please enter a valid email address",
+    "any.required": "Email is required",
+  }),
+  phoneNumber: Joi.string()
+    .pattern(/^[\+]?[1-9][\d]{0,15}$/)
+    .required()
+    .messages({
+      "string.pattern.base": "Please enter a valid phone number",
+      "any.required": "Phone number is required",
+    }),
+  password: Joi.string().min(8).required().messages({
+    "string.min": "Password must be at least 8 characters long",
+    "any.required": "Password is required",
+  }),
+  confirmPassword: Joi.string().valid(Joi.ref("password")).required().messages({
+    "any.only": "Passwords do not match",
+    "any.required": "Please confirm your password",
+  }),
+  accountType: Joi.string()
+    .valid("tenant", "landlord", "agent", "admin")
+    .required()
+    .messages({
+      "any.only": "Please select a valid account type",
+      "any.required": "Account type is required",
+    }),
+  terms: Joi.boolean().valid(true).required().messages({
+    "any.only": "You must agree to the terms and conditions",
+    "any.required": "You must agree to the terms and conditions",
+  }),
+});
+
 // Validation middleware
 const validateListing = (req, res, next) => {
   const { error, value } = listingSchema.validate(req.body, {
@@ -80,9 +129,26 @@ const validateReview = (req, res, next) => {
   next();
 };
 
+const validateUser = (req, res, next) => {
+  const { error, value } = userSchema.validate(req.body, {
+    abortEarly: false,
+    stripUnknown: true,
+  });
+
+  if (error) {
+    const errorMessages = error.details.map((detail) => detail.message);
+    throw new ExpressError(400, errorMessages.join(", "));
+  }
+
+  req.body = value; // Use sanitized data
+  next();
+};
+
 module.exports = {
   validateListing,
   validateReview,
+  validateUser,
   listingSchema,
   reviewSchema,
+  userSchema,
 };

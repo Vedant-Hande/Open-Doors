@@ -19,7 +19,7 @@
 
     <form
       class="signup-form needs-validation"
-      action="/signup"
+      action="/user/signup"
       method="POST"
       novalidate>
       <div class="form-row">
@@ -85,14 +85,14 @@
       </div>
 
       <div class="form-group">
-        <label for="phone" class="form-label">
+        <label for="phoneNumber" class="form-label">
           <i class="fas fa-phone"></i>
           Phone Number
         </label>
         <input
           type="tel"
-          id="phone"
-          name="phone"
+          id="phoneNumber"
+          name="phoneNumber"
           class="form-control"
           placeholder="Enter your phone number"
           required />
@@ -154,15 +154,20 @@
       </div>
 
       <div class="form-group">
-        <label for="userType" class="form-label">
+        <label for="accountType" class="form-label">
           <i class="fas fa-users"></i>
           Account Type
         </label>
-        <select id="userType" name="userType" class="form-control" required>
+        <select
+          id="accountType"
+          name="accountType"
+          class="form-control"
+          required>
           <option value="">Select account type</option>
-          <option value="buyer">Property Buyer</option>
-          <option value="seller">Property Seller</option>
+          <option value="tenant">Tenant</option>
+          <option value="landlord">Landlord</option>
           <option value="agent">Real Estate Agent</option>
+          <option value="admin">Admin</option>
         </select>
         <div class="invalid-feedback">Please Enter Account type</div>
       </div>
@@ -194,7 +199,7 @@
     <div class="form-footer">
       <p class="login-text">
         Already have an account?
-        <a href="/login" class="login-link">Sign in here</a>
+        <a href="/user/login" class="login-link">Sign in here</a>
       </p>
     </div>
   </div>
