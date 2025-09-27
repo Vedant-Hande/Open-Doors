@@ -19,7 +19,7 @@ router.post(
   "/signup",
   validateUser,
   wrapAsync(async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     try {
       const {
         firstName,

@@ -134,7 +134,7 @@ const validateUser = (req, res, next) => {
     abortEarly: false,
     stripUnknown: true,
   });
-  console.log("Data being validated:", req.body);
+  // console.log("Data being validated:", req.body);
 
   if (error) {
     const errorMessages = error.details.map((detail) => detail.message);
