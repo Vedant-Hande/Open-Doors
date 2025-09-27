@@ -92,10 +92,6 @@ const userSchema = Joi.object({
       "any.only": "Please select a valid account type",
       "any.required": "Account type is required",
     }),
-  terms: Joi.boolean().valid(true).required().messages({
-    "any.only": "You must agree to the terms and conditions",
-    "any.required": "You must agree to the terms and conditions",
-  }),
 });
 
 // Validation middleware
