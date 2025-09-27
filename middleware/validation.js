@@ -92,6 +92,10 @@ const userSchema = Joi.object({
       "any.only": "Please select a valid account type",
       "any.required": "Account type is required",
     }),
+  terms: Joi.boolean().truthy("on").valid(true).required().messages({
+    "any.only": "You must agree to the terms and conditions",
+    "any.required": "You must agree to the terms and conditions",
+  }),
 });
 
 // Validation middleware
@@ -130,6 +134,7 @@ const validateUser = (req, res, next) => {
     abortEarly: false,
     stripUnknown: true,
   });
+  console.log("Data being validated:", req.body);
 
   if (error) {
     const errorMessages = error.details.map((detail) => detail.message);

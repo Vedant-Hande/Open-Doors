@@ -19,6 +19,7 @@ router.post(
   "/signup",
   validateUser,
   wrapAsync(async (req, res) => {
+    console.log(req.body);
     try {
       const {
         firstName,
@@ -27,6 +28,7 @@ router.post(
         email,
         phoneNumber,
         password,
+        confirmPassword,
         accountType,
       } = req.body;
 
@@ -36,6 +38,7 @@ router.post(
         lastName,
         username,
         email,
+        confirmPassword,
         phoneNumber,
         accountType,
       });
