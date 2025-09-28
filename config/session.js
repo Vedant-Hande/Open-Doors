@@ -11,7 +11,7 @@ const sessionConfig = {
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URI || "mongodb://localhost:27017/TripSpot",
     collectionName: "sessions",
-    ttl: 14 * 24 * 60 * 60,
+    ttl: 5 * 24 * 60 * 60,
   }),
 };
 

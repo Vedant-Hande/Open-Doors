@@ -101,7 +101,7 @@ router.get("/logout", (req, res) => {
   req.logout((err) => {
     if (err) {
       req.flash("error", "Logout failed. Please try again.");
-      return res.redirect("/");
+      return res.render("logout");
     }
     req.flash("success", "You have been logged out successfully.");
     res.redirect("/");
@@ -112,7 +112,7 @@ router.post("/logout", (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
     req.flash("success", "You have been logged out successfully.");
-    res.redirect("/");
+    return res.render("logout");
   });
 });
 

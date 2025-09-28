@@ -45,10 +45,11 @@
             </div>
           </div>
           <div class="dropdown-divider"></div>
-          <a href="/logout" class="dropdown-item logout">
+          <form action="/user/logout" method="POST"></form>
+          <div class="dropdown-item logout">
             <i class="fas fa-sign-out-alt"></i>
             <span>Sign Out</span>
-          </a>
+          </div>
         </div>
       </div>
       <% } else { %>
@@ -94,7 +95,7 @@
           </div>
         </div>
         <div class="mobile-user-actions">
-          <a href="/logout" class="mobile-action-link logout">Sign Out</a>
+          <a href="/user/logout" class="mobile-action-link logout">Sign Out</a>
         </div>
       </div>
       <% } else { %>
