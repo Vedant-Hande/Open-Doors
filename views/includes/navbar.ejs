@@ -1,264 +1,121 @@
-<!-- Premium Modern Navbar -->
-<nav class="premium-navbar">
-  <div class="navbar-container">
-    <!-- Brand Section -->
-    <div class="navbar-brand">
-      <a href="/listing" class="brand-wrapper">
-        <div class="brand-icon">
-          <div class="icon-bg">
-            <i class="fas fa-home"></i>
-          </div>
-          <div class="icon-glow"></div>
-        </div>
-        <div class="brand-text">
-          <span class="brand-title">Open Doors</span>
-          <span class="brand-subtitle">Premium Properties</span>
-        </div>
+<!-- Floating Navbar -->
+<nav class="floating-navbar">
+  <div class="floating-nav-container">
+    <!-- Brand -->
+    <div class="floating-brand">
+      <a href="/listing" class="brand-link">
+        <span class="brand-text">OPEN DOORS</span>
       </a>
     </div>
 
-    <!-- Desktop Navigation -->
-    <div class="navbar-nav">
-      <div class="nav-links">
-        <a href="/listing" class="nav-item">
-          <div class="nav-icon">
-            <i class="fas fa-home"></i>
-          </div>
-          <span class="nav-text">Home</span>
-          <div class="nav-indicator"></div>
-        </a>
-        <a href="/listing" class="nav-item">
-          <div class="nav-icon">
-            <i class="fas fa-search"></i>
-          </div>
-          <span class="nav-text">Explore</span>
-          <div class="nav-indicator"></div>
-        </a>
-        <a href="/listing/new" class="nav-item premium">
-          <div class="nav-icon">
-            <i class="fas fa-plus"></i>
-          </div>
-          <span class="nav-text">List Property</span>
-          <div class="nav-indicator"></div>
-          <div class="premium-badge">Pro</div>
-        </a>
-      </div>
-
-      <!-- User Section -->
-      <div class="navbar-user">
-        <% if (typeof user !== 'undefined' && user) { %>
-        <!-- Logged In User -->
-        <div class="user-card">
-          <div class="user-avatar-section">
-            <div class="user-avatar">
-              <div class="avatar-bg">
-                <i class="fas fa-user"></i>
-              </div>
-              <div class="avatar-ring"></div>
-              <div class="status-indicator online"></div>
-            </div>
-          </div>
-          <div class="user-details">
-            <div class="user-greeting">Welcome back,</div>
-            <div class="user-name"><%= user.firstName %></div>
-            <div class="user-badge">
-              <i class="fas fa-crown"></i>
-              <span><%= user.accountType %></span>
-            </div>
-          </div>
-          <div class="user-menu">
-            <button
-              class="menu-trigger"
-              type="button"
-              data-bs-toggle="dropdown">
-              <i class="fas fa-ellipsis-v"></i>
-            </button>
-            <div class="dropdown-menu premium-dropdown">
-              <div class="dropdown-header">
-                <div class="header-avatar">
-                  <i class="fas fa-user"></i>
-                </div>
-                <div class="header-info">
-                  <div class="header-name">
-                    <%= user.firstName %> <%= user.lastName %>
-                  </div>
-                  <div class="header-email"><%= user.email %></div>
-                </div>
-              </div>
-              <div class="dropdown-divider"></div>
-              <a href="/user/profile" class="dropdown-item">
-                <div class="item-icon">
-                  <i class="fas fa-user-circle"></i>
-                </div>
-                <div class="item-content">
-                  <div class="item-title">My Profile</div>
-                  <div class="item-subtitle">Manage your account</div>
-                </div>
-              </a>
-              <a href="/user/dashboard" class="dropdown-item">
-                <div class="item-icon">
-                  <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="item-content">
-                  <div class="item-title">Dashboard</div>
-                  <div class="item-subtitle">View your activity</div>
-                </div>
-              </a>
-              <a href="/user/settings" class="dropdown-item">
-                <div class="item-icon">
-                  <i class="fas fa-cog"></i>
-                </div>
-                <div class="item-content">
-                  <div class="item-title">Settings</div>
-                  <div class="item-subtitle">Preferences & privacy</div>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="/user/logout" class="dropdown-item logout">
-                <div class="item-icon">
-                  <i class="fas fa-sign-out-alt"></i>
-                </div>
-                <div class="item-content">
-                  <div class="item-title">Sign Out</div>
-                  <div class="item-subtitle">End your session</div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <% } else { %>
-        <!-- Guest User -->
-        <div class="auth-section">
-          <a href="/user/login" class="auth-btn login-btn">
-            <div class="btn-icon">
-              <i class="fas fa-sign-in-alt"></i>
-            </div>
-            <span class="btn-text">Sign In</span>
-          </a>
-          <a href="/user/signup" class="auth-btn signup-btn">
-            <div class="btn-icon">
-              <i class="fas fa-user-plus"></i>
-            </div>
-            <span class="btn-text">Get Started</span>
-            <div class="btn-glow"></div>
-          </a>
-        </div>
-        <% } %>
-      </div>
+    <!-- Navigation Links -->
+    <div class="floating-nav-links">
+      <a href="/listing" class="floating-nav-link">Home</a>
+      <a href="/listing" class="floating-nav-link">Explore</a>
+      <a href="/listing" class="floating-nav-link">Properties</a>
+      <a href="/listing/new" class="floating-nav-link">List Property</a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button
-      class="mobile-toggle"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#mobileMenu">
-      <div class="hamburger">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </div>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div class="collapse mobile-menu" id="mobileMenu">
-    <div class="mobile-content">
-      <div class="mobile-nav">
-        <a href="/listing" class="mobile-nav-item">
-          <div class="mobile-nav-icon">
-            <i class="fas fa-home"></i>
-          </div>
-          <span class="mobile-nav-text">Home</span>
-        </a>
-        <a href="/listing" class="mobile-nav-item">
-          <div class="mobile-nav-icon">
-            <i class="fas fa-search"></i>
-          </div>
-          <span class="mobile-nav-text">Explore</span>
-        </a>
-        <a href="/listing/new" class="mobile-nav-item premium">
-          <div class="mobile-nav-icon">
-            <i class="fas fa-plus"></i>
-          </div>
-          <span class="mobile-nav-text">List Property</span>
-          <div class="mobile-premium-badge">Pro</div>
-        </a>
-      </div>
-
+    <!-- User Section -->
+    <div class="floating-user-section">
       <% if (typeof user !== 'undefined' && user) { %>
-      <div class="mobile-user-section">
-        <div class="mobile-user-card">
-          <div class="mobile-user-avatar">
-            <div class="mobile-avatar-bg">
+      <!-- Logged In User -->
+      <div class="floating-user-menu">
+        <button
+          class="user-menu-trigger"
+          type="button"
+          data-bs-toggle="dropdown">
+          <div class="user-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <span class="user-name"><%= user.firstName %></span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="dropdown-menu floating-dropdown">
+          <div class="dropdown-header">
+            <div class="header-avatar">
               <i class="fas fa-user"></i>
             </div>
-            <div class="mobile-status-indicator online"></div>
-          </div>
-          <div class="mobile-user-info">
-            <div class="mobile-user-name">
-              <%= user.firstName %> <%= user.lastName %>
-            </div>
-            <div class="mobile-user-email"><%= user.email %></div>
-            <div class="mobile-user-badge">
-              <i class="fas fa-crown"></i>
-              <span><%= user.accountType %></span>
+            <div class="header-info">
+              <div class="header-name">
+                <%= user.firstName %> <%= user.lastName %>
+              </div>
+              <div class="header-email"><%= user.email %></div>
             </div>
           </div>
-        </div>
-        <div class="mobile-user-actions">
-          <a href="/user/profile" class="mobile-action-item">
-            <div class="action-icon">
-              <i class="fas fa-user-circle"></i>
-            </div>
-            <div class="action-content">
-              <div class="action-title">My Profile</div>
-              <div class="action-subtitle">Manage your account</div>
-            </div>
+          <div class="dropdown-divider"></div>
+          <a href="/user/profile" class="dropdown-item">
+            <i class="fas fa-user-circle"></i>
+            <span>Profile</span>
           </a>
-          <a href="/user/dashboard" class="mobile-action-item">
-            <div class="action-icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <div class="action-content">
-              <div class="action-title">Dashboard</div>
-              <div class="action-subtitle">View your activity</div>
-            </div>
+          <a href="/user/dashboard" class="dropdown-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
           </a>
-          <a href="/user/settings" class="mobile-action-item">
-            <div class="action-icon">
-              <i class="fas fa-cog"></i>
-            </div>
-            <div class="action-content">
-              <div class="action-title">Settings</div>
-              <div class="action-subtitle">Preferences & privacy</div>
-            </div>
+          <a href="/user/settings" class="dropdown-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
           </a>
-          <a href="/user/logout" class="mobile-action-item logout">
-            <div class="action-icon">
-              <i class="fas fa-sign-out-alt"></i>
-            </div>
-            <div class="action-content">
-              <div class="action-title">Sign Out</div>
-              <div class="action-subtitle">End your session</div>
-            </div>
+          <div class="dropdown-divider"></div>
+          <a href="/user/logout" class="dropdown-item logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sign Out</span>
           </a>
         </div>
       </div>
       <% } else { %>
+      <!-- Guest User -->
+      <a href="/user/login" class="floating-login-link">Log in</a>
+      <a href="/user/signup" class="floating-cta-button">Get Started</a>
+      <% } %>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="floating-mobile-toggle"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#floatingMobileMenu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="collapse floating-mobile-menu" id="floatingMobileMenu">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-links">
+        <a href="/listing" class="mobile-nav-link">Home</a>
+        <a href="/listing" class="mobile-nav-link">Explore</a>
+        <a href="/listing" class="mobile-nav-link">Properties</a>
+        <a href="/listing/new" class="mobile-nav-link">List Property</a>
+      </div>
+
+      <% if (typeof user !== 'undefined' && user) { %>
+      <div class="mobile-user-section">
+        <div class="mobile-user-info">
+          <div class="mobile-user-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="mobile-user-details">
+            <div class="mobile-user-name">
+              <%= user.firstName %> <%= user.lastName %>
+            </div>
+            <div class="mobile-user-email"><%= user.email %></div>
+          </div>
+        </div>
+        <div class="mobile-user-actions">
+          <a href="/user/profile" class="mobile-action-link">Profile</a>
+          <a href="/user/dashboard" class="mobile-action-link">Dashboard</a>
+          <a href="/user/settings" class="mobile-action-link">Settings</a>
+          <a href="/user/logout" class="mobile-action-link logout">Sign Out</a>
+        </div>
+      </div>
+      <% } else { %>
       <div class="mobile-auth-section">
-        <a href="/user/login" class="mobile-auth-btn login">
-          <div class="mobile-btn-icon">
-            <i class="fas fa-sign-in-alt"></i>
-          </div>
-          <span class="mobile-btn-text">Sign In</span>
-        </a>
-        <a href="/user/signup" class="mobile-auth-btn signup">
-          <div class="mobile-btn-icon">
-            <i class="fas fa-user-plus"></i>
-          </div>
-          <span class="mobile-btn-text">Get Started</span>
-        </a>
+        <a href="/user/login" class="mobile-login-link">Log in</a>
+        <a href="/user/signup" class="mobile-cta-button">Get Started</a>
       </div>
       <% } %>
     </div>
