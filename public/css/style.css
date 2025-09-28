@@ -112,7 +112,7 @@ h6 {
 /* FLOATING NAVBAR DESIGN */
 .floating-navbar {
   position: fixed;
-  top: 2rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -123,15 +123,17 @@ h6 {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
-    0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  padding: 1rem 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  padding: 0.5rem 2.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .floating-navbar:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15),
-    0 2px 0 rgba(255, 255, 255, 0.6) inset;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
   transform: translateX(-50%) translateY(-2px);
 }
 
