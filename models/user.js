@@ -72,7 +72,7 @@ const userSchema = new schema({
 });
 
 userSchema.plugin(passportLocalMongoose, {
-  email: "email", // default; I can change to "email" if you want email login
+  usernameField: "email", // Use email as the username field for authentication
   errorMessages: {
     EmailExistsError: "email already taken.",
   },

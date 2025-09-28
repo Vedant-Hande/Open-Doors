@@ -30,8 +30,21 @@ app.use(connectFlash);
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Middleware to pass user object to all views
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
 // Configure local strategy using User model helpers
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "email", // Use email instead of username for login
+    },
+    User.authenticate()
+  )
+);
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
