@@ -1,4 +1,5 @@
 <!-- Floating Navbar -->
+
 <nav class="floating-navbar">
   <div class="floating-nav-container">
     <!-- Brand -->
@@ -44,7 +45,7 @@
             </div>
           </div>
           <div class="dropdown-divider"></div>
-          <a href="/user/logout" class="dropdown-item logout">
+          <a href="/logout" class="dropdown-item logout">
             <i class="fas fa-sign-out-alt"></i>
             <span>Sign Out</span>
           </a>
@@ -93,7 +94,7 @@
           </div>
         </div>
         <div class="mobile-user-actions">
-          <a href="/user/logout" class="mobile-action-link logout">Sign Out</a>
+          <a href="/logout" class="mobile-action-link logout">Sign Out</a>
         </div>
       </div>
       <% } else { %>
@@ -104,4 +105,5 @@
       <% } %>
     </div>
   </div>
+  <%- include("./flashMsg.ejs") %>
 </nav>

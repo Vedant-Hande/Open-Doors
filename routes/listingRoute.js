@@ -18,6 +18,10 @@ router.get(
 
 //new listing route - form to create new listing
 router.get("/new", (req, res) => {
+  if (!req.isAuthenticated()) {
+    req.flash("error", "You should logged in to List your place!");
+    return req.redirect("/user/login");
+  }
   res.render("listings/newListing.ejs");
 });
 
