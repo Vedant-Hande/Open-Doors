@@ -4,8 +4,8 @@
   <div class="floating-nav-container">
     <!-- Brand -->
     <div class="floating-brand">
-      <a href="/listing" class="brand-link">
-        <span class="brand-text">OPEN DOORS</span>
+      <a href="/listing" class="navbar-brand">
+        <span class="brand-text">TRIPSPOT</span>
       </a>
     </div>
 
@@ -45,11 +45,12 @@
             </div>
           </div>
           <div class="dropdown-divider"></div>
-          <form action="/user/logout" method="POST"></form>
-          <div class="dropdown-item logout">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Sign Out</span>
-          </div>
+          <a href="/user/logout" class="dropdown-item logout">
+            <div class="dropdown-item logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Sign Out</span>
+            </div>
+          </a>
         </div>
       </div>
       <% } else { %>

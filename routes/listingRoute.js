@@ -20,7 +20,7 @@ router.get(
 router.get("/new", (req, res) => {
   if (!req.isAuthenticated()) {
     req.flash("error", "You should logged in to List your place!");
-    return req.redirect("/user/login");
+    return res.redirect("/user/login");
   }
   res.render("listings/newListing.ejs");
 });

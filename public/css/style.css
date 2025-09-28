@@ -2739,6 +2739,7 @@ footer p {
 
   .brand-text {
     font-size: 1.3rem;
+    text-decoration: none;
   }
 
   .brand-icon {
