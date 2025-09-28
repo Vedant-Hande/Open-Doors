@@ -118,53 +118,6 @@ function togglePassword(inputId, iconId) {
   }
 }
 
-// Password strength checker
-document.getElementById("password").addEventListener("input", function () {
-  const password = this.value;
-  const strengthFill = document.getElementById("strength-fill");
-  const strengthText = document.getElementById("strength-text");
-
-  let strength = 0;
-  let strengthLabel = "";
-
-  if (password.length >= 8) strength++;
-  if (password.match(/[a-z]/)) strength++;
-  if (password.match(/[A-Z]/)) strength++;
-  if (password.match(/[0-9]/)) strength++;
-  if (password.match(/[^a-zA-Z0-9]/)) strength++;
-
-  switch (strength) {
-    case 0:
-    case 1:
-      strengthLabel = "Very Weak";
-      strengthFill.style.width = "20%";
-      strengthFill.style.background = "#ff4444";
-      break;
-    case 2:
-      strengthLabel = "Weak";
-      strengthFill.style.width = "40%";
-      strengthFill.style.background = "#ff8800";
-      break;
-    case 3:
-      strengthLabel = "Fair";
-      strengthFill.style.width = "60%";
-      strengthFill.style.background = "#ffaa00";
-      break;
-    case 4:
-      strengthLabel = "Good";
-      strengthFill.style.width = "80%";
-      strengthFill.style.background = "#00aa00";
-      break;
-    case 5:
-      strengthLabel = "Strong";
-      strengthFill.style.width = "100%";
-      strengthFill.style.background = "#008800";
-      break;
-  }
-
-  strengthText.textContent = strengthLabel;
-});
-
 // Password confirmation checker
 document
   .getElementById("confirmPassword")

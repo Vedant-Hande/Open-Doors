@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 passport.use(
   new LocalStrategy(
     {
-      usernameField: "email", // Use email instead of username for login
+      usernameField: "email",
     },
     User.authenticate()
   )

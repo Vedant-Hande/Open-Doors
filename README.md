@@ -113,7 +113,7 @@ npm install
 
 ### Configuration
 
-The app connects to MongoDB at `mongodb://localhost:27017/OpenDoors` by default (see `config/database.js` and `init/index.js`). If your MongoDB runs elsewhere, update the connection URI in those files.
+The app connects to MongoDB at `mongodb://localhost:27017/OpenD***` by default (see `config/database.js` and `init/index.js`). If your MongoDB runs elsewhere, update the connection URI in those files.
 
 Port defaults to `8080`.
 

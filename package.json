@@ -1,7 +1,7 @@
 {
   "name": "open-doors",
   "version": "1.0.0",
-  "description": "This is my 1st fullstack webstie ",
+  "description": "This is my 1st fullstack project ",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
