@@ -55,10 +55,9 @@ router.post(
           );
           return res.redirect("/user/login");
         }
-
         req.flash(
           "success",
-          `Welcome to Open Doors, ${firstName}! Your account has been created successfully.`
+          `Welcome to TripSpot, ${firstName}! Your account has been created successfully.`
         );
         res.redirect("/");
       });
