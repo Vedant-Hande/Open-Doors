@@ -135,6 +135,23 @@ h6 {
   transform: translateX(-50%) translateY(-2px);
 }
 
+/* Prevent content from hiding behind floating navbar */
+.has-floating-navbar main {
+  padding-top: 6.5rem; /* navbar height + top offset */
+}
+
+@media (max-width: 992px) {
+  .has-floating-navbar main {
+    padding-top: 5.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .has-floating-navbar main {
+    padding-top: 5rem;
+  }
+}
+
 .premium-navbar::before {
   content: "";
   position: absolute;
@@ -1714,7 +1731,6 @@ h6 {
   border-radius: 12px !important;
   overflow: hidden;
   background: #ffffff;
-  height: 88%;
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
@@ -2532,13 +2548,32 @@ footer p {
 
   /* Floating Navbar Mobile */
   .floating-navbar {
-    top: 1rem;
-    width: 95%;
-    padding: 0.75rem 1.5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .floating-navbar:hover {
+    transform: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .floating-brand .brand-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
   }
 
   .floating-nav-links {
@@ -2555,6 +2590,19 @@ footer p {
 
   .floating-mobile-menu {
     display: block;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+    margin-top: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Mobile content padding adjustment */
+  .has-floating-navbar main {
+    padding-top: 5rem;
   }
 
   .card-img-top {
