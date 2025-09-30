@@ -4,7 +4,7 @@ const { validateUser } = require("../middleware/validation.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const passport = require("passport");
 const router = express.Router({ mergeParams: true });
-
+const { saveRedirectUrl } = require("../middleware/userAuth.js");
 // GET routes
 router.get("/login", (req, res) => {
   res.render("user/login.ejs");
@@ -83,15 +83,18 @@ router.post(
 
 router.post(
   "/login",
+  saveRedirectUrl,
   passport.authenticate("local", {
     failureFlash: true,
     failureRedirect: "/user/login",
   }),
   async (req, res) => {
     req.flash("success", `Welcome back, ${req.user.firstName}!`);
-    const redirectUrl = req.session.returnTo || "/";
-    delete req.session.returnTo;
+    const redirectUrl = res.locals.redirectUrl ? res.locals.redirectUrl : "/";
+    //  if (req.locals.redirectUrl) {
     res.redirect(redirectUrl);
+    // }
+    // res.redirect("/listing");
   }
 );
 
