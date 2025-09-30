@@ -76,7 +76,7 @@ connectDB();
 app.use("/listing", listingRoute);
 
 // Nested reviews under listing
-app.use("/listing/:id/reviews", reviewRoute);
+app.use("/listing/:id/review", reviewRoute);
 
 // User auth/profile
 app.use("/user", userRoute);

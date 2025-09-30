@@ -7,10 +7,12 @@ const {
   validateListing,
   validateReview,
 } = require("../middleware/validation.js");
+const { isLoggedIn } = require("../middleware/userAuth.js");
 
 // Review  Post route - show & get review for  specific listing>
 router.post(
   "/",
+  isLoggedIn,
   validateReview,
   wrapAsync(async (req, res) => {
     let reviewListing = await Listing.findById(req.params.id);
@@ -30,6 +32,7 @@ router.post(
 // Review delete route -
 router.delete(
   "/:reviewId",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id, reviewId } = req.params;
     await Listing.findByIdAndUpdate(id, { $pull: { review: reviewId } });

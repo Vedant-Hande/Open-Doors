@@ -70,6 +70,7 @@ router.post(
 //edit listing route - form to edit an existing listing
 router.get(
   "/:id/edit",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const editListing = await Listing.findById(id);
@@ -105,6 +106,7 @@ router.put(
 //delete listing route
 router.delete(
   "/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const deletedListing = await Listing.findByIdAndDelete(id);
@@ -113,5 +115,4 @@ router.delete(
     res.redirect("/listing");
   })
 );
-
 module.exports = router;
