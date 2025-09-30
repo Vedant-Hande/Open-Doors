@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema;
-const Review = require("./review");
+const Review = require("../models/review.js");
 
 const listingSchema = new schema({
   title: {
@@ -59,10 +59,13 @@ const listingSchema = new schema({
   },
 });
 
-listingSchema.post("findByIdAndDelete", async (listing) => {
-  if (listing) {
-    console.log(listing.review);
-    await Review.deleteMany({ _id: { $in: listing.review } });
+listingSchema.post(/^findOneAnd/, async (doc) => {
+  if (doc) {
+    await Review.deleteMany({
+      _id: {
+        $in: doc.review,
+      },
+    });
   }
 });
 
