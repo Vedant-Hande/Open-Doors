@@ -6,6 +6,7 @@ const {
   validateListing,
   validateReview,
 } = require("../middleware/validation.js");
+const { isLoggedIn } = require("../middleware/userAuth.js");
 
 // all listings route
 router.get(
@@ -17,11 +18,7 @@ router.get(
 );
 
 //new listing route - form to create new listing
-router.get("/new", (req, res) => {
-  if (!req.isAuthenticated()) {
-    req.flash("error", "You should logged in to List your place!");
-    return res.redirect("/user/login");
-  }
+router.get("/new", isLoggedIn, (req, res) => {
   res.render("listings/newListing.ejs");
 });
 
