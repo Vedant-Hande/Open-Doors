@@ -9,7 +9,7 @@ const {
 } = require("../middleware/validation.js");
 const { isLoggedIn } = require("../middleware/userAuth.js");
 
-// Review  Post route - show & get review for  specific listing>
+// Review  Post route - show & get review for  specific listing
 router.post(
   "/",
   isLoggedIn,
