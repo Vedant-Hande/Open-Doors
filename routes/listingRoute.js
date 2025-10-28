@@ -12,7 +12,7 @@ const { isLoggedIn } = require("../middleware/userAuth.js");
 router.get(
   "/",
   wrapAsync(async (req, res) => {
-    const allListings = await Listing.find({});
+    const allListings = await Listing.find({}).populate("owner");
     res.render("listings/index.ejs", { allListings });
   })
 );
@@ -27,10 +27,20 @@ router.get(
   "/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await Listing.findById(id).populate("review");
+    const listing = await Listing.findById(id)
+      .populate("review")
+      .populate("owner");
+    console.log(listing);
     if (!listing) {
       req.flash("error", "Listing you requested for is not exist!");
-      res.redirect("/listing");
+      return res.redirect("/listing");
+    }
+
+    // Handle null owner - this is for listings created before owner field was added
+    if (!listing.owner) {
+      console.log(
+        `Warning: Listing ${id} has no owner assigned. This is a legacy listing.`
+      );
     }
 
     try {
@@ -48,6 +58,7 @@ router.get(
 //create new listing route - handle form submission
 router.post(
   "/",
+  isLoggedIn,
   validateListing,
   wrapAsync(async (req, res, next) => {
     let { title, desc, price, location, country, image } = req.body;
@@ -58,6 +69,7 @@ router.post(
       location,
       country,
       "image.url": image.url,
+      owner: req.user._id,
     });
     await newListing.save();
     console.log("New listing created:", newListing);
