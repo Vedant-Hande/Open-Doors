@@ -48,6 +48,11 @@ const listingSchema = new schema({
       ref: "Review",
     },
   ],
+  owner: {
+    type: schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
