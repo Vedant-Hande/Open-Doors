@@ -71,6 +71,7 @@ router.post(
       "image.url": image.url,
       owner: req.user._id,
     });
+    console.log(req.body);
     await newListing.save();
     console.log("New listing created:", newListing);
     req.flash("success", "New Property Listed!");
