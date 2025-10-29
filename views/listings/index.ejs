@@ -33,12 +33,14 @@
             </div>
 
             <!-- Action Buttons - Bottom Right -->
+
             <div class="card-actions">
               <a
                 class="btn btn-outline-dark btn-sm"
                 href="/listing/<%= listing._id %>">
                 <i class="fas fa-eye me-2"></i>View
               </a>
+              <% if(user && user._id.equals(listing.owner._id)) { %>
               <form
                 action="/listing/<%= listing._id %>?_method=DELETE"
                 method="POST"
@@ -50,6 +52,7 @@
                   <i class="fas fa-trash"></i>
                 </button>
               </form>
+              <% } %>
             </div>
           </div>
         </div>

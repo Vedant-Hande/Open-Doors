@@ -21,6 +21,7 @@
 
         <div class="col-lg-4">
           <div class="listing-info-card">
+            <% if(user && user._id.equals(listing.owner._id)) { %>
             <form
               action="/listing/<%= listing._id %>?_method=DELETE"
               method="POST"
@@ -32,6 +33,7 @@
                 <i class="fas fa-trash"></i>
               </button>
             </form>
+            <% } %>
             <h1 class="listing-title"><%= listing.title %></h1>
 
             <div class="location-info">
@@ -59,14 +61,17 @@
             </div>
 
             <div class="action-buttons">
+              <% if(user && user._id.equals(listing.owner._id)) { %>
               <a
                 href="/listing/<%= listing._id %>/edit"
                 class="btn btn-outline-dark">
                 <i class="fas fa-edit me-2"></i>Edit Listing
               </a>
+              <% } %> <% if(user && !user._id != (listing.owner._id)) { %>
               <button class="btn btn-dark">
                 <i class="fas fa-phone me-2"></i>Contact Owner
               </button>
+              <% } %>
             </div>
           </div>
         </div>
@@ -80,6 +85,9 @@
           <div class="description-card">
             <h3 class="section-title">Description</h3>
             <p class="description-text"><%= listing.desc %></p>
+            <p class="description-text fw-bold">
+              Owner: <%= listing.owner.username %>
+            </p>
           </div>
         </div>
 
@@ -120,7 +128,6 @@
     <div class="reviews-section">
       <div class="row">
         <div class="col-lg-8">
-          <!-- Reviews Display -->
           <div class="reviews-display">
             <div class="reviews-header">
               <h3 class="reviews-title">
@@ -129,27 +136,6 @@
                   >(<%= listing.review.length %>)</span
                 >
               </h3>
-              <!-- // calculate AVG RATING---- -->
-              <% if (listing.review.length > 0) { %>
-              <div class="average-rating">
-                <div class="rating-stars">
-                  <% const avgRating = listing.review.reduce((sum, review) =>
-                  sum + review.rating, 0) / listing.review.length; const
-                  fullStars = Math.floor(avgRating); const hasHalfStar =
-                  avgRating % 1 >= 0.5; %> <% for (let i = 1; i <= 5; i++) { %>
-                  <% if (i <= fullStars) { %>
-                  <i class="fas fa-star"></i>
-                  <% } else if (i === fullStars + 1 && hasHalfStar) { %>
-                  <i class="fas fa-star-half-alt"></i>
-                  <% } else { %>
-                  <i class="far fa-star"></i>
-                  <% } %> <% } %>
-                </div>
-                <span class="rating-text"
-                  ><%= avgRating.toFixed(1) %> out of 5</span
-                >
-              </div>
-              <% } %>
             </div>
 
             <% if (listing.review.length > 0) { %>
@@ -158,7 +144,11 @@
               <div class="review-item">
                 <div class="review-header">
                   <div class="review-user">
-                    <h5>Jone Doe</h5>
+                    <h6>
+                      <span><%= review.owner.firstName %></span>
+                      <span> </span>
+                      <span><%= review.owner.lastName %></span>
+                    </h6>
                   </div>
                   <div class="review-rating">
                     <% for (let i = 1; i <= 5; i++) { %> <% if (i <=
@@ -204,6 +194,7 @@
 
         <div class="col-lg-4">
           <!-- Review Form -->
+          <% if (user) { %>
           <div class="review-form-card">
             <h4 class="form-title">
               <i class="fas fa-edit me-2"></i>Write a Review
@@ -260,6 +251,7 @@
               </button>
             </form>
           </div>
+          <% }%>
         </div>
       </div>
     </div>
