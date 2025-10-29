@@ -166,7 +166,11 @@
               <div class="review-item">
                 <div class="review-header">
                   <div class="review-user">
-                    <h5>Jone Doe</h5>
+                    <h6>
+                      <span><%= review.owner.firstName %></span>
+                      <span> </span>
+                      <span><%= review.owner.lastName %></span>
+                    </h6>
                   </div>
                   <div class="review-rating">
                     <% for (let i = 1; i <= 5; i++) { %> <% if (i <=
