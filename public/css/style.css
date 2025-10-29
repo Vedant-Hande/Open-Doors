@@ -24,7 +24,11 @@
     #a7a5ff 8%,
     rgba(255, 255, 255, 0.8) 70%
   );
-  --primary-text-color : color: #fff
+  --primary-text-color: #fff;
+}
+
+.primary {
+  color: var(--primary-text-color);
 }
 
 html,
@@ -4488,8 +4492,6 @@ footer p {
 
 .star-rating-display i.inactive {
   color: #e0e0e0;
-  .review-form .form-control {
-  }
 
   .rating-text {
     font-size: 0.9rem;
