@@ -21,9 +21,9 @@ router.post(
     reviewListing.review.push(newReview);
 
     await reviewListing.save();
-    await newReview.save();
-    console.log(newReview);
+    (newReview.owner = req.user._id), await newReview.save();
     req.flash("success", " New Review Added!");
+    console.log(`New Review listed :  ${newReview}`);
 
     res.redirect(`/listing/${reviewListing._id}`);
   })

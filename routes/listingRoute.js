@@ -63,19 +63,15 @@ router.post(
   wrapAsync(async (req, res, next) => {
     let { title, desc, price, location, country, image } = req.body;
     const newListing = new Listing({
-      title,
-      desc,
-      price,
-      location,
-      country,
+      ...req.body.listing,
       "image.url": image.url,
       owner: req.user._id,
     });
-    console.log(req.body);
+    // console.log(req.body);
     await newListing.save();
-    console.log("New listing created:", newListing);
     req.flash("success", "New Property Listed!");
     res.redirect("/listing");
+    console.log("New listing created:", newListing);
   })
 );
 
