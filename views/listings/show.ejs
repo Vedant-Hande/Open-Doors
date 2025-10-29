@@ -137,27 +137,6 @@
                   >(<%= listing.review.length %>)</span
                 >
               </h3>
-              <!-- // calculate AVG RATING---- -->
-              <% if (listing.review.length > 0) { %>
-              <div class="average-rating">
-                <div class="rating-stars">
-                  <% const avgRating = listing.review.reduce((sum, review) =>
-                  sum + review.rating, 0) / listing.review.length; const
-                  fullStars = Math.floor(avgRating); const hasHalfStar =
-                  avgRating % 1 >= 0.5; %> <% for (let i = 1; i <= 5; i++) { %>
-                  <% if (i <= fullStars) { %>
-                  <i class="fas fa-star"></i>
-                  <% } else if (i === fullStars + 1 && hasHalfStar) { %>
-                  <i class="fas fa-star-half-alt"></i>
-                  <% } else { %>
-                  <i class="far fa-star"></i>
-                  <% } %> <% } %>
-                </div>
-                <span class="rating-text"
-                  ><%= avgRating.toFixed(1) %> out of 5</span
-                >
-              </div>
-              <% } %>
             </div>
 
             <% if (listing.review.length > 0) { %>
@@ -216,6 +195,7 @@
 
         <div class="col-lg-4">
           <!-- Review Form -->
+          <% if (user) { %>
           <div class="review-form-card">
             <h4 class="form-title">
               <i class="fas fa-edit me-2"></i>Write a Review
@@ -272,6 +252,7 @@
               </button>
             </form>
           </div>
+          <% }%>
         </div>
       </div>
     </div>
