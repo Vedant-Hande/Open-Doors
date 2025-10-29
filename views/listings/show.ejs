@@ -69,7 +69,9 @@
               </a>
               <% } %> <% if(user && !user._id != (listing.owner._id)) { %>
               <button class="btn btn-dark">
-                <i class="fas fa-phone me-2"></i>Contact Owner
+                <p class="description-text fw-bold color-success">
+                  Owner: <%= listing.owner.email %>
+                </p>
               </button>
               <% } %>
             </div>
@@ -85,9 +87,6 @@
           <div class="description-card">
             <h3 class="section-title">Description</h3>
             <p class="description-text"><%= listing.desc %></p>
-            <p class="description-text fw-bold">
-              Owner: <%= listing.owner.username %>
-            </p>
           </div>
         </div>
 
@@ -167,6 +166,7 @@
                   <p class="review-comment"><%= review.comment %></p>
                 </div>
                 <div class="review-delete float-end">
+                  <% if (user && user._id.equals(review.owner._id)) { %>
                   <form
                     action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE"
                     method="POST"
@@ -175,6 +175,7 @@
                       <i class="fas fa-trash"></i>
                     </button>
                   </form>
+                  <% } %>
                 </div>
               </div>
 

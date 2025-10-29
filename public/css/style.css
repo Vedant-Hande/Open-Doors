@@ -24,6 +24,7 @@
     #a7a5ff 8%,
     rgba(255, 255, 255, 0.8) 70%
   );
+  --primary-text-color : color: #fff
 }
 
 html,
@@ -4487,37 +4488,37 @@ footer p {
 
 .star-rating-display i.inactive {
   color: #e0e0e0;
-}
+  .review-form .form-control {
+  }
 
-.rating-text {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #666666;
-  font-style: italic;
-}
+  .rating-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666666;
+    font-style: italic;
+  }
 
-/* Review Form */
-.review-form .form-group {
-  margin-bottom: 1.5rem;
-}
+  /* Review Form */
+  .review-form .form-group {
+    margin-bottom: 1.5rem;
+  }
 
-.review-form .form-label {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333333;
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-}
+  .review-form .form-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+  }
 
-.review-form .form-label i {
-  color: #000000;
-  font-size: 1rem;
-  width: 20px;
-  text-align: center;
-}
+  .review-form .form-label i {
+    color: #000000;
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+  }
 
-.review-form .form-control {
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 1rem 1.25rem;
