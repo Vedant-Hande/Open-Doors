@@ -83,6 +83,38 @@ const errorLogger = (err, req, res, next) => {
   const userAgent = req.get("User-Agent") || "Unknown";
   const referer = req.get("Referer") || "Direct";
 
+  // Try to extract the top stack frame (file:line:column)
+  let originFile = "N/A";
+  let originLine = "N/A";
+  let originColumn = "N/A";
+  let originFunction = "N/A";
+  if (err && err.stack) {
+    const stackLines = String(err.stack).split(/\r?\n/);
+    // Usually the first line is the error message, the next lines are frames like:
+    // at functionName (C:\path\to\file.js:10:15)
+    // or
+    // at C:\path\to\file.js:10:15
+    const frameLine = stackLines.find(
+      (l) => l.trim().startsWith("at ") && l.includes(":")
+    );
+    if (frameLine) {
+      // Extract function if present
+      const fnMatch = frameLine.match(/at\s+([^\(]+)\s*\(/);
+      if (fnMatch && fnMatch[1]) {
+        originFunction = fnMatch[1].trim();
+      }
+      // Extract file:line:column inside parentheses or after 'at '
+      const fileMatch =
+        frameLine.match(/\((.*?):(\d+):(\d+)\)/) ||
+        frameLine.match(/at\s+(.*?):(\d+):(\d+)/);
+      if (fileMatch) {
+        originFile = fileMatch[1];
+        originLine = fileMatch[2];
+        originColumn = fileMatch[3];
+      }
+    }
+  }
+
   // Enhanced error log entry
   const errorLogEntry = `\n--- ERROR ---
 Timestamp: ${timestamp}
@@ -90,6 +122,10 @@ Route: ${method} ${url}
 IP: ${ip}
 User-Agent: ${userAgent}
 Referer: ${referer}
+Origin File: ${originFile}
+Origin Line: ${originLine}
+Origin Column: ${originColumn}
+Origin Function: ${originFunction}
 Error Message: ${err.message}
 Error Code: ${err.code || "N/A"}
 Stack Trace:
