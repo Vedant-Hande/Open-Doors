@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const Listing = require("../models/listing.js");
 const listingController = require("../controllers/listingController.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const {
