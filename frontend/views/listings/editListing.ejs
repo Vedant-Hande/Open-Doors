@@ -17,6 +17,7 @@
             action="/listing/<%= editListing._id %>?_method=PUT"
             method="POST"
             class="listing-form needs-validation"
+            enctype="multipart/form-data"
             novalidate>
             <!-- Basic Information Section -->
             <div class="form-section">
@@ -142,22 +143,16 @@
 
               <div class="form-group">
                 <label for="image" class="form-label">
-                  <i class="fas fa-link me-2"></i>Image URL
+                  <i class="fas fa-link me-2"></i>Upload Image
                 </label>
                 <input
-                  type="url"
+                  type="file"
                   id="image"
                   name="image[url]"
                   class="form-control"
                   value="<%= editListing.image.url%>"
-                  placeholder="https://example.com/your-property-image.jpg"
                   required />
-                <div class="invalid-feedback">Please provide image url</div>
-                <div class="form-help">
-                  <i class="fas fa-info-circle me-1"></i>
-                  Provide a high-quality image URL. Make sure the image is clear
-                  and shows your property at its best
-                </div>
+                <div class="invalid-feedback">Please provide image</div>
               </div>
 
               <!-- Current Image Display -->
