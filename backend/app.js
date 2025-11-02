@@ -1,7 +1,17 @@
+const path = require("path");
+
+// Load environment variables from .env file in root directory (skip in production where env vars should be set externally)
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
+}
+
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
+console.log("PORT:", process.env.CONN_PORT);
+console.log("NODE_ENV:", process.env);
+
 const express = require("express");
 const methodOverride = require("method-override");
 const connectDB = require("./config/database.js");
-const path = require("path");
 const ejsMate = require("ejs-mate");
 const { errorHandler, notFound } = require("./middleware/errorHandler.js");
 const listingRoute = require("./routes/listingRoute.js");

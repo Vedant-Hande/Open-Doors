@@ -10,5 +10,8 @@
     "backend:dev": "cd backend && npm run dev"
   },
   "author": "vedant hande",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cloudinary": "^2.8.0"
+  }
 }
