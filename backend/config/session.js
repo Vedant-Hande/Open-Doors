@@ -1,7 +1,7 @@
 const MongoStore = require("connect-mongo");
 
 const sessionConfig = {
-  secret: process.env.SESSION_SECRET || "mysecret",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -9,7 +9,7 @@ const sessionConfig = {
     maxAge: 7 * 24 * 60 * 60 * 1000,
   },
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI || "mongodb://localhost:27017/TripSpot",
+    mongoUrl: process.env.MONGODB_URI,
     collectionName: "sessions",
     ttl: 5 * 24 * 60 * 60,
   }),
