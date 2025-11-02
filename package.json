@@ -1,0 +1,14 @@
+{
+  "name": "open-doors",
+  "version": "1.0.0",
+  "description": "This is my 1st fullstack project",
+  "scripts": {
+    "start": "cd backend && node index.js",
+    "dev": "cd backend && nodemon index.js",
+    "backend:install": "cd backend && npm install",
+    "backend:start": "cd backend && npm start",
+    "backend:dev": "cd backend && npm run dev"
+  },
+  "author": "vedant hande",
+  "license": "ISC"
+}

@@ -41,11 +41,23 @@ Open Doors/
 
 ## Running the Application
 
-### Backend
+### From Root Directory (Recommended)
 
-From the `backend/` directory:
+You can run the application from the project root:
 
 ```bash
+npm install          # Install backend dependencies (runs in backend folder)
+npm start            # Start production server
+npm run dev          # Start development server with nodemon
+npm run backend:install  # Explicitly install backend dependencies
+```
+
+### From Backend Directory (Alternative)
+
+You can also run directly from the `backend/` directory:
+
+```bash
+cd backend
 npm install    # Install dependencies (if needed)
 npm start      # Start production server
 npm run dev    # Start development server with nodemon
@@ -53,7 +65,9 @@ npm run dev    # Start development server with nodemon
 
 ### Notes
 
+- The root `package.json` acts as a convenience wrapper that runs commands in the backend directory
 - The backend serves the frontend views and static assets
 - Views are located in `frontend/views/` and referenced from `backend/app.js`
 - Static assets are served from `frontend/public/`
 - Uploaded files are stored in `backend/uploads/`
+- Actual dependencies are defined in `backend/package.json`
