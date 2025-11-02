@@ -5,10 +5,6 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 }
 
-console.log("MONGODB_URI:", process.env.MONGODB_URI);
-console.log("PORT:", process.env.CONN_PORT);
-console.log("NODE_ENV:", process.env);
-
 const express = require("express");
 const methodOverride = require("method-override");
 const connectDB = require("./config/database.js");

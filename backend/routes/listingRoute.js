@@ -9,7 +9,8 @@ const {
 const { isLoggedIn } = require("../middleware/userAuth.js");
 const multer = require("multer");
 const path = require("path");
-const upload = multer({ dest: path.join(__dirname, "../uploads/") });
+const { storage } = require("../config/cloud.js");
+const upload = multer({ storage: storage });
 
 // all listings route
 router.get("/", wrapAsync(listingController.allListingRoute));
@@ -31,7 +32,7 @@ router.get("/:id", wrapAsync(listingController.showListingRoute));
 router.post(
   "/",
   isLoggedIn,
-  upload.single("image[filename]"),
+  upload.single("image"),
   listingController.createListingRouteWithImage
 );
 

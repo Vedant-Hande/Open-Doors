@@ -92,6 +92,40 @@ module.exports.deleteListingrRoute = async (req, res) => {
 };
 
 module.exports.createListingRouteWithImage = async (req, res) => {
-  console.log(req.file);
-  res.send(req.file);
+  try {
+    // Check if file was uploaded
+    if (!req.file) {
+      req.flash("error", "Please upload an image");
+      return res.redirect("/listing/new");
+    }
+
+    // CloudinaryStorage returns the URL in req.file.path
+    // If path is not available, check other possible locations
+    const imageUrl = req.file.path;
+
+    if (!imageUrl) {
+      console.error("No Cloudinary URL found in req.file:", req.file);
+      req.flash("error", "Failed to upload image");
+      return res.redirect("/listing/new");
+    }
+
+    // Create new listing with Cloudinary URL
+    const newListing = new Listing({
+      ...req.body.listing,
+      image: {
+        filename: req.file.filename,
+        url: imageUrl,
+      },
+      owner: req.user._id,
+    });
+
+    await newListing.save();
+    req.flash("success", "New Property Listed!");
+    console.log("New listing created:", newListing);
+    res.redirect("/listing");
+  } catch (error) {
+    console.error("Error creating listing:", error);
+    req.flash("error", "Failed to create listing. Please try again.");
+    res.redirect("/listing/new");
+  }
 };

@@ -17,7 +17,7 @@ const listingSchema = new schema({
   image: {
     filename: {
       type: String,
-      default: "listingimage",
+      default: "image",
     },
     url: {
       type: String,
