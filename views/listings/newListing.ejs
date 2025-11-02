@@ -17,6 +17,7 @@
             action="/listing"
             method="POST"
             class="listing-form needs-validation"
+            enctype="multipart/form-data"
             novalidate>
             <!-- Basic Information Section -->
             <div class="form-section">
@@ -136,14 +137,14 @@
 
               <div class="form-group">
                 <label for="image" class="form-label">
-                  <i class="fas fa-link me-2"></i>Image URL
+                  <i class="fas fa-link me-2"></i>Upload Image
                 </label>
                 <input
-                  type="url"
+                  type="file"
+                  accept="image/*"
                   id="image"
-                  name="image[url]"
+                  name="image[filename]"
                   class="form-control"
-                  placeholder="https://example.com/your-property-image.jpg"
                   required />
                 <div class="form-help">
                   <div class="invalid-feedback">Please provide image url</div>

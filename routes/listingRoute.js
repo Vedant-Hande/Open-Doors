@@ -7,6 +7,8 @@ const {
   validateReview,
 } = require("../middleware/validation.js");
 const { isLoggedIn } = require("../middleware/userAuth.js");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 // all listings route
 router.get("/", wrapAsync(listingController.allListingRoute));
@@ -18,11 +20,18 @@ router.get("/new", isLoggedIn, listingController.newListingRoute);
 router.get("/:id", wrapAsync(listingController.showListingRoute));
 
 //create new listing route - handle form submission
+// router.post(
+//   "/",
+//   isLoggedIn,
+//   validateListing,
+//   wrapAsync(listingController.createListingRoute)
+// );
+
 router.post(
   "/",
   isLoggedIn,
-  validateListing,
-  wrapAsync(listingController.createListingRoute)
+  upload.single("image[filename]"),
+  listingController.createListingRouteWithImage
 );
 
 //edit listing route - form to edit an existing listing

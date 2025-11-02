@@ -44,9 +44,10 @@ module.exports.showListingRoute = async (req, res) => {
 
 module.exports.createListingRoute = async (req, res, next) => {
   let { title, desc, price, location, country, image } = req.body;
+  console.log("image", image);
   const newListing = new Listing({
     ...req.body.listing,
-    "image.url": image.url,
+    "image.filename": image.filename,
     owner: req.user._id,
   });
   // console.log(req.body);
@@ -88,4 +89,9 @@ module.exports.deleteListingrRoute = async (req, res) => {
   req.flash("success", "Property Deleted!");
   console.log("Listing deleted", deletedListing);
   res.redirect("/listing");
+};
+
+module.exports.createListingRouteWithImage = async (req, res) => {
+  console.log(req.file);
+  res.send(req.file);
 };
