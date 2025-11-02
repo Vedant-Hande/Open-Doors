@@ -8,7 +8,8 @@ const {
 } = require("../middleware/validation.js");
 const { isLoggedIn } = require("../middleware/userAuth.js");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const path = require("path");
+const upload = multer({ dest: path.join(__dirname, "../uploads/") });
 
 // all listings route
 router.get("/", wrapAsync(listingController.allListingRoute));

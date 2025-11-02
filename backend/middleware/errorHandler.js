@@ -54,7 +54,7 @@ const errorHandler = (err, req, res, next) => {
 
   // Render the error page using a path relative to the 'views' directory
   // all the next() call comes here at last
-  res.status(statusCode).render("../views/listings/error.ejs", {
+  res.status(statusCode).render("listings/error.ejs", {
     statusCode,
     message,
     stack: process.env.NODE_ENV === "development" ? err.stack : null,

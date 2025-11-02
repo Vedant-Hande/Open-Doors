@@ -49,7 +49,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // View engine setup (EJS with ejs-mate for layouts/partials)
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "../frontend/views"));
 app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
 
@@ -57,7 +57,7 @@ app.engine("ejs", ejsMate);
 app.use(logger);
 
 // Static assets and method override for HTML forms (PUT/DELETE)
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "../frontend/public")));
 app.use(methodOverride("_method"));
 
 // Avoid logging 404s for the favicon in dev
