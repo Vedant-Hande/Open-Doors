@@ -51,7 +51,7 @@ module.exports.editListingRoute = async (req, res) => {
   }
   let originalImageUrl = editListing.image?.url || "";
   let newImageurl = originalImageUrl
-    ? originalImageUrl.replace("/uplods", "/uplods/h_100,w_100")
+    ? originalImageUrl.replace("/uplods", "/uplods/blur:100")
     : "";
   res.render("listings/editListing.ejs", { editListing, newImageurl });
 };
@@ -62,7 +62,11 @@ module.exports.updateListingRoute = async (req, res, next) => {
 
     // Build update object with listing data
     const updateData = {
-      ...req.body.listing,
+      title: req.body.title,
+      desc: req.body.desc,
+      price: req.body.price,
+      location: req.body.location,
+      country: req.body.country,
     };
 
     if (req.file) {
@@ -120,7 +124,11 @@ module.exports.createListingRoute = async (req, res) => {
 
     // Create new listing with Cloudinary URL
     const newListing = new Listing({
-      ...req.body.listing,
+      title: req.body.title,
+      desc: req.body.desc,
+      price: req.body.price,
+      location: req.body.location,
+      country: req.body.country,
       image: {
         filename: req.file.filename,
         url: imageUrl,

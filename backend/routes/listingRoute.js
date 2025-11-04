@@ -7,10 +7,8 @@ const {
   validateReview,
 } = require("../middleware/validation.js");
 const { isLoggedIn } = require("../middleware/userAuth.js");
-const multer = require("multer");
 const path = require("path");
-const { storage } = require("../config/cloud.js");
-const upload = multer({ storage: storage });
+const handleUpload = require("../middleware/handleUpload");
 
 // all listings route
 router.get("/", wrapAsync(listingController.allListingRoute));
@@ -32,7 +30,7 @@ router.get("/:id", wrapAsync(listingController.showListingRoute));
 router.post(
   "/",
   isLoggedIn,
-  upload.single("image"),
+  handleUpload,
   listingController.createListingRoute
 );
 
@@ -47,7 +45,7 @@ router.get(
 router.put(
   "/:id",
   isLoggedIn,
-  upload.single("image"),
+  handleUpload,
   validateListing,
   wrapAsync(listingController.updateListingRoute)
 );

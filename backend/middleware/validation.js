@@ -100,7 +100,18 @@ const userSchema = Joi.object({
 
 // Validation middleware
 const validateListing = (req, res, next) => {
-  const { error, value } = listingSchema.validate(req.body, {
+  // If file is uploaded via multer, we don't need to validate image in req.body
+  // Create a temporary schema without image requirement if file exists
+  let schemaToValidate = listingSchema;
+  if (req.file) {
+    schemaToValidate = listingSchema.keys({
+      image: Joi.object({
+        url: Joi.string().uri().optional(),
+      }).optional(),
+    });
+  }
+
+  const { error, value } = schemaToValidate.validate(req.body, {
     abortEarly: false,
     stripUnknown: true,
   });
