@@ -15,12 +15,12 @@ router.get("/signup", userController.signupUserRoute);
 router.post("/signup", validateUser, wrapAsync(userController.signupFormRoute));
 
 // handle login form submission routes
-router.post("/login", saveRedirectUrl, userController.loginFormRoute);
+router.post("/login", saveRedirectUrl, ...userController.loginFormRoute);
 
 // Logout route
 router.get("/logout", userController.LogoutUserRoute);
 
 //handle logout
-router.post("/logout", userController.loginFormRoute);
+router.post("/logout", userController.LogoutFormRoute);
 
 module.exports = router;

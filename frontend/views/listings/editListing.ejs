@@ -159,9 +159,7 @@
               <div class="current-image-container">
                 <h5 class="current-image-title">Current Image</h5>
                 <div class="current-image">
-                  <img
-                    src="<%= editListing.image.url %>"
-                    alt="Current Property Image" />
+                  <img src="<%= newImageurl %>" alt="Current Property Image" />
                 </div>
               </div>
 
@@ -174,7 +172,7 @@
                 <div class="image-preview">
                   <img
                     id="previewImage"
-                    src="<%= editListing.image.url %>"
+                    src="<%= newImageurl || editListing.image.url %>"
                     alt="Updated Property Preview" />
                 </div>
               </div>

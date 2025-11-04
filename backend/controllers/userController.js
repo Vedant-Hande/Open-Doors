@@ -51,15 +51,17 @@ module.exports.signupFormRoute = async (req, res) => {
   }
 };
 
-(module.exports.loginFormRoute = passport.authenticate("local", {
-  failureFlash: true,
-  failureRedirect: "/user/login",
-})),
+module.exports.loginFormRoute = [
+  passport.authenticate("local", {
+    failureFlash: true,
+    failureRedirect: "/user/login",
+  }),
   async (req, res) => {
     req.flash("success", `Welcome back, ${req.user.firstName}!`);
     const redirectUrl = res.locals.redirectUrl ? res.locals.redirectUrl : "/";
     res.redirect(redirectUrl);
-  };
+  },
+];
 
 module.exports.LogoutUserRoute = (req, res) => {
   req.logout((err) => {
