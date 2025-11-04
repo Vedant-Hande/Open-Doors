@@ -143,11 +143,17 @@
               <div class="review-item">
                 <div class="review-header">
                   <div class="review-user">
+                    <% if (review.owner) { %>
                     <h6>
                       <span><%= review.owner.firstName %></span>
                       <span> </span>
                       <span><%= review.owner.lastName %></span>
                     </h6>
+                    <% } else { %>
+                    <h6>
+                      <span>Deleted user</span>
+                    </h6>
+                    <% } %>
                   </div>
                   <div class="review-rating">
                     <% for (let i = 1; i <= 5; i++) { %> <% if (i <=
@@ -166,7 +172,8 @@
                   <p class="review-comment"><%= review.comment %></p>
                 </div>
                 <div class="review-delete float-end">
-                  <% if (user && user._id.equals(review.owner._id)) { %>
+                  <% if (user && review.owner &&
+                  user._id.equals(review.owner._id)) { %>
                   <form
                     action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE"
                     method="POST"
