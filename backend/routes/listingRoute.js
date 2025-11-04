@@ -33,7 +33,7 @@ router.post(
   "/",
   isLoggedIn,
   upload.single("image"),
-  listingController.createListingRouteWithImage
+  listingController.createListingRoute
 );
 
 //edit listing route - form to edit an existing listing
@@ -46,6 +46,8 @@ router.get(
 //update (edit) listing route - handle edit form submission
 router.put(
   "/:id",
+  isLoggedIn,
+  upload.single("image"),
   validateListing,
   wrapAsync(listingController.updateListingRoute)
 );
@@ -54,6 +56,6 @@ router.put(
 router.delete(
   "/:id",
   isLoggedIn,
-  wrapAsync(listingController.deleteListingrRoute)
+  wrapAsync(listingController.deleteListingRoute)
 );
 module.exports = router;

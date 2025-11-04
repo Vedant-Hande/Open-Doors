@@ -42,48 +42,53 @@ module.exports.showListingRoute = async (req, res) => {
   }
 };
 
-module.exports.createListingRoute = async (req, res, next) => {
-  let { title, desc, price, location, country, image } = req.body;
-  console.log("image", image);
-  const newListing = new Listing({
-    ...req.body.listing,
-    "image.filename": image.filename,
-    owner: req.user._id,
-  });
-  // console.log(req.body);
-  await newListing.save();
-  req.flash("success", "New Property Listed!");
-  res.redirect("/listing");
-  console.log("New listing created:", newListing);
-};
-
 module.exports.editListingRoute = async (req, res) => {
   let { id } = req.params;
   const editListing = await Listing.findById(id);
+  if (!editListing) {
+    req.flash("error", "Listing you requested for does not exist!");
+    return res.redirect("/listing");
+  }
   res.render("listings/editListing.ejs", { editListing });
 };
 
 module.exports.updateListingRoute = async (req, res, next) => {
-  let { id } = req.params;
-  let { title, desc, price, location, country, image } = req.body;
-  const updatedListing = await Listing.findByIdAndUpdate(
-    id,
-    {
-      title,
-      desc,
-      price,
-      location,
-      country,
-      "image.url": image.url,
-    },
-    { runValidators: true, new: true }
-  );
-  req.flash("success", `${title} Property updated!`);
-  console.log(updatedListing);
-  res.redirect(`/listing/${id}`);
+  try {
+    let { id } = req.params;
+
+    // Build update object with listing data
+    const updateData = {
+      ...req.body.listing,
+    };
+
+    if (req.file) {
+      updateData.image = {
+        filename: req.file.filename,
+        url: req.file.path, // Cloudinary URL
+      };
+    }
+
+    const updatedListing = await Listing.findByIdAndUpdate(id, updateData, {
+      runValidators: true,
+      new: true,
+    });
+
+    if (!updatedListing) {
+      req.flash("error", "Listing not found!");
+      return res.redirect("/listing");
+    }
+
+    req.flash("success", `${updatedListing.title} Property updated!`);
+    console.log("Listing updated:", updatedListing);
+    res.redirect(`/listing/${id}`);
+  } catch (error) {
+    console.error("Error updating listing:", error);
+    req.flash("error", "Failed to update listing. Please try again.");
+    res.redirect(`/listing/${req.params.id}/edit`);
+  }
 };
 
-module.exports.deleteListingrRoute = async (req, res) => {
+module.exports.deleteListingRoute = async (req, res) => {
   let { id } = req.params;
   const deletedListing = await Listing.findByIdAndDelete(id);
   req.flash("success", "Property Deleted!");
@@ -91,7 +96,7 @@ module.exports.deleteListingrRoute = async (req, res) => {
   res.redirect("/listing");
 };
 
-module.exports.createListingRouteWithImage = async (req, res) => {
+module.exports.createListingRoute = async (req, res) => {
   try {
     // Check if file was uploaded
     if (!req.file) {
