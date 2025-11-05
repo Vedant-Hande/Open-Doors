@@ -12,6 +12,7 @@
   "author": "vedant hande",
   "license": "ISC",
   "dependencies": {
-    "cloudinary": "^2.8.0"
+    "cloudinary": "^2.8.0",
+    "leaflet": "^1.9.4"
   }
 }

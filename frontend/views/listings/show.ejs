@@ -1,267 +1,295 @@
 <% layout('layouts/boilerplate') %>
-<body>
-  <div class="container">
-    <!-- Hero Section -->
-    <div class="listing-hero">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="main-image-container">
-            <img
-              src="<%= listing.image.url %>"
-              alt="<%= listing.title %>"
-              class="main-listing-image" />
-            <div class="image-overlay">
-              <div class="price-badge">
-                ₹<%= listing.price.toLocaleString('en-IN') %> /month
-              </div>
-              <div class="status-badge-main">Available</div>
+<div class="container">
+  <!-- Hero Section -->
+  <div class="listing-hero">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="main-image-container">
+          <img
+            src="<%= listing.image.url %>"
+            alt="<%= listing.title %>"
+            class="main-listing-image" />
+          <div class="image-overlay">
+            <div class="price-badge">
+              ₹<%= listing.price.toLocaleString('en-IN') %> /month
             </div>
+            <div class="status-badge-main">Available</div>
           </div>
         </div>
+      </div>
 
-        <div class="col-lg-4">
-          <div class="listing-info-card">
+      <div class="col-lg-4">
+        <div class="listing-info-card">
+          <% if(user && user._id.equals(listing.owner._id)) { %>
+          <form
+            action="/listing/<%= listing._id %>?_method=DELETE"
+            method="POST"
+            style="display: inline">
+            <button
+              type="submit"
+              class="btn btn-danger float-end"
+              onclick="return confirm('Are you sure you want to delete this listing?')">
+              <i class="fas fa-trash"></i>
+            </button>
+          </form>
+          <% } %>
+          <h1 class="listing-title"><%= listing.title %></h1>
+
+          <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><%= listing.location %>, <%= listing.country %></span>
+          </div>
+
+          <div class="property-details">
+            <div class="detail-item">
+              <i class="fas fa-bed"></i>
+              <span>3 Bedrooms</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-bath"></i>
+              <span>2 Bathrooms</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-ruler-combined"></i>
+              <span>1,200 sq ft</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-car"></i>
+              <span>2 Parking</span>
+            </div>
+          </div>
+
+          <div class="action-buttons">
             <% if(user && user._id.equals(listing.owner._id)) { %>
-            <form
-              action="/listing/<%= listing._id %>?_method=DELETE"
-              method="POST"
-              style="display: inline">
-              <button
-                type="submit"
-                class="btn btn-danger float-end"
-                onclick="return confirm('Are you sure you want to delete this listing?')">
-                <i class="fas fa-trash"></i>
-              </button>
-            </form>
-            <% } %>
-            <h1 class="listing-title"><%= listing.title %></h1>
-
-            <div class="location-info">
-              <i class="fas fa-map-marker-alt"></i>
-              <span><%= listing.location %>, <%= listing.country %></span>
-            </div>
-
-            <div class="property-details">
-              <div class="detail-item">
-                <i class="fas fa-bed"></i>
-                <span>3 Bedrooms</span>
-              </div>
-              <div class="detail-item">
-                <i class="fas fa-bath"></i>
-                <span>2 Bathrooms</span>
-              </div>
-              <div class="detail-item">
-                <i class="fas fa-ruler-combined"></i>
-                <span>1,200 sq ft</span>
-              </div>
-              <div class="detail-item">
-                <i class="fas fa-car"></i>
-                <span>2 Parking</span>
-              </div>
-            </div>
-
-            <div class="action-buttons">
-              <% if(user && user._id.equals(listing.owner._id)) { %>
-              <a
-                href="/listing/<%= listing._id %>/edit"
-                class="btn btn-outline-dark">
-                <i class="fas fa-edit me-2"></i>Edit Listing
-              </a>
-              <% } %> <% if(user && !user._id != (listing.owner._id)) { %>
-              <button class="btn btn-dark">
-                <p class="description-text fw-bold primary">
-                  Owner: <%= listing.owner.email %>
-                </p>
-              </button>
-              <% } %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Description Section -->
-    <div class="listing-description">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="description-card">
-            <h3 class="section-title">Description</h3>
-            <p class="description-text"><%= listing.desc %></p>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="amenities-card">
-            <h3 class="section-title">Amenities</h3>
-            <div class="amenities-list">
-              <div class="amenity-item">
-                <i class="fas fa-wifi"></i>
-                <span>High-Speed WiFi</span>
-              </div>
-              <div class="amenity-item">
-                <i class="fas fa-snowflake"></i>
-                <span>Air Conditioning</span>
-              </div>
-              <div class="amenity-item">
-                <i class="fas fa-utensils"></i>
-                <span>Fully Equipped Kitchen</span>
-              </div>
-              <div class="amenity-item">
-                <i class="fas fa-tshirt"></i>
-                <span>In-Unit Laundry</span>
-              </div>
-              <div class="amenity-item">
-                <i class="fas fa-dumbbell"></i>
-                <span>Fitness Center</span>
-              </div>
-              <div class="amenity-item">
-                <i class="fas fa-swimming-pool"></i>
-                <span>Swimming Pool</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Reviews Section -->
-    <div class="reviews-section">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="reviews-display">
-            <div class="reviews-header">
-              <h3 class="reviews-title">
-                <i class="fas fa-star me-2"></i>Reviews
-                <span class="reviews-count"
-                  >(<%= listing.review.length %>)</span
-                >
-              </h3>
-            </div>
-
-            <% if (listing.review.length > 0) { %>
-            <div class="reviews-list">
-              <% listing.review.forEach((review, index) => { %>
-              <div class="review-item">
-                <div class="review-header">
-                  <div class="review-user">
-                    <% if (review.owner) { %>
-                    <h6>
-                      <span><%= review.owner.firstName %></span>
-                      <span> </span>
-                      <span><%= review.owner.lastName %></span>
-                    </h6>
-                    <% } else { %>
-                    <h6>
-                      <span>Deleted user</span>
-                    </h6>
-                    <% } %>
-                  </div>
-                  <div class="review-rating">
-                    <% for (let i = 1; i <= 5; i++) { %> <% if (i <=
-                    review.rating) { %>
-                    <i class="fas fa-star"></i>
-                    <% } else { %>
-                    <i class="far fa-star"></i>
-                    <% } %> <% } %>
-                  </div>
-                  <div class="review-date">
-                    <%= new Date(review.date).toLocaleDateString('en-US', {
-                    year: 'numeric', month: 'long', day: 'numeric' }) %>
-                  </div>
-                </div>
-                <div class="review-content">
-                  <p class="review-comment"><%= review.comment %></p>
-                </div>
-                <div class="review-delete float-end">
-                  <% if (user && review.owner &&
-                  user._id.equals(review.owner._id)) { %>
-                  <form
-                    action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE"
-                    method="POST"
-                    style="display: inline">
-                    <button type="submit" class="btn btn-danger btn-sm m-10">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </form>
-                  <% } %>
-                </div>
-              </div>
-
-              <% }) %>
-            </div>
-            <% } else { %>
-            <div class="no-reviews">
-              <div class="no-reviews-icon">
-                <i class="fas fa-comment-slash"></i>
-              </div>
-              <h4>No reviews yet</h4>
-              <p>Be the first to share your experience with this property!</p>
-            </div>
+            <a
+              href="/listing/<%= listing._id %>/edit"
+              class="btn btn-outline-dark">
+              <i class="fas fa-edit me-2"></i>Edit Listing
+            </a>
+            <% } %> <% if(user && !user._id != (listing.owner._id)) { %>
+            <button class="btn btn-dark">
+              <p class="description-text fw-bold primary">
+                Owner: <%= listing.owner.email %>
+              </p>
+            </button>
             <% } %>
           </div>
-        </div>
-
-        <div class="col-lg-4">
-          <!-- Review Form -->
-          <% if (user) { %>
-          <div class="review-form-card">
-            <h4 class="form-title">
-              <i class="fas fa-edit me-2"></i>Write a Review
-            </h4>
-            <form
-              action="/listing/<%= listing._id %>/review"
-              method="POST"
-              class="review-form needs-validation"
-              novalidate>
-              <div class="form-group">
-                <label for="rating" class="form-label">
-                  <i class="fas fa-star me-1"></i>Your Rating
-                </label>
-                <div class="star-rating-input">
-                  <input
-                    type="hidden"
-                    id="rating"
-                    name="review[rating]"
-                    value="5" />
-                  <div class="star-rating-display">
-                    <i class="fas fa-star" data-rating="1"></i>
-                    <i class="fas fa-star" data-rating="2"></i>
-                    <i class="fas fa-star" data-rating="3"></i>
-                    <i class="fas fa-star" data-rating="4"></i>
-                    <i class="fas fa-star" data-rating="5"></i>
-                  </div>
-                  <span class="rating-text">Excellent</span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="comment" class="form-label">
-                  <i class="fas fa-comment me-1"></i>Your Review
-                </label>
-                <textarea
-                  id="comment"
-                  name="review[comment]"
-                  class="form-control"
-                  placeholder="Share your experience with this property..."
-                  rows="4"
-                  maxlength="250"
-                  required></textarea>
-                <div class="form-help">
-                  <i class="fas fa-info-circle"></i>
-                  <span>Maximum 250 characters</span>
-                </div>
-                <div class="invalid-feedback">
-                  Please provide a comment to add your review
-                </div>
-              </div>
-
-              <button type="submit" class="btn btn-submit-review">
-                <i class="fas fa-paper-plane me-2"></i>Submit Review
-              </button>
-            </form>
-          </div>
-          <% }%>
         </div>
       </div>
     </div>
   </div>
-</body>
+
+  <!-- Description Section -->
+  <div class="listing-description">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="description-card">
+          <h3 class="section-title">Description</h3>
+          <p class="description-text"><%= listing.desc %></p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="amenities-card">
+          <h3 class="section-title">Amenities</h3>
+          <div class="amenities-list">
+            <div class="amenity-item">
+              <i class="fas fa-wifi"></i>
+              <span>High-Speed WiFi</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-snowflake"></i>
+              <span>Air Conditioning</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-utensils"></i>
+              <span>Fully Equipped Kitchen</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tshirt"></i>
+              <span>In-Unit Laundry</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-dumbbell"></i>
+              <span>Fitness Center</span>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-swimming-pool"></i>
+              <span>Swimming Pool</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Reviews Section -->
+  <div class="reviews-section">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="reviews-display">
+          <div class="reviews-header">
+            <h3 class="reviews-title">
+              <i class="fas fa-star me-2"></i>Reviews
+              <span class="reviews-count">(<%= listing.review.length %>)</span>
+            </h3>
+          </div>
+
+          <% if (listing.review.length > 0) { %>
+          <div class="reviews-list">
+            <% listing.review.forEach((review, index) => { %>
+            <div class="review-item">
+              <div class="review-header">
+                <div class="review-user">
+                  <% if (review.owner) { %>
+                  <h6>
+                    <span><%= review.owner.firstName %></span>
+                    <span> </span>
+                    <span><%= review.owner.lastName %></span>
+                  </h6>
+                  <% } else { %>
+                  <h6>
+                    <span>Deleted user</span>
+                  </h6>
+                  <% } %>
+                </div>
+                <div class="review-rating">
+                  <% for (let i = 1; i <= 5; i++) { %> <% if (i <=
+                  review.rating) { %>
+                  <i class="fas fa-star"></i>
+                  <% } else { %>
+                  <i class="far fa-star"></i>
+                  <% } %> <% } %>
+                </div>
+                <div class="review-date">
+                  <%= new Date(review.date).toLocaleDateString('en-US', { year:
+                  'numeric', month: 'long', day: 'numeric' }) %>
+                </div>
+              </div>
+              <div class="review-content">
+                <p class="review-comment"><%= review.comment %></p>
+              </div>
+              <div class="review-delete float-end">
+                <% if (user && review.owner &&
+                user._id.equals(review.owner._id)) { %>
+                <form
+                  action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE"
+                  method="POST"
+                  style="display: inline">
+                  <button type="submit" class="btn btn-danger btn-sm m-10">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+                <% } %>
+              </div>
+            </div>
+
+            <% }) %>
+          </div>
+          <% } else { %>
+          <div class="no-reviews">
+            <div class="no-reviews-icon">
+              <i class="fas fa-comment-slash"></i>
+            </div>
+            <h4>No reviews yet</h4>
+            <p>Be the first to share your experience with this property!</p>
+          </div>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <!-- Review Form -->
+        <% if (user) { %>
+        <div class="review-form-card">
+          <h4 class="form-title">
+            <i class="fas fa-edit me-2"></i>Write a Review
+          </h4>
+          <form
+            action="/listing/<%= listing._id %>/review"
+            method="POST"
+            class="review-form needs-validation"
+            novalidate>
+            <div class="form-group">
+              <label for="rating" class="form-label">
+                <i class="fas fa-star me-1"></i>Your Rating
+              </label>
+              <div class="star-rating-input">
+                <input
+                  type="hidden"
+                  id="rating"
+                  name="review[rating]"
+                  value="5" />
+                <div class="star-rating-display">
+                  <i class="fas fa-star" data-rating="1"></i>
+                  <i class="fas fa-star" data-rating="2"></i>
+                  <i class="fas fa-star" data-rating="3"></i>
+                  <i class="fas fa-star" data-rating="4"></i>
+                  <i class="fas fa-star" data-rating="5"></i>
+                </div>
+                <span class="rating-text">Excellent</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="comment" class="form-label">
+                <i class="fas fa-comment me-1"></i>Your Review
+              </label>
+              <textarea
+                id="comment"
+                name="review[comment]"
+                class="form-control"
+                placeholder="Share your experience with this property..."
+                rows="4"
+                maxlength="250"
+                required></textarea>
+              <div class="form-help">
+                <i class="fas fa-info-circle"></i>
+                <span>Maximum 250 characters</span>
+              </div>
+              <div class="invalid-feedback">
+                Please provide a comment to add your review
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-submit-review">
+              <i class="fas fa-paper-plane me-2"></i>Submit Review
+            </button>
+          </form>
+        </div>
+        <% }%>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8" id="map"></div>
+</div>
+<script>
+  window.addEventListener("load", function () {
+    if (!window.L) return;
+    var map = L.map("map", { zoomControl: false }).setView([40, -74.5], 12);
+
+    // Clean, modern basemap
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      {
+        maxZoom: 20,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      }
+    ).addTo(map);
+
+    // Controls
+    L.control.zoom({ position: "bottomright" }).addTo(map);
+    L.control.scale({ metric: true, imperial: false }).addTo(map);
+
+    // Marker + popup
+    var marker = L.marker([40, -74.5]).addTo(map);
+    marker
+      .bindPopup(
+        `<div style="min-width:180px">
+        <div style="font-weight:700">${`<%= listing.title %>`}</div>
+        <div style="color:#555">${`<%= listing.location %>`}, ${`<%= listing.country %>`}</div>
+      </div>`
+      )
+      .openPopup();
+  });
+</script>

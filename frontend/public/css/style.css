@@ -4898,3 +4898,19 @@ footer p {
   letter-spacing: 3px;
   text-transform: capitalize;
 }
+
+#map {
+  height: 420px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  margin: 2rem 0;
+}
+
+@media (min-width: 992px) {
+  #map {
+    height: 520px;
+  }
+}
