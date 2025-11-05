@@ -260,16 +260,23 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-8" id="map"></div>
+  <div class="location-section">
+    <h3 class="section-title">Location</h3>
+    <div class="location-meta">
+      <i class="fas fa-location-dot"></i>
+      <span><%= listing.location %>, <%= listing.country %></span>
+    </div>
+    <div id="map"></div>
+  </div>
 </div>
 <script>
   window.addEventListener("load", function () {
     if (!window.L) return;
     var map = L.map("map", { zoomControl: false }).setView([40, -74.5], 12);
 
-    // Clean, modern basemap
+    // Theme-matching dark basemap
     L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
       {
         maxZoom: 20,
         attribution:
@@ -281,13 +288,19 @@
     L.control.zoom({ position: "bottomright" }).addTo(map);
     L.control.scale({ metric: true, imperial: false }).addTo(map);
 
-    // Marker + popup
-    var marker = L.marker([40, -74.5]).addTo(map);
+    // Marker + popup (pulsing)
+    var pulseIcon = L.divIcon({
+      className: "pulse-marker",
+      html: '<span class="pulse-dot"></span>',
+      iconSize: [16, 16],
+      iconAnchor: [8, 8],
+    });
+    var marker = L.marker([40, -74.5], { icon: pulseIcon }).addTo(map);
     marker
       .bindPopup(
-        `<div style="min-width:180px">
-        <div style="font-weight:700">${`<%= listing.title %>`}</div>
-        <div style="color:#555">${`<%= listing.location %>`}, ${`<%= listing.country %>`}</div>
+        `<div class="map-popup">
+        <div class="map-popup-title">${`<%= listing.title %>`}</div>
+        <div class="map-popup-sub">${`<%= listing.location %>`}, ${`<%= listing.country %>`}</div>
       </div>`
       )
       .openPopup();

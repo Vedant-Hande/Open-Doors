@@ -4914,3 +4914,60 @@ footer p {
     height: 520px;
   }
 }
+
+.location-section .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.location-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666666;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 0.75rem;
+}
+
+.location-meta i {
+  color: #000000;
+}
+
+.pulse-marker .pulse-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff4d4f;
+  box-shadow: 0 0 0 rgba(255, 77, 79, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 77, 79, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0);
+  }
+}
+
+/* Popup tweaks to fit theme */
+.map-popup {
+  min-width: 180px;
+}
+.map-popup-title {
+  font-weight: 700;
+  color: #111;
+}
+.map-popup-sub {
+  color: #666;
+}
