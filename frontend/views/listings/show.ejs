@@ -266,12 +266,20 @@
       <i class="fas fa-location-dot"></i>
       <span><%= listing.location %>, <%= listing.country %></span>
     </div>
-    <div id="map"></div>
+    <div
+      id="map"
+      data-title="<%= listing.title %>"
+      data-location="<%= listing.location %>"
+      data-country="<%= listing.country %>"></div>
   </div>
 </div>
+
 <script>
   window.addEventListener("load", function () {
     if (!window.L) return;
+    var mapEl = document.getElementById("map");
+    if (!mapEl) return;
+
     var map = L.map("map", { zoomControl: false }).setView([40, -74.5], 12);
 
     // Theme-matching dark basemap
@@ -288,6 +296,11 @@
     L.control.zoom({ position: "bottomright" }).addTo(map);
     L.control.scale({ metric: true, imperial: false }).addTo(map);
 
+    // Read data from DOM for popup
+    var title = mapEl.getAttribute("data-title") || "Property";
+    var loc = mapEl.getAttribute("data-location") || "";
+    var country = mapEl.getAttribute("data-country") || "";
+
     // Marker + popup (pulsing)
     var pulseIcon = L.divIcon({
       className: "pulse-marker",
@@ -296,13 +309,16 @@
       iconAnchor: [8, 8],
     });
     var marker = L.marker([40, -74.5], { icon: pulseIcon }).addTo(map);
-    marker
-      .bindPopup(
-        `<div class="map-popup">
-        <div class="map-popup-title">${`<%= listing.title %>`}</div>
-        <div class="map-popup-sub">${`<%= listing.location %>`}, ${`<%= listing.country %>`}</div>
-      </div>`
-      )
-      .openPopup();
+    var popupHtml =
+      '<div class="map-popup">' +
+      '<div class="map-popup-title">' +
+      title +
+      "</div>" +
+      '<div class="map-popup-sub">' +
+      (loc ? loc + ", " : "") +
+      country +
+      "</div>" +
+      "</div>";
+    marker.bindPopup(popupHtml).openPopup();
   });
 </script>
