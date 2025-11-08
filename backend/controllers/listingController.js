@@ -61,12 +61,20 @@ module.exports.updateListingRoute = async (req, res, next) => {
     let { id } = req.params;
 
     // Build update object with listing data
+    // Handle amenities - ensure it's always an array
+    const amenities = Array.isArray(req.body["features[]"])
+      ? req.body["features[]"]
+      : req.body["features[]"]
+      ? [req.body["features[]"]]
+      : [];
+
     const updateData = {
       title: req.body.title,
       desc: req.body.desc,
       price: req.body.price,
       location: req.body.location,
       country: req.body.country,
+      amenities: amenities,
     };
 
     if (req.file) {
@@ -123,6 +131,13 @@ module.exports.createListingRoute = async (req, res) => {
     }
 
     // Create new listing with Cloudinary URL
+    // Handle amenities - ensure it's always an array
+    const amenities = Array.isArray(req.body["features[]"])
+      ? req.body["features[]"]
+      : req.body["features[]"]
+      ? [req.body["features[]"]]
+      : [];
+
     const newListing = new Listing({
       title: req.body.title,
       desc: req.body.desc,
@@ -134,8 +149,8 @@ module.exports.createListingRoute = async (req, res) => {
         url: imageUrl,
       },
       owner: req.user._id,
-      amenities: req.body['features[]'],   
- });
+      amenities: amenities,
+    });
 
     await newListing.save();
     req.flash("success", "New Property Listed!");

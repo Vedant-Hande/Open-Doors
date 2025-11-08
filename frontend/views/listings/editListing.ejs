@@ -185,62 +185,57 @@
 
               <div class="features-grid">
                 <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="wifi"
-                    name="features[]"
-                    value="wifi" />
+                  <input type="checkbox" id="wifi" name="features[]"
+                  value="wifi" <%= (Array.isArray(editListing.amenities) &&
+                  editListing.amenities.includes('wifi')) ? 'checked' : '' %> />
                   <label for="wifi">
                     <i class="fas fa-wifi"></i>High-Speed WiFi
                   </label>
                 </div>
 
                 <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="parking"
-                    name="features[]"
-                    value="parking" />
+                  <input type="checkbox" id="parking" name="features[]"
+                  value="parking" <%= (Array.isArray(editListing.amenities) &&
+                  editListing.amenities.includes('parking')) ? 'checked' : '' %>
+                  />
                   <label for="parking">
                     <i class="fas fa-car"></i>Parking Available
                   </label>
                 </div>
 
                 <div class="feature-checkbox">
-                  <input type="checkbox" id="ac" name="features[]" value="ac" />
+                  <input type="checkbox" id="ac" name="features[]" value="ac"
+                  <%= (Array.isArray(editListing.amenities) &&
+                  editListing.amenities.includes('ac')) ? 'checked' : '' %> />
                   <label for="ac">
                     <i class="fas fa-snowflake"></i>Air Conditioning
                   </label>
                 </div>
 
                 <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="kitchen"
-                    name="features[]"
-                    value="kitchen" />
+                  <input type="checkbox" id="kitchen" name="features[]"
+                  value="kitchen" <%= (Array.isArray(editListing.amenities) &&
+                  editListing.amenities.includes('kitchen')) ? 'checked' : '' %>
+                  />
                   <label for="kitchen">
                     <i class="fas fa-utensils"></i>Fully Equipped Kitchen
                   </label>
                 </div>
 
                 <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="laundry"
-                    name="features[]"
-                    value="laundry" />
+                  <input type="checkbox" id="laundry" name="features[]"
+                  value="laundry" <%= (Array.isArray(editListing.amenities) &&
+                  editListing.amenities.includes('laundry')) ? 'checked' : '' %>
+                  />
                   <label for="laundry">
                     <i class="fas fa-tshirt"></i>In-Unit Laundry
                   </label>
                 </div>
 
                 <div class="feature-checkbox">
-                  <input
-                    type="checkbox"
-                    id="gym"
-                    name="features[]"
-                    value="gym" />
+                  <input type="checkbox" id="gym" name="features[]" value="gym"
+                  <%= (Array.isArray(editListing.amenities) &&
+                  editListing.amenities.includes('gym')) ? 'checked' : '' %> />
                   <label for="gym">
                     <i class="fas fa-dumbbell"></i>Fitness Center
                   </label>

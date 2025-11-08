@@ -22,8 +22,13 @@ const errorHandler = (err, req, res, next) => {
     message = "Resource not found";
   }
 
-  // Handle template rendering errors
-  if (err.message && err.message.includes("Cannot read properties of null")) {
+  // Handle template rendering errors (EJS syntax errors, etc.)
+  if (
+    err.message &&
+    (err.message.includes("Cannot read properties of null") ||
+      err.message.includes("Invalid or unexpected token") ||
+      err.message.includes("while compiling ejs"))
+  ) {
     statusCode = 500;
     message = "Sorry, there was an error loading this page. Please try again.";
   }
@@ -52,12 +57,13 @@ const errorHandler = (err, req, res, next) => {
     message = "Authentication failed. Please log in again.";
   }
 
+  // Never show stack traces to users - only log them
   // Render the error page using a path relative to the 'views' directory
   // all the next() call comes here at last
   res.status(statusCode).render("listings/error.ejs", {
     statusCode,
     message,
-    stack: process.env.NODE_ENV === "development" ? err.stack : null,
+    stack: null, // Never show stack traces to users
   });
 };
 
