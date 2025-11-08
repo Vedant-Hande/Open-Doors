@@ -273,24 +273,83 @@
       data-country="<%= listing.country %>"></div>
   </div>
 </div>
-
 <script>
   window.addEventListener("load", function () {
     if (!window.L) return;
     var mapEl = document.getElementById("map");
     if (!mapEl) return;
 
-    var map = L.map("map", { zoomControl: false }).setView([40, -74.5], 12);
+    // --- 1. DEFINE ALL YOUR LAYERS ---
 
-    // Theme-matching dark basemap
-    L.tileLayer(
+    // Satellite (Base)
+    var satelliteLayer = L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      { attribution: "Tiles &copy; Esri" }
+    );
+
+    // Street Map (Base)
+    var streetLayer = L.tileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      { attribution: "&copy; OpenStreetMap" }
+    );
+
+    // Terrain Map (Base)
+    var terrainLayer = L.tileLayer(
+      "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+      { attribution: "Map data: &copy; OpenTopoMap" }
+    );
+
+    // ★ NEW ★ Dark Map (from Carto)
+    var darkMapLayer = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+      { attribution: "&copy; OpenStreetMap &copy; CARTO" }
+    );
+
+    // ★ NEW ★ Light Map (from Carto)
+    var lightMapLayer = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      { attribution: "&copy; OpenStreetMap &copy; CARTO" }
+    );
+
+    // Roads and Labels (Overlay)
+    var roadAndLabelLayer = L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}",
       {
-        maxZoom: 20,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        attribution: "Tiles &copy; Esri",
+        pane: "shadowPane", // Ensure it's on top
       }
-    ).addTo(map);
+    );
+
+    // --- 2. INITIALIZE THE MAP ---
+    // Default load: Satellite + Roads/Labels (your "Google" style)
+    var map = L.map("map", {
+      zoomControl: false,
+      layers: [satelliteLayer, roadAndLabelLayer],
+    }).setView([40, -74.5], 12);
+
+    // --- 3. CREATE THE LAYER GROUPS ---
+
+    // ★ UPDATED ★ Base Maps (Radio buttons)
+    var baseMaps = {
+      Satellite: satelliteLayer,
+      "Street Map": streetLayer,
+      Terrain: terrainLayer,
+      "Dark Mode": darkMapLayer, // <-- NEW
+      "Light Mode": lightMapLayer, // <-- NEW
+    };
+
+    // Overlays (Checkboxes)
+    var overlayMaps = {
+      "Show Roads & Labels": roadAndLabelLayer,
+    };
+
+    // --- 4. ADD THE LAYER CONTROL TO THE MAP ---
+    L.control
+      .layers(baseMaps, overlayMaps, { position: "topright" })
+      .addTo(map);
+
+    // --- All your other code (Controls, Marker, Popup, Geocoder) ---
+    // (This code is unchanged)
 
     // Controls
     L.control.zoom({ position: "bottomright" }).addTo(map);
@@ -320,5 +379,14 @@
       "</div>" +
       "</div>";
     marker.bindPopup(popupHtml).openPopup();
+
+    // Geocoder
+    L.Control.geocoder({ defaultMarkGeocode: true })
+      .on("markgeocode", function (e) {
+        var bounds = e.geocode.bbox;
+        map.fitBounds(bounds);
+        console.log(e.geocode);
+      })
+      .addTo(map);
   });
 </script>
