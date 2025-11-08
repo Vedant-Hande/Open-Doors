@@ -134,7 +134,8 @@ module.exports.createListingRoute = async (req, res) => {
         url: imageUrl,
       },
       owner: req.user._id,
-    });
+      amenities: req.body['features[]'],   
+ });
 
     await newListing.save();
     req.flash("success", "New Property Listed!");

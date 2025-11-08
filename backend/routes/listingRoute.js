@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+// ✅ RIGHT
 const listingController = require("../controllers/listingController.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const {
@@ -20,18 +21,13 @@ router.get("/new", isLoggedIn, listingController.newListingRoute);
 router.get("/:id", wrapAsync(listingController.showListingRoute));
 
 //create new listing route - handle form submission
-// router.post(
-//   "/",
-//   isLoggedIn,
-//   validateListing,
-//   wrapAsync(listingController.createListingRoute)
-// );
 
 router.post(
   "/",
   isLoggedIn,
   handleUpload,
-  listingController.createListingRoute
+  validateListing,
+  wrapAsync(listingController.createListingRoute)
 );
 
 //edit listing route - form to edit an existing listing
@@ -56,4 +52,6 @@ router.delete(
   isLoggedIn,
   wrapAsync(listingController.deleteListingRoute)
 );
+
+//
 module.exports = router;

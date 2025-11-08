@@ -17,6 +17,10 @@ router.post(
 );
 
 // Review delete route -
-router.delete("/:reviewId", isLoggedIn, wrapAsync(reviewController));
+router.delete(
+  "/:reviewId",
+  isLoggedIn,
+  wrapAsync(reviewController.deleteReviewRoute)
+);
 
 module.exports = router;

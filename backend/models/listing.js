@@ -52,6 +52,11 @@ const listingSchema = new schema({
     type: schema.Types.ObjectId,
     ref: "User",
   },
+  amenities: [
+    {
+      type: String,
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,
