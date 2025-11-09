@@ -1,63 +1,68 @@
 <% layout("layouts/boilerplate") %>
-<body>
-  <div class="container">
-    <div class="hero-section text-center mb-5">
-      <h2 class="listing-heading">Discover Your Perfect Home</h2>
-      <p class="hero-subtitle">
-        Explore our curated collection of premium properties
-      </p>
-    </div>
-    <div
-      class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-      <% for(let listing of allListings) { %>
-      <div class="col">
-        <div class="card">
-          <div class="card-image-container">
-            <img
-              src="<%=listing.image.url%>"
-              class="card-img-top"
-              alt="<%=listing.title%>" />
 
-            <!-- Status Badge - Top Left -->
-            <div class="card-status">
-              <span class="status-badge">Available</span>
-            </div>
+  <body>
+    <div class="container">
+      <div class="hero-section text-center mb-5">
+        <h2 class="listing-heading">Discover Your Perfect Home</h2>
+        <p class="hero-subtitle">
+          Explore our curated collection of premium properties
+        </p>
+      </div>
+      <% if(allListings.length> 0) { %>
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+          <% for(let listing of allListings) { %>
+            <div class="col">
+              <div class="card">
+                <div class="card-image-container">
+                  <img src="<%=listing.image.url%>" class="card-img-top" alt="<%=listing.title%>" />
 
-            <!-- Text Overlay - Bottom -->
-            <div class="card-overlay">
-              <h5 class="card-title"><%=listing.title%></h5>
-              <div class="card-price">
-                <%=listing.price.toLocaleString("en-IN", { style: "currency",
-                currency: "INR", })%> /month
+                  <!-- Status Badge - Top Left -->
+                  <div class="card-status">
+                    <span class="status-badge">Available</span>
+                  </div>
+
+                  <!-- Text Overlay - Bottom -->
+                  <div class="card-overlay">
+                    <h5 class="card-title">
+                      <%=listing.title%>
+                    </h5>
+                    <div class="card-price">
+                      <%=listing.price.toLocaleString("en-IN", { style: "currency" , currency: "INR" , })%> /month
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons - Bottom Right -->
+
+                  <div class="card-actions">
+                    <a class="btn btn-outline-dark btn-sm" href="/listing/<%= listing._id %>">
+                      <i class="fas fa-eye me-2"></i>View
+                    </a>
+                    <% if(user && user._id.equals(listing.owner._id)) { %>
+                      <form action="/listing/<%= listing._id %>?_method=DELETE" method="POST" style="display: inline">
+                        <button type="submit" class="btn btn-danger btn-sm"
+                          onclick="return confirm('Are you sure you want to delete this listing?')">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </form>
+                      <% } %>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <!-- Action Buttons - Bottom Right -->
-
-            <div class="card-actions">
-              <a
-                class="btn btn-outline-dark btn-sm"
-                href="/listing/<%= listing._id %>">
-                <i class="fas fa-eye me-2"></i>View
-              </a>
-              <% if(user && user._id.equals(listing.owner._id)) { %>
-              <form
-                action="/listing/<%= listing._id %>?_method=DELETE"
-                method="POST"
-                style="display: inline">
-                <button
-                  type="submit"
-                  class="btn btn-danger btn-sm"
-                  onclick="return confirm('Are you sure you want to delete this listing?')">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </form>
-              <% } %>
-            </div>
-          </div>
+            <% } %>
         </div>
-      </div>
-      <% } %>
+        <% } else { %>
+          <div class="row justify-content-center">
+            <div class="col-md-4 text-center">
+              <div class="p-4 h-100 border rounded-3">
+                <i class="fas fa-home fa-2x mb-3"></i>
+                <h5 class="mb-2">No listings found. Please add a listing to get started.</h5>
+                <a href="/listing/new" class="btn btn-outline-dark">
+                  <i class="fas fa-plus me-2"></i>Add Listing
+                </a>
+              </div>
+            </div>
+            <% } %>
+          </div>
     </div>
-  </div>
-</body>
+  </body>

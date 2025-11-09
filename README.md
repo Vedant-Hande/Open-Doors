@@ -148,9 +148,6 @@ Then open `http://localhost:8080/` (home) or `http://localhost:8080/listing/` (l
 - **GET** `/listing/:id/edit` - Display edit form for a listing
 - **PUT** `/listing/:id` - Update a listing (with validation)
 - **DELETE** `/listing/:id` - Delete a listing and associated reviews
-
-### Review System
-
 - **POST** `/listing/:id/reviews` - Add a review to a listing (with validation)
 - **DELETE** `/listing/:id/reviews/:reviewId` - Delete a specific review
 
@@ -339,13 +336,9 @@ Open Doors/
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
 - **Node.js**: Version 18 or higher
 - **MongoDB**: Running locally or connection string
 - **Git**: For cloning the repository
-
-### Installation
 
 1. **Clone the repository**
 
@@ -428,7 +421,7 @@ Open Doors/
 Create a `.env` file for production configuration:
 
 ```env
-MONGODB_URI=mongodb://your-mongodb-connection-string
+MONGODB_ATLAS_URI=mongodb://your-mongodb-connection-string
 PORT=8080
 NODE_ENV=production
 ```
@@ -462,15 +455,11 @@ CMD ["npm", "start"]
 3. **Middleware**: Add custom middleware in `middleware/` directory
 4. **Views**: Create EJS templates in `views/` directory
 
-### Configuration
-
 - **Database**: Modify `config/database.js` for different MongoDB setups
 - **Validation**: Update `middleware/validation.js` for new validation rules
 - **Logging**: Customize `middleware/logger.js` for different log formats
 
 ## 📚 Learning Resources
-
-### Advanced Features
 
 Explore the `New features/` directory for production-ready implementations:
 
@@ -500,10 +489,8 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**vedant hande**
-
 - GitHub: [@vedanthande](https://github.com/vedanthande)
-- Project: Open Doors - Full-Stack Property Listing Platform
+- Project: TripSpot - Full-Stack Property Listing Platform
 
 ---
 
@@ -530,5 +517,3 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 - [ ] Monitoring and alerting
 
 ---
-
-_Built with ❤️ using Express.js, MongoDB, and modern web technologies_
