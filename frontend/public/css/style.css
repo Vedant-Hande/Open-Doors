@@ -160,7 +160,7 @@ h6 {
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8),
     0 1px 0 rgba(255, 255, 255, 0.8) inset;
-  padding: 0.5rem 2.5rem;
+  padding: 1rem 2.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -328,17 +328,19 @@ h6 {
 .floating-nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .floating-nav-link {
   color: #4a5568;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-weight: 800;
+  font-size: 1rem;
   transition: all 0.3s ease;
   position: relative;
   padding: 0.5rem 0;
+  letter-spacing: 0.07em;
+  /* text-transform: uppercase; */
 }
 
 .floating-nav-link:hover {
@@ -372,9 +374,10 @@ h6 {
 .floating-login-link {
   color: #4a5568;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-weight: 800;
   transition: all 0.3s ease;
+  letter-spacing: 0.07em;
+  font-size: 1rem;
 }
 
 .floating-login-link:hover {
@@ -437,9 +440,10 @@ h6 {
 }
 
 .user-name {
-  font-weight: 600;
+  font-weight: 800;
   color: #1a202c;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  letter-spacing: 0.07em;
 }
 
 .user-menu-trigger i {
@@ -636,9 +640,10 @@ h6 {
 }
 
 .mobile-user-name {
-  font-weight: 700;
+  font-weight: 800;
   color: #1a202c;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  letter-spacing: 0.07em;
   line-height: 1.2;
 }
 
@@ -827,9 +832,10 @@ h6 {
 
 .user-name {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #2d3748;
   line-height: 1.2;
+  letter-spacing: 0.07em;
 }
 
 .user-badge {
@@ -1127,9 +1133,10 @@ h6 {
 }
 
 .user-name {
-  font-weight: 600;
+  font-weight: 800;
   color: #000000;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  letter-spacing: 0.07em;
 }
 
 .user-role {
@@ -1589,7 +1596,7 @@ h6 {
   font-size: 1.5rem;
   font-weight: 800;
   color: #000000;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.07em;
 }
 
 .navbar-brand:hover .brand-icon {
@@ -2540,6 +2547,7 @@ footer p {
 
   .user-name {
     font-size: 0.85rem;
+    letter-spacing: 0.07em;
   }
 
   .user-role {

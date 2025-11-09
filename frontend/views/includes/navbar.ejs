@@ -4,68 +4,61 @@
   <div class="floating-nav-container">
     <!-- Brand -->
     <div class="floating-brand">
-      <a href="/listing" class="navbar-brand">
+      <a href="/" class="navbar-brand">
         <span class="brand-text">TRIPSPOT</span>
       </a>
     </div>
 
     <!-- Navigation Links -->
     <div class="floating-nav-links">
-      <a href="/listing" class="floating-nav-link">Home</a>
-      <a href="/listing" class="floating-nav-link">Explore</a>
-      <a href="/listing" class="floating-nav-link">Properties</a>
-      <a href="/listing/new" class="floating-nav-link">List Property</a>
+      <a href="/listing" class="floating-nav-link">Explore Properties</a>
+      <a href="/listing/new" class="floating-nav-link">List Your Property</a>
     </div>
 
     <!-- User Section -->
     <div class="floating-user-section">
-      <% if (typeof user !== 'undefined' && user) { %>
-      <!-- Logged In User -->
-      <div class="floating-user-menu">
-        <button
-          class="user-menu-trigger"
-          type="button"
-          data-bs-toggle="dropdown">
-          <div class="user-avatar">
-            <i class="fas fa-user"></i>
-          </div>
-          <span class="user-name"><%= user.firstName %></span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="dropdown-menu floating-dropdown">
-          <div class="dropdown-header">
-            <div class="header-avatar">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="header-info">
-              <div class="header-name">
-                <%= user.firstName %> <%= user.lastName %>
+      <% if (typeof user !=='undefined' && user) { %>
+        <!-- Logged In User -->
+        <div class="floating-user-menu">
+          <button class="user-menu-trigger" type="button" data-bs-toggle="dropdown">
+            <span class="user-name">
+              <%= user.firstName %>
+            </span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-menu floating-dropdown">
+            <div class="dropdown-header">
+              <div class="header-avatar">
+                <i class="fas fa-user"></i>
               </div>
-              <div class="header-email"><%= user.email %></div>
+              <div class="header-info">
+                <div class="header-name">
+                  <%= user.firstName %>
+                    <%= user.lastName %>
+                </div>
+                <div class="header-email">
+                  <%= user.email %>
+                </div>
+              </div>
             </div>
+            <div class="dropdown-divider"></div>
+            <a href="/user/logout" class="dropdown-item logout">
+              <div class="dropdown-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sign Out</span>
+              </div>
+            </a>
           </div>
-          <div class="dropdown-divider"></div>
-          <a href="/user/logout" class="dropdown-item logout">
-            <div class="dropdown-item logout">
-              <i class="fas fa-sign-out-alt"></i>
-              <span>Sign Out</span>
-            </div>
-          </a>
         </div>
-      </div>
-      <% } else { %>
-      <!-- Guest User -->
-      <a href="/user/login" class="floating-login-link">Log in</a>
-      <a href="/user/signup" class="floating-cta-button">Get Started</a>
-      <% } %>
+        <% } else { %>
+          <!-- Guest User -->
+          <a href="/user/login" class="floating-login-link">Login</a>
+          <a href="/user/signup" class="floating-login-link ">Sign Up</a>
+          <% } %>
     </div>
 
     <!-- Mobile Toggle -->
-    <button
-      class="floating-mobile-toggle"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#floatingMobileMenu">
+    <button class="floating-mobile-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#floatingMobileMenu">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -82,29 +75,32 @@
         <a href="/listing/new" class="mobile-nav-link">List Property</a>
       </div>
 
-      <% if (typeof user !== 'undefined' && user) { %>
-      <div class="mobile-user-section">
-        <div class="mobile-user-info">
-          <div class="mobile-user-avatar">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="mobile-user-details">
-            <div class="mobile-user-name">
-              <%= user.firstName %> <%= user.lastName %>
+      <% if (typeof user !=='undefined' && user) { %>
+        <div class="mobile-user-section">
+          <div class="mobile-user-info">
+            <div class="mobile-user-avatar">
+              <i class="fas fa-user"></i>
             </div>
-            <div class="mobile-user-email"><%= user.email %></div>
+            <div class="mobile-user-details">
+              <div class="mobile-user-name">
+                <%= user.firstName %>
+                  <%= user.lastName %>
+              </div>
+              <div class="mobile-user-email">
+                <%= user.email %>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-user-actions">
+            <a href="/user/logout" class="mobile-action-link logout">Sign Out</a>
           </div>
         </div>
-        <div class="mobile-user-actions">
-          <a href="/user/logout" class="mobile-action-link logout">Sign Out</a>
-        </div>
-      </div>
-      <% } else { %>
-      <div class="mobile-auth-section">
-        <a href="/user/login" class="mobile-login-link">Log in</a>
-        <a href="/user/signup" class="mobile-cta-button">Get Started</a>
-      </div>
-      <% } %>
+        <% } else { %>
+          <div class="mobile-auth-section">
+            <a href="/user/login" class="mobile-login-link">Log in</a>
+            <a href="/user/signup" class="mobile-cta-button">Get Started</a>
+          </div>
+          <% } %>
     </div>
   </div>
   <%- include("./flashMsg.ejs") %>
