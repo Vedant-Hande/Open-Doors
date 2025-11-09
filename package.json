@@ -1,7 +1,10 @@
 {
-  "name": "open-doors",
+  "engine": {
+    "node": ">=20.11.1"
+  },
+  "name": "tripspot",
   "version": "1.0.0",
-  "description": "This is my 1st fullstack project",
+  "description": "This is my fullstack project",
   "scripts": {
     "start": "cd backend && node index.js",
     "dev": "cd backend && nodemon index.js",
