@@ -1,199 +1,129 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="signup-container">
-  <div class="signup-hero">
-    <h1 class="signup-title">Join Us Today</h1>
-    <p class="signup-subtitle">
-      Create your account and start exploring amazing properties
-    </p>
-  </div>
-
-  <div class="signup-form-card">
-    <div class="form-header">
-      <div class="form-icon">
-        <i class="fas fa-user-plus"></i>
-      </div>
-      <h2 class="form-title">Create Account</h2>
-      <p class="form-description">Fill in your details to get started</p>
+  <div class="signup-container">
+    <div class="signup-hero">
+      <h1 class="signup-title">Join Us Today</h1>
+      <p class="signup-subtitle">
+        Create your account and start exploring amazing properties
+      </p>
     </div>
 
-    <form
-      class="signup-form needs-validation"
-      action="/user/signup"
-      method="POST"
-      novalidate>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="firstName" class="form-label">
-            <i class="fas fa-user"></i>
-            First Name
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            class="form-control"
-            placeholder="Enter your first name"
-            required />
-          <div class="invalid-feedback">Please Enter FirstName</div>
+    <div class="signup-form-card">
+      <div class="form-header">
+        <div class="form-icon">
+          <i class="fas fa-user-plus"></i>
+        </div>
+        <h2 class="form-title">Create Account</h2>
+        <p class="form-description">Fill in your details to get started</p>
+      </div>
+
+      <form class="signup-form needs-validation" action="/user/signup" method="POST" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName" class="form-label">
+              <i class="fas fa-user"></i>
+              First Name
+            </label>
+            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Enter your first name"
+              required />
+            <div class="invalid-feedback">Please Enter FirstName</div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName" class="form-label">
+              <i class="fas fa-user"></i>
+              Last Name
+            </label>
+            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Enter your last name"
+              required />
+            <div class="invalid-feedback">Please Enter LastName</div>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="lastName" class="form-label">
             <i class="fas fa-user"></i>
-            Last Name
+            username
           </label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            class="form-control"
-            placeholder="Enter your last name"
+          <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username"
             required />
-          <div class="invalid-feedback">Please Enter LastName</div>
+          <div class="invalid-feedback">Please Enter Username</div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="lastName" class="form-label">
-          <i class="fas fa-user"></i>
-          username
-        </label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          class="form-control"
-          placeholder="Enter your username"
-          required />
-        <div class="invalid-feedback">Please Enter Username</div>
-      </div>
-
-      <div class="form-group">
-        <label for="email" class="form-label">
-          <i class="fas fa-envelope"></i>
-          Email Address
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="form-control"
-          placeholder="Enter your email address"
-          required />
-        <div class="invalid-feedback">Please Enter Email</div>
-      </div>
-
-      <div class="form-group">
-        <label for="phoneNumber" class="form-label">
-          <i class="fas fa-phone"></i>
-          Phone Number
-        </label>
-        <input
-          type="tel"
-          id="phoneNumber"
-          name="phoneNumber"
-          class="form-control"
-          placeholder="Enter your phone number"
-          required />
-        <div class="invalid-feedback">Please Enter Phone Number</div>
-      </div>
-
-      <div class="form-group">
-        <label for="password" class="form-label">
-          <i class="fas fa-lock"></i>
-          Password
-        </label>
-        <div class="password-input-group">
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-            placeholder="Create a strong password"
+        <div class="form-group">
+          <label for="email" class="form-label">
+            <i class="fas fa-envelope"></i>
+            Email Address
+          </label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address"
             required />
-          <button
-            type="button"
-            class="password-toggle"
-            onclick="togglePassword('password', 'eye-icon-1')">
-            <i class="fas fa-eye me-3" id="eye-icon-1"></i>
+          <div class="invalid-feedback">Please Enter Email</div>
+        </div>
+
+        <div class="form-group">
+          <label for="phoneNumber" class="form-label">
+            <i class="fas fa-phone"></i>
+            Phone Number
+          </label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control"
+            placeholder="Enter your phone number" required />
+          <div class="invalid-feedback">Please Enter Phone Number</div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">
+            <i class="fas fa-lock"></i>
+            Password
+          </label>
+          <div class="password-input-group">
+            <input type="password" id="password" name="password" class="form-control"
+              placeholder="Create a strong password" required />
+            <button type="button" class="password-toggle" onclick="togglePassword('password', 'eye-icon-1')">
+              <i class="fas fa-eye me-3" id="eye-icon-1"></i>
+            </button>
+          </div>
+          <div class="invalid-feedback">Please Enter Password</div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword" class="form-label">
+            <i class="fas fa-lock"></i>
+            Confirm Password
+          </label>
+          <div class="password-input-group">
+            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+              placeholder="Confirm your password" required />
+            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword', 'eye-icon-2')">
+              <i class="fas fa-eye me-3" id="eye-icon-2"></i>
+            </button>
+          </div>
+          <div class="invalid-feedback">Please Re-enter your Password</div>
+        </div>
+
+        <div class="form-group">
+          <div class="terms-checkbox">
+            <input type="checkbox" id="terms" name="terms" class="form-checkbox" required checked />
+            <label for="terms" class="checkbox-label">
+              I agree to the
+              <a href="/terms" class="terms-link">Terms of Service</a> and
+              <a href="/privacy" class="terms-link">Privacy Policy</a>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary btn-signup">
+            <i class="fas fa-user-plus"></i>
+            Create Account
           </button>
         </div>
-        <div class="invalid-feedback">Please Enter Password</div>
-      </div>
+      </form>
 
-      <div class="form-group">
-        <label for="confirmPassword" class="form-label">
-          <i class="fas fa-lock"></i>
-          Confirm Password
-        </label>
-        <div class="password-input-group">
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            class="form-control"
-            placeholder="Confirm your password"
-            required />
-          <button
-            type="button"
-            class="password-toggle"
-            onclick="togglePassword('confirmPassword', 'eye-icon-2')">
-            <i class="fas fa-eye me-3" id="eye-icon-2"></i>
-          </button>
-        </div>
-        <div class="invalid-feedback">Please Re-enter your Password</div>
+      <div class="form-footer">
+        <p class="login-text">
+          Already have an account?
+          <a href="/user/login" class="login-link">Sign in here</a>
+        </p>
       </div>
-
-      <div class="form-group">
-        <label for="accountType" class="form-label">
-          <i class="fas fa-users"></i>
-          Account Type
-        </label>
-        <select
-          id="accountType"
-          name="accountType"
-          class="form-control"
-          required>
-          <option value="">Select account type</option>
-          <option value="tenant">Tenant</option>
-          <option value="landlord">Landlord</option>
-          <option value="agent">Real Estate Agent</option>
-          <option value="admin">Admin</option>
-        </select>
-        <div class="invalid-feedback">Please Enter Account type</div>
-      </div>
-
-      <div class="form-group">
-        <div class="terms-checkbox">
-          <input
-            type="checkbox"
-            id="terms"
-            name="terms"
-            class="form-checkbox"
-            required
-            checked />
-          <label for="terms" class="checkbox-label">
-            I agree to the
-            <a href="/terms" class="terms-link">Terms of Service</a> and
-            <a href="/privacy" class="terms-link">Privacy Policy</a>
-          </label>
-        </div>
-      </div>
-
-      <div class="form-submit">
-        <button type="submit" class="btn btn-primary btn-signup">
-          <i class="fas fa-user-plus"></i>
-          Create Account
-        </button>
-      </div>
-    </form>
-
-    <div class="form-footer">
-      <p class="login-text">
-        Already have an account?
-        <a href="/user/login" class="login-link">Sign in here</a>
-      </p>
     </div>
   </div>
-</div>
