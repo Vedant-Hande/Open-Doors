@@ -76,7 +76,6 @@ app.use(express.json({ limit: "10mb" }));
 
 // Connect to database
 connectDB();
-
 // Feature Routes
 
 // Listings CRUD

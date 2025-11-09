@@ -28,7 +28,7 @@ module.exports.signupFormRoute = async (req, res) => {
       }
       req.flash(
         "success",
-        `Welcome to TripSpot, ${firstName}! Your account has been created successfully.`
+        `Welcome to TripSpot, ${registeredUser.firstName}! Your account has been created successfully.`
       );
       res.redirect("/");
     });

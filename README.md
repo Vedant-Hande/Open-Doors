@@ -364,7 +364,7 @@ Open Doors/
    Create a `.env` file in the root directory:
 
    ```env
-   MONGODB_URI=mongodb://localhost:27017/OpenDoors
+   MONGODB_ATLAS_URI=process.env.MONGODB_ATLAS_URI
    PORT=8080
    NODE_ENV=development
    ```
