@@ -11,7 +11,16 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "build": "echo 'No build step required'",
+    "backend:install": "npm install",
+    "backend:start": "npm start",
+    "backend:dev": "npm run dev",
+    "backend:lint": "eslint .",
+    "backend:lint:fix": "eslint . --fix",
+    "backend:test": "echo \"Error: no test specified\" && exit 1",
+    "backend:build": "npm run build",
+    "backend:deploy": "npm run deploy"
   },
   "author": "vedant hande",
   "license": "ISC",
