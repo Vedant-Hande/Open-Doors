@@ -69,10 +69,8 @@
   <div class="collapse floating-mobile-menu" id="floatingMobileMenu">
     <div class="mobile-nav-content">
       <div class="mobile-nav-links">
-        <a href="/listing" class="mobile-nav-link">Home</a>
-        <a href="/listing" class="mobile-nav-link">Explore</a>
-        <a href="/listing" class="mobile-nav-link">Properties</a>
-        <a href="/listing/new" class="mobile-nav-link">List Property</a>
+        <a href="/listing" class="mobile-nav-link">Explore Properties</a>
+        <a href="/listing/new" class="mobile-nav-link">List Your Property</a>
       </div>
 
       <% if (typeof user !=='undefined' && user) { %>
@@ -98,7 +96,6 @@
         <% } else { %>
           <div class="mobile-auth-section">
             <a href="/user/login" class="mobile-login-link">Log in</a>
-            <a href="/user/signup" class="mobile-cta-button">Get Started</a>
           </div>
           <% } %>
     </div>
